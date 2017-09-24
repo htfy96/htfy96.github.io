@@ -15,6 +15,8 @@ before_install:
   - git submodule update --init --recursive
   - mkdir -p ipfs/staging ipfs/data
   - docker run -d --name ipfs_host -v $(pwd)/ipfs/staging:/export -v $(pwd)/ipfs/data:/data/ipfs -p 18080:8080 -p 14001:4001 -p 15001:5001 ipfs/go-ipfs:latest
+  - sleep 3
+  - ls -l ipfs/data
   - echo $SECKEY_BASE64 | base64 -d > ipfs/data/keystore/blog
 
 install:
@@ -23,6 +25,7 @@ install:
 script:
   - ./hugo_0.27.1_linux_amd64/hugo_0.27.1_linux_amd64 -v
 after_success:
-  - export DATA_HASH=$(docker exec ipfs_host ipfs add -r public/)
+  - cp -r ./public ipfs/staging
+  - export DATA_HASH=$(docker exec ipfs_host ipfs add -r /export/public/)
   - echo "DATA_HASH = $DATA_HASH"
   - docker exec ipfs_host ipfs name publish --key=blog $DATA_HASH
