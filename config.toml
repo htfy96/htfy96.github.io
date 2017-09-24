@@ -4,6 +4,7 @@ canonifyurls        = true
 contentdir          = "content"
 languageCode        = "zh-CN"
 hasCJKLanguage 	    = true
+relativeURLs	    = true
 layoutdir           = "layouts"
 publishdir          = "public"
 theme               = "pixyll"
