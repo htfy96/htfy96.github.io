@@ -13,10 +13,9 @@ branches:
 
 before_install:
   - git submodule update --init --recursive
-  - mkdir -p staging
-  - mkdir -p data
-  - docker run -d --name ipfs_host -v $(pwd)/staging:/export -v $(pwd)/data:/data/ipfs -p 18080:8080 -p 14001:4001 -p 15001:5001 ipfs/go-ipfs:latest
-  - echo $SECKEY_BASE64 | base64 -d > data/keystore/blog
+  - mkdir -p ipfs/staging ipfs/data
+  - docker run -d --name ipfs_host -v $(pwd)/ipfs/staging:/export -v $(pwd)/ipfs/data:/data/ipfs -p 18080:8080 -p 14001:4001 -p 15001:5001 ipfs/go-ipfs:latest
+  - echo $SECKEY_BASE64 | base64 -d > ipfs/data/keystore/blog
 
 install:
   - rm -rf public || exit 0
