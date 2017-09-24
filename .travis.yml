@@ -17,6 +17,8 @@ before_install:
   - docker run -d --name ipfs_host -v $(pwd)/ipfs/staging:/export -v $(pwd)/ipfs/data:/data/ipfs -p 18080:8080 -p 14001:4001 -p 15001:5001 ipfs/go-ipfs:latest
   - sleep 3
   - ls -l ipfs/data
+  - echo $UID
+  - sudo chmod -R 777 ipfs/data/keystore
   - echo $SECKEY_BASE64 | base64 -d > ipfs/data/keystore/blog
 
 install:
