@@ -28,6 +28,6 @@ script:
   - ./hugo -v
 after_success:
   - cp -r ./public ipfs/staging
-  - export DATA_HASH=$(docker exec ipfs_host ipfs add -r /export/public/)
+  - export DATA_HASH=$(docker exec ipfs_host ipfs add -r /export/public/ | tail -1 | awk '{print $2}')
   - echo "DATA_HASH = $DATA_HASH"
   - docker exec ipfs_host ipfs name publish --key=blog $DATA_HASH
