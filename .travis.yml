@@ -1,0 +1,29 @@
+sudo: required
+dist: trusty
+
+services:
+    - docker
+
+env:
+  global:
+    - secure: "ByEJzOSXTOXi9zE5jpFJA6ctMKtR9jopdEEIHwZZPEf+OWGGn5taHBXDOF2JUPOaia7XaQ9DxzRqC2CN4aLxd8B7LC33OiPqTwkZa0ZgrIx2d5bqcDoPaorzqeOWRXRGuFEkcfG3Le65Nlt8Uu7MtAYzBg7ExNMBefAuUyi61LryZwz8QRM+XSL6eT4qMftR1VTeQf2UhQaTH/ywnqggh0WZ38EYksROYkkXVXADoBrIVMQSOWdSnWC4gBdQjRP78Z2KFXi7il89F6hZ1bVj6yq44ZM1GYjc7JB2BC+BH/kfD01lOc6v6k6OTrPQYA+VKV7R1DsrUE4Yh9BZvaISM4h6kAR0NuBOvWIaMM0c/C65rXqxedfPfHo/LyIxhD7fTwKFInwlPXfolB2By7j4CXQOWKB7cJqUC7jNv5ukztt4hfMqmq/yGC0/QSAsYDJUy76j70jmnDDrs5uGT4/oR94lpFxNcunhntoaCy5Sl72QVYAe2nnA0jIV77TigXqU/eC3FfV7RyXsFwXBCRsYXsygb3AYXoZxckTU0Kss3Cw1cb/LPJPNayIAzOMJrbxx0TyPZKFbshXD/Y4Atrxu84zt0L28ikcunV33AxMwIlNrKDU+nPwF87bmeQ7OexdUECE1QyB3JgYygsY+u3iM7n1pHsLrMLiKsDkEVwMV5zg="
+branches:
+  only:
+    - master
+
+before_install:
+  - git submodule update --init --recursive
+  - mkdir -p staging
+  - mkdir -p data
+  - docker run -d --name ipfs_host -v $(pwd)/staging:/export -v $(pwd)/data:/data/ipfs -p 18080:8080 -p 14001:4001 -p 15001:5001 ipfs/go-ipfs:latest
+  - echo $SECKEY_BASE64 | base64 -d > data/keystore/blog
+
+install:
+  - rm -rf public || exit 0
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.27.1/hugo_0.27.1_Linux-64bit.tar.gz && tar xzf hugo_0.27.1_Linux-64bit.tar.gz
+script:
+  - ./hugo_0.27.1_linux_amd64/hugo_0.27.1_linux_amd64 -v
+after_success:
+  - export DATA_HASH=$(docker exec ipfs_host ipfs add -r public/)
+  - echo "DATA_HASH = $DATA_HASH"
+  - docker exec ipfs_host ipfs name publish --key=blog $DATA_HASH
