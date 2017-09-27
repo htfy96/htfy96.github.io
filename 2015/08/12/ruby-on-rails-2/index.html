@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Ruby on Rails (2) - int main() { return 0; }</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="../../../../2015/08/12/ruby-on-rails-2/">
+
+  
+  
+
+  
+  
+
+  
+  
+
+  <link rel="stylesheet" type="text/css" href="../../../../css/combined-min.css">
+
+</head>
+<body class="">
+
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="" class="site-title">int main() { return 0; }</a>
+      <nav class="site-nav right">
+      <a href="../../../../about/">About</a>
+<a href="../../../../tags/">Tags</a>
+<a href="../../../../contact/">Contact</a>
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">Ruby on Rails (2)</h1>
+        <span class="post-meta">Aug 12, 2015 by htfy96</span><br>
+        
+      </div>
+
+      <article class="post-content">
+      
+
+<blockquote>
+<p>由于前一段时间太懒，直到今天才恢复学习。。。</p>
+</blockquote>
+
+<h1 id="router转发">Router转发</h1>
+
+<p>Router不仅仅会根据url来区分调用哪个函数……还会通过http请求的种类来划分。。。</p>
+
+<pre><code>       Prefix Verb   URI Pattern                  Controller#Action
+welcome_index GET    /welcome/index(.:format)     welcome#index
+         root GET    /                            welcome#index
+     articles GET    /articles(.:format)          articles#index
+              POST   /articles(.:format)          articles#create
+  new_article GET    /articles/new(.:format)      articles#new
+ edit_article GET    /articles/:id/edit(.:format) articles#edit
+      article GET    /articles/:id(.:format)      articles#show
+              PATCH  /articles/:id(.:format)      articles#update
+              PUT    /articles/:id(.:format)      articles#update
+              DELETE /articles/:id(.:format)      articles#destroy
+</code></pre>
+
+<p>如图所见，<code>articles</code>的<code>index</code>和<code>create</code> url相同，但却调用了不同的函数</p>
+
+<p>值得注意的是<code>patch</code>这种请求类型，是个新玩意<a href="http://tools.ietf.org/html/rfc5789">http://tools.ietf.org/html/rfc5789</a> ，能只更新一部分内容</p>
+
+<p>深入理解看这个： <a href="https://ihower.tw/blog/archives/6483">https://ihower.tw/blog/archives/6483</a></p>
+
+<h1 id="block">Block</h1>
+
+<p>用</p>
+
+<pre><code class="language-ruby">&lt;% @article.each { |article| %&gt;
+&lt;%= article.body %&gt;
+&lt;% } %&gt;</code></pre>
+
+<p>之类的语法</p>
+
+<p>好像经常出问题……换成<code>do |article| ... end</code>就好了，大概是因为中间的函数如果接受了一个<code>Hash</code>作为参数，本身的<code>{}</code>会发生一些奇怪的问题</p>
+
+<h1 id="link-to">link_to</h1>
+
+<p><code>&lt;%= link_to 'My Blog', controller: 'articles' %&gt;</code></p>
+
+<p>和</p>
+
+<p><code>&lt;%= link_to 'My Blog', articles_path %&gt;</code>好像是差不多的，不过在<code>articles</code>的外部用第一种居多，内部用第二种</p>
+
+<p><code>method: :delete, data: { confirm: 'Are you sure?' }</code></p>
+
+<p>method对应路由表的<code>VERB</code></p>
+
+<h1 id="model的一些设置">Model的一些设置。。。</h1>
+
+<h2 id="数据验证">数据验证</h2>
+
+<pre><code class="language-ruby">validates :title, presence: true,
+                    length: { minimum: 5 }</code></pre>
+
+<p>其实是一个函数……不过没括号真心爽</p>
+
+<h2 id="关联">关联</h2>
+
+<p>创建新表时就要</p>
+
+<pre><code>rails generate model Comment commenter:string body:text article:references
+</code></pre>
+
+<blockquote>
+<p>You can also consider <code>references</code> as a kind of type. For instance, if you run:</p>
+
+<p><code>rails generate model photo title:string album:references</code></p>
+
+<p>It will generate an <code>album_id</code> column. You should generate these kinds of fields when</p>
+
+<p>you will use a <code>belongs_to</code> association, for instance. <code>references</code> also supports</p>
+
+<p>polymorphism, you can enable polymorphism like this:</p>
+
+<p><code>rails generate model product supplier:references</code></p>
+</blockquote>
+
+<p>之后有几种配置：</p>
+
+<ul>
+<li>belongs_to</li>
+<li>has_one (through)</li>
+<li>has_many (through)</li>
+<li>has_and_belongs_to_many</li>
+</ul>
+
+<p><a href="http://guides.ruby-china.org/association_basics.html">http://guides.ruby-china.org/association_basics.html</a></p>
+
+<pre><code>has_many :comments, dependent: :destroy
+</code></pre>
+
+<p>再之后如果是从属的话在路由表里可以搞：</p>
+
+<pre><code>resouces :articles do
+    :comments
+end
+</code></pre>
+
+<h1 id="错误">错误</h1>
+
+<pre><code>  &lt;% if @article.errors.any? %&gt;
+  &lt;div id=&quot;error_explanation&quot;&gt;
+    &lt;h2&gt;&lt;%= pluralize(@article.errors.count, &quot;error&quot;) %&gt; prohibited
+      this article from being saved:&lt;/h2&gt;
+    &lt;ul&gt;
+    &lt;% @article.errors.full_messages.each do |msg| %&gt;
+      &lt;li&gt;&lt;%= msg %&gt;&lt;/li&gt;
+    &lt;% end %&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;% end %&gt;
+</code></pre>
+
+<h1 id="path">Path</h1>
+
+<pre><code> new_article GET    /articles/new(.:format)      articles#new
+ edit_article GET    /articles/:id/edit(.:format) articles#edit
+ article GET    /articles/:id(.:format)      articles#show
+</code></pre>
+
+<p>查看路由表时我们可以看到<code>prefix</code>一列，那一列加上<code>_path</code>就是url的变量了。。</p>
+
+<p>如<code>articles_path</code>, <code>edit_article_path(@article)</code>之类的</p>
+
+<h1 id="局部模板">局部模板</h1>
+
+<p>文件名以<code>_</code>开头，调用<code>&lt;% render 'template_name; %&gt;</code>渲染，不需要开头下划线</p>
+
+<h1 id="curd简易速查">CURD简易速查。。。</h1>
+
+<pre><code>@article = Article.find(params[:id])
+if (@article.update(article_params))
+@articles = Article.all
+@article = Article.new(article_params)
+if @article.save
+@article.destroy
+</code></pre>
+
+<h1 id="嵌套路由">嵌套路由</h1>
+
+<pre><code>&lt;h2&gt;Add a comment:&lt;/h2&gt;
+&lt;%= form_for([@article, @article.comments.build]) do |f| %&gt;
+  &lt;p&gt;
+    &lt;%= f.label :commenter %&gt;&lt;br&gt;
+    &lt;%= f.text_field :commenter %&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;%= f.label :body %&gt;&lt;br&gt;
+    &lt;%= f.text_area :body %&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;%= f.submit %&gt;
+  &lt;/p&gt;
+&lt;% end %&gt;
+</code></pre>
+
+      </article>
+
+      <p class="post-meta">Tags:&nbsp;
+        
+      </p>
+
+      
+<div id="disqus_thread">
+  <script type="text/javascript">
+     var disqus_shortname = "htfy96-blog";
+     var disqus_identifier = "\/2015\/08\/12\/ruby-on-rails-2\/";
+
+     (function() {
+       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+</div>
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+      <nav class="social-icons icons">
+<a class="fa fa-rss rss" href="../../../../index.xml"></a>
+
+<a class="fa fa-twitter twitter" href="https://twitter.com/HTwood96"></a>
+
+</nav>
+
+          <small>
+            Copyright &#169; 2017<br>
+            Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll</a>
+          </small>
+        </div>
+      </div>
+    </footer>
+
+    
+    <script src="../../../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+
+</body>
+</html>
+

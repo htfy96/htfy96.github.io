@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Php on int main() { return 0; } </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>/tags/php/</link>
+    <language>zh-CN</language>
+    
+    
+    <updated>Thu, 14 Jul 2016 08:17:29 UTC</updated>
+    
+    <item>
+      <title>PHP印象</title>
+      <link>/2016/07/14/php%E5%8D%B0%E8%B1%A1/</link>
+      <pubDate>Thu, 14 Jul 2016 08:17:29 UTC</pubDate>
+      
+      <guid>/2016/07/14/php%E5%8D%B0%E8%B1%A1/</guid>
+      <description>&lt;p&gt;最近写的PHP留给我的印象。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
+

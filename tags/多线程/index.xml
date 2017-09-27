@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>多线程 on int main() { return 0; } </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
+    <language>zh-CN</language>
+    
+    
+    <updated>Tue, 31 Jan 2017 16:35:26 UTC</updated>
+    
+    <item>
+      <title>spdlog的一些坑</title>
+      <link>/2017/02/01/spdlog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</link>
+      <pubDate>Tue, 31 Jan 2017 16:35:26 UTC</pubDate>
+      
+      <guid>/2017/02/01/spdlog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</guid>
+      <description>&lt;p&gt;最近在用C++的这个spdlog库中遇到了一些坑……在这里写一下&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
+

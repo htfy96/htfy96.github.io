@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>About on int main() { return 0; } </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>/about/</link>
+    <language>zh-CN</language>
+    
+    
+    <updated>Thu, 09 Jun 2016 07:51:02 UTC</updated>
+    
+    <item>
+      <title>About Me</title>
+      <link>/about/</link>
+      <pubDate>Thu, 09 Jun 2016 07:51:02 UTC</pubDate>
+      
+      <guid>/about/</guid>
+      <description>男，1996年生。 高中合肥一中，大学SJTU。 没有妹子。</description>
+    </item>
+    
+  </channel>
+</rss>
+

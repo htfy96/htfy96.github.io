@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>C&#43;&#43; on int main() { return 0; } </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>/tags/c&#43;&#43;/</link>
+    <language>zh-CN</language>
+    
+    
+    <updated>Sat, 02 Sep 2017 16:13:59 UTC</updated>
+    
+    <item>
+      <title>static vs inline vs static inline in C&#43;&#43;</title>
+      <link>/2017/09/03/static-vs-inline-vs-static-inline-in-c/</link>
+      <pubDate>Sat, 02 Sep 2017 16:13:59 UTC</pubDate>
+      
+      <guid>/2017/09/03/static-vs-inline-vs-static-inline-in-c/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>spdlog的一些坑</title>
+      <link>/2017/02/01/spdlog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</link>
+      <pubDate>Tue, 31 Jan 2017 16:35:26 UTC</pubDate>
+      
+      <guid>/2017/02/01/spdlog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</guid>
+      <description>&lt;p&gt;最近在用C++的这个spdlog库中遇到了一些坑……在这里写一下&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>c10k-server方面的坑</title>
+      <link>/2017/01/26/c10k-server%E6%96%B9%E9%9D%A2%E7%9A%84%E5%9D%91/</link>
+      <pubDate>Thu, 26 Jan 2017 07:18:10 UTC</pubDate>
+      
+      <guid>/2017/01/26/c10k-server%E6%96%B9%E9%9D%A2%E7%9A%84%E5%9D%91/</guid>
+      <description>&lt;p&gt;最近在写 &lt;a href=&#34;https://github.com/htfy96/c10k-server&#34;&gt;https://github.com/htfy96/c10k-server&lt;/a&gt;一个玩具服务器。初步是打算采用一个主线程只Accept，然后把Accept的FD放到某个Worker的Eventloop里。每个WorkerThread跑一个Eventloop监听并处理事件。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>最近看的一些关于Linux服务端方面的文章</title>
+      <link>/2017/01/22/%E6%9C%80%E8%BF%91%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%B3%E4%BA%8Elinux%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%96%B9%E9%9D%A2%E7%9A%84%E6%96%87%E7%AB%A0/</link>
+      <pubDate>Sun, 22 Jan 2017 09:54:05 UTC</pubDate>
+      
+      <guid>/2017/01/22/%E6%9C%80%E8%BF%91%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%B3%E4%BA%8Elinux%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%96%B9%E9%9D%A2%E7%9A%84%E6%96%87%E7%AB%A0/</guid>
+      <description>多线程服务器的常用编程模型 &amp;#8211; 陈硕的Blog &amp;#8211; 博客频道 &amp;#8211; CSDN.NET 发布一个基于 Reactor 模式的 C++ 网络库 &amp;#8211; 陈硕的Blog &amp;#8211; 博客频道 &amp;#8211; CSDN.NET The C10K problem 关于SIGPIPE导</description>
+    </item>
+    
+    <item>
+      <title>写点C&#43;&#43; user defined literals的奇怪（正常）用途</title>
+      <link>/2017/01/08/%E5%86%99%E7%82%B9c-user-defined-literals%E7%9A%84%E5%A5%87%E6%80%AA%E6%AD%A3%E5%B8%B8%E7%94%A8%E9%80%94/</link>
+      <pubDate>Sun, 08 Jan 2017 12:17:48 UTC</pubDate>
+      
+      <guid>/2017/01/08/%E5%86%99%E7%82%B9c-user-defined-literals%E7%9A%84%E5%A5%87%E6%80%AA%E6%AD%A3%E5%B8%B8%E7%94%A8%E9%80%94/</guid>
+      <description>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;之前写的围棋程序的测试中，我们常常需要vector&amp;lt; { Player, Point } &amp;gt; pieceToPlace。问题在于，如果我们硬编码这个vector，可读性很差：&lt;/p&gt;
+
+&lt;pre class=&#34;language-cpp&#34;&gt;pieceToPlace.emplace_back(Player::B, make_pair(2, 3));
+pieceToPlace.emplace_back(Player::B, make_pair(2, 1));
+pieceToPlace.emplace_back(Player::W, make_pair(1, 0));&lt;/pre&gt;
+
+&lt;p&gt;通过User defined literal，我们可以做到这样：&lt;/p&gt;
+
+&lt;pre class=&#34;language-cpp&#34;&gt;auto placeVec = getInput({
+    {O,   1_B,   2_W,   4_W},
+    {6_W, 3_B,   5_B,   7_W},
+    {O,   O,     O,     8_B},
+    {9_W, O,     O,     O}
+});
+for (auto &amp;ele : placeVec) 
+{
+    cout &amp;lt;&amp;lt; (ele.player == Player::B ? &#34;B&#34; : &#34;W&#34;) &amp;lt;&amp;lt; &#34; &#34; &amp;lt;&amp;lt; ele.point.first &amp;lt;&amp;lt; &#34;,&#34; &amp;lt;&amp;lt; ele.point.second &amp;lt;&amp;lt; endl; 
+}
+/*
+B 0,1
+W 0,2
+B 1,1
+W 0,3
+B 1,2
+W 1,0
+W 1,3
+B 2,3
+W 3,0
+*/&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Strict alising的坑</title>
+      <link>/2016/11/11/257/</link>
+      <pubDate>Fri, 11 Nov 2016 14:59:04 UTC</pubDate>
+      
+      <guid>/2016/11/11/257/</guid>
+      <description>&lt;h1 id=&#34;坑-span-id-a1getaljhng-class-abt-citation-noselect-mcenoneditable-data-reflist-quot-slrq9sjjd-quot-sup-1-sup-span&#34;&gt;坑&lt;span id=&#34;a1getaljhng&#34; class=&#34;abt-citation noselect mceNonEditable&#34; data-reflist=&#34;[&amp;quot;slrq9sjjd&amp;quot;]&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;&lt;/h1&gt;
+
+&lt;pre&gt;int foo(int *x, long *y) {
+  *x = 0;
+  *y = 1;
+  return *x;
+}
+&lt;/pre&gt;
+
+&lt;p&gt;会被优化成&lt;/p&gt;
+
+&lt;pre&gt;foo2:   movl    $0, (%rdi)
+        xorl    %eax, %eax
+        movq    $1, (%rsi)
+        ret
+&lt;/pre&gt;
+
+&lt;p&gt;因为编译器会认为，&lt;a href=&#34;shttps://intmainreturn0.com/wp-admin/plugins.phptrong&#34;&gt;shttps://intmainreturn0.com/wp-admin/plugins.phptrong&lt;/a&gt;两个不能alising的指针，一定不会指向同一块内存区域，&lt;/strong&gt;所以会推断出结果一定是0&lt;/p&gt;
+
+&lt;p&gt;所以啊，之前网上很多(float *)(&amp;amp;int_var)然后乱搞的做法都容易爆炸……&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
+

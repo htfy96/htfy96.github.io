@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>CF D. Little Elephant and Retro Strings - int main() { return 0; }</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="../../../../2015/05/03/cf-d-little-elephant-and-retro-strings/">
+
+  
+  
+
+  
+  
+
+  
+  
+
+  <link rel="stylesheet" type="text/css" href="../../../../css/combined-min.css">
+
+</head>
+<body class="">
+
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="" class="site-title">int main() { return 0; }</a>
+      <nav class="site-nav right">
+      <a href="../../../../about/">About</a>
+<a href="../../../../tags/">Tags</a>
+<a href="../../../../contact/">Contact</a>
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">CF D. Little Elephant and Retro Strings</h1>
+        <span class="post-meta">May 3, 2015 by htfy96</span><br>
+        
+      </div>
+
+      <article class="post-content">
+      <p>艰难。。。</p>
+
+<p><a href="http://blog.csdn.net/jayye1994/article/details/14644001">http://blog.csdn.net/jayye1994/article/details/14644001</a></p>
+
+<pre><code class="language-cpp">
+/* **********************************
+ * 精简版头文件  修改自岛娘的头文件
+ * By lz96@foxmail.com
+ * 复制到你的代码头部即可使用
+ * **********************************/
+#define T_ long long  //各种循环变量的类型，特殊情况可以改成long long
+#define fuck(s_) {cout&lt;&lt;s_&lt;&lt;endl;return 0;} //输出s_的内容并结束程序：fuck("NO");
+/*************************
+ * 各种循环函数
+ * re：3个参数：循环变量,起始值,终止值
+ * rep: 2个参数：循环变量,终止值/初始值
+ * 后缀2/3：二维、三维
+ * 后缀0：有则初始值/终止值为0 否则为1
+ * 前缀r：有则从大到小循环，否则从小到大循环
+ * ***********************/
+#define printarr(a_,x_) rep(i_,x_)cout&lt;&lt;a_[i_]&lt;&lt;" ";cout&lt;&lt;endl; //输出一维数组 输出a[1] ~ a[5] printarr(a,5)
+#define printarr0(a_,x_) rep0(i_,x_)cout&lt;&lt;a_[i_]&lt;&lt;" ";cout&lt;&lt;endl; // 输出a[0] ~ a[4] printarr0(a,5)
+#define printarr2(a_,x_,y_) rep(i_,x_){rep(j_,y_)cout&lt;&lt;a[i_][j_]&lt;&lt;' ';cout&lt;&lt;endl;} //输出二维数组
+#define printarr20(a_,x_,y_) rep0(i_,x_){rep0(j_,y_)cout&lt;&lt;a[i_][j_]&lt;&lt;' ';cout&lt;&lt;endl;} //输出二维数组，下标从0开始
+#define rep2o(a_,b_,n_) rep(a_,n_) re(b_,a_+1,n_) // for(T_ a_=1;a_&lt;=n_;++a_) for(T_ b_=a_+1;b_&lt;=n_;++b_)
+#define rep20o(a_,b_,n_) rep0(a_,n_) re0(b_,a_+1,n_) // for(T_ a_=0;a_&lt;n_;++a_) for(T_ b_=a_+1;b_&lt;n_;++b_)
+#define rep2(a_,b_,p_,q_) rep(a_,p_) rep(b_,q_)// for(T_ a_=1;a_&lt;=n_;++a_) for(T_ b_=1;b_&lt;=n_;++b_)
+#define rep20(a_,b_,p_,q_) rep0(a_,p_) rep0(b_,q_) // for(T_ a_=0;a_&lt;n_;++a_) for(T_ b_=0;b_&lt;n_;++b_)
+#define rrep2(a_,b_,p_,q_) rrep(a_,p_) rrep(b_,q_)
+#define rrep20(a_,b_,p_,q_) rrep0(a_,p_) rrep0(b_,q_)
+#define rep3(a_,b_,c_,p_,q_,r_) rep(a_,p_) rep(b_,q_) rep(c_,r_)
+#define rep30(a_,b_,c_,p_,q_,r_) rep0(a_,p_) rep0(b_,q_) rep0(c_,r_)
+#define rrep3(a_,b_,c_,p_,q_,r_) rrep(a_,p_) rrep(b_,q_) rrep(c_,r_)
+#define rrep30(a_,b_,c_,p_,q_,r_) rrep0(a_,p_) rrep0(b_,q_) rrep0(c_,r_)
+#define rep(a_,x_) re(a_,1,x_) //rep(i,5)   == for(T_ i=1;i&lt;=5;++i)
+#define rep0(a_,x_) re0(a_,0,x_) //rep0(i,5)   == for(T_ i=0;i&lt;5;++i)
+#define rrep(a_,x_) rre(a_,x_,1) //rrep(i,5)  ==  for(T_ i=5;i&gt;=1;--i)
+#define rrep0(a_,x_) rre(a_,x_-1,0) //rrep0(i,5)  ==  for(T_ i=4;i&gt;=0;--i)
+#define re(a_,s_,t_) for(T_ a_=s_;a_&lt;=t_;++a_) // re(i,2,4)  ==   for(T_ i=2;i&lt;=4;++i)
+#define re0(a_,s_,t_) for(T_ a_=s_;a_&lt;t_;++a_) // re0(i,2,4)  ==   for(T_ i=2;i&lt;4;++i)
+#define rre(a_,s_,t_) for(T_ a_=s_;a_&gt;=t_;--a_)
+#define rre0(a_,s_,t_) for(T_ a_=s_;a_&gt;t_;--a_)
+#define repit(a_,c_) for(__typeof__(a_.begin()) c_=a_.begin();c_!=a_.end();++c_) // 只在GCC上可用：repit(容器,迭代器)
+#define nosync std::ios::sync_with_stdio(false) //加在main的第一行，加快输入输出，但之后不能用scanf/printf
+#define DE false //是否在调试模式？
+#define de(s_) if(DE){s_ } //  de(仅仅想在调试时执行的语句)     de(cout&lt;&lt;n&lt;&lt;m&lt;&lt;endl;)
+#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstdlib&gt;
+#include &lt;cstring&gt;
+#include &lt;string&gt;
+#include &lt;cmath&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+#include &lt;vector&gt;
+#include &lt;deque&gt;
+#include &lt;list&gt;
+#include &lt;set&gt;
+#include &lt;numeric&gt;
+#include &lt;bitset&gt;
+#include &lt;fstream&gt;
+#include &lt;iomanip&gt;
+#include &lt;sstream&gt;
+#include &lt;ctime&gt;
+#include &lt;stack&gt;
+
+#pragma GCC optimize("-Ofast")
+#pragma GCC optimize("-march=native")
+#pragma GCC optimize("-mtune=native")
+using namespace std;
+const int dx4[] = {-1, 0, 1, 0};
+const int dy4[] = {0, 1, 0, -1};  //十字方向的所有坐标 (basex+dx4[i] , basey+dy4[i])
+const long long modb=1000000007;  //取模的数  ModBase
+const long inf=0x3f3f3f3f;      //很大的整数
+const double oo=1e15;           //很大的实数
+const double eps=1e-8;          //很小的实数，计算几何用
+const double pi=acos(-1.0);     //pi
+template&lt;typename T&gt; void clr(T* a_,int n_=0,size_t s_=-1) {if (s_==-1) s_=sizeof(a_); memset(a_,n_,sizeof(a_[0])*s_); }  // clr(a)：将a清空为0     clr(a,0xff)将a每个字节清成0xff      clr(a,0xff,4) 将a[0]~a[3]的每一个字节填成0xff
+template&lt;typename T&gt; T sqr(T a_) { return a_*a_; }  //平方
+template&lt;typename T&gt; T cub(T a_) { return a_*a_*a_; }  //立方
+inline T_ mf(T_ n_) {return ((n_&lt;0)?n_+(modb):n_)%modb; }  //mf(n) = n%modb，加上了负数判断,ModFunction
+template&lt;typename T&gt;T max(T a_,T b_,T c_) { return max(a_,max(b_,c_)); } //三个参数的max
+template&lt;typename T&gt;T min(T a_,T b_,T c_) { return min(a_,min(b_,c_)); } //三个参数的min
+inline int dbcmp(double a_, double b_) { return (fabs(a_-b_)&lt;eps)?0:(a_&lt;b_?-1:1); } //允许误差的cmp，&lt; : -1    == : 0    &gt; : 1
+inline double dbdiv(T_ a_, T_ b_) { return static_cast&lt;double&gt;(a_) / b_; } //实数除 dbdiv(3,5)=0.6
+inline double angle(double x_, double y_) { if (x_==0.0) return y_&gt;0?pi/2:3*pi/2; else { double t_=atan2(y_,x_); return (t_&lt;0.0?t_+pi:t_) + y_&lt;0?pi:0.0; }} //计算(x_,y_)的幅角 [0,2*pi)
+/************************************************************************/
+const long long maxn=1000008;
+int n,k;
+char a[maxn];
+long long fb[maxn], fw[maxn];
+long long s[maxn],sw[maxn];
+bool allb[maxn], allw[maxn];
+long long twop[maxn];
+//fb[i] = fb[i-1] (a[i]=w) |   fb[i-1]-2^(s[i]-s[i-k]) * fb[i-k] (a[i]=b)
+inline long long ffb(int i) { return (i&lt;0)?1:fb[i]; }
+inline long long ffw(int i) { return (i&gt;n+1)?1:fw[i]; }
+int main()
+{
+    nosync;
+    cin&gt;&gt;n&gt;&gt;k;
+    allb[0]=true;
+    allw[n+1]=true;
+    a[0]='W';
+    a[n+1]='B';
+    rep(i,n)
+    {
+        cin&gt;&gt;a[i];
+        s[i]+= s[i-1]+ (a[i]=='X');
+    }
+
+    twop[0]=1;
+    rep(i,n+2)
+        twop[i]=(twop[i-1]&lt;&lt;1) % modb;
+
+    fb[0]=1;
+    int last=0;
+    rep(i,n)
+    { 
+        if (a[i]=='W') last=i;
+        if (i-last&gt;=k) allb[i]=true;
+        if (a[i]=='W' || a[i]=='X')
+          fb[i]+=fb[i-1];
+        if (a[i]=='B' || a[i]=='X')
+          fb[i] += mf(fb[i-1] - ((allb[i] && i-k&gt;=0 && a[i-k]!='B' )?mf(ffb(i-k-1)):0));
+        fb[i]%=modb;
+    }
+
+    fw[n+1]=1;fw[n+2]=1;
+    last=n+1;
+
+    rrep(i,n)
+    {
+        if (a[i]=='B') last=i;
+        if (last-i&gt;=k) allw[i]=true;
+        if (a[i]=='B' || a[i]=='X')
+          fw[i]+=fw[i+1];
+        if (a[i]=='W' || a[i]=='X')
+          fw[i]+= mf(fw[i+1] - ((allw[i] && i+k&lt;=n+1 && a[i+k]!='W')?mf(ffw(i+k+1)):0));
+        fw[i]%=modb;
+    }
+
+    long long ans=0;
+    rep(i,n)
+        ans=mf(ans + ( allb[i] && a[i-k]!='B' ?ffb(i-k-1):0 ) * (twop[ s[n]-s[i] ] - fw[i+1]));
+    cout&lt;&lt;ans&lt;&lt;endl;
+    return 0;
+}</code></pre>
+
+      </article>
+
+      <p class="post-meta">Tags:&nbsp;
+        
+      </p>
+
+      
+<div id="disqus_thread">
+  <script type="text/javascript">
+     var disqus_shortname = "htfy96-blog";
+     var disqus_identifier = "\/2015\/05\/03\/cf-d-little-elephant-and-retro-strings\/";
+
+     (function() {
+       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+</div>
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+      <nav class="social-icons icons">
+<a class="fa fa-rss rss" href="../../../../index.xml"></a>
+
+<a class="fa fa-twitter twitter" href="https://twitter.com/HTwood96"></a>
+
+</nav>
+
+          <small>
+            Copyright &#169; 2017<br>
+            Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll</a>
+          </small>
+        </div>
+      </div>
+    </footer>
+
+    
+    <script src="../../../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+
+</body>
+</html>
+

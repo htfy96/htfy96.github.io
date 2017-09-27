@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>CF #345 div.2 - int main() { return 0; }</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="../../../../2016/03/07/cf-345-div-2/">
+
+  
+  
+
+  
+  
+
+  
+  
+
+  <link rel="stylesheet" type="text/css" href="../../../../css/combined-min.css">
+
+</head>
+<body class="">
+
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="" class="site-title">int main() { return 0; }</a>
+      <nav class="site-nav right">
+      <a href="../../../../about/">About</a>
+<a href="../../../../tags/">Tags</a>
+<a href="../../../../contact/">Contact</a>
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">CF #345 div.2</h1>
+        <span class="post-meta">Mar 7, 2016 by htfy96</span><br>
+        
+      </div>
+
+      <article class="post-content">
+      <p><del>打div2和咸鱼有什么区别……</del></p>
+
+<p>滚粗太久了只能打打div.2了</p>
+
+<ul>
+<li>A: DP, 乱搞，注意f(1,1)=0</li>
+<li>B: 维护一个map<key, cnt>，每次删掉cnt ==0的点，ans += map.size() -1，然后给所有的都-1</li>
+<li>C: 容斥原理，long long</li>
+<li>D: 四种情况：全右，全左，右后左，左后右。预处理出到达左边、右边第若干个点的时间，对于1) 2)直接二分查找&lt;=T的最远点。对于3) 4)枚举右边/左边的折返点，然后计算出从出发到回到原点的时间cur，之后二分查找一下另一方向的T &#8211; cur。注意最多只能遍历n个点，重复不算。</li>
+<li>E: 建图，拓扑排序。不需要搞很多边：只要对每一排、列排序一下，把大小相邻的连边就行了</li>
+</ul>
+
+      </article>
+
+      <p class="post-meta">Tags:&nbsp;
+        
+      </p>
+
+      
+<div id="disqus_thread">
+  <script type="text/javascript">
+     var disqus_shortname = "htfy96-blog";
+     var disqus_identifier = "\/2016\/03\/07\/cf-345-div-2\/";
+
+     (function() {
+       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+</div>
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+      <nav class="social-icons icons">
+<a class="fa fa-rss rss" href="../../../../index.xml"></a>
+
+<a class="fa fa-twitter twitter" href="https://twitter.com/HTwood96"></a>
+
+</nav>
+
+          <small>
+            Copyright &#169; 2017<br>
+            Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll</a>
+          </small>
+        </div>
+      </div>
+    </footer>
+
+    
+    <script src="../../../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+
+</body>
+</html>
+

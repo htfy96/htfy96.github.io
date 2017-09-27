@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>论文 on int main() { return 0; } </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>/tags/%E8%AE%BA%E6%96%87/</link>
+    <language>zh-CN</language>
+    
+    
+    <updated>Mon, 11 Jul 2016 04:29:20 UTC</updated>
+    
+    <item>
+      <title>language composition</title>
+      <link>/2016/07/11/language-composition/</link>
+      <pubDate>Mon, 11 Jul 2016 04:29:20 UTC</pubDate>
+      
+      <guid>/2016/07/11/language-composition/</guid>
+      <description>http://soft-dev.org/pubs/pdf/barrett_bolz_diekmann_tratt__fine_grained_language_composition.pdf
+&amp;nbsp;</description>
+    </item>
+    
+  </channel>
+</rss>
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Sa on int main() { return 0; } </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>/tags/sa/</link>
+    <language>zh-CN</language>
+    
+    
+    <updated>Sun, 21 Aug 2016 15:39:12 UTC</updated>
+    
+    <item>
+      <title>后缀数组倍增构造</title>
+      <link>/2016/08/21/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E5%80%8D%E5%A2%9E%E6%9E%84%E9%80%A0/</link>
+      <pubDate>Sun, 21 Aug 2016 15:39:12 UTC</pubDate>
+      
+      <guid>/2016/08/21/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E5%80%8D%E5%A2%9E%E6%9E%84%E9%80%A0/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;实在是太弱了看了两天4小时左右才基本把这个倍增构造看明白。。另外不得不说竞赛风格的板子虽然抄起来舒服但是对初学者而言的确不太友好……&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
+

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>C&#43;&#43; Magic Collection - int main() { return 0; }</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="../../../../2015/12/26/c-magic-collection/">
+
+  
+  
+
+  
+  
+
+  
+  
+
+  <link rel="stylesheet" type="text/css" href="../../../../css/combined-min.css">
+
+</head>
+<body class="">
+
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="" class="site-title">int main() { return 0; }</a>
+      <nav class="site-nav right">
+      <a href="../../../../about/">About</a>
+<a href="../../../../tags/">Tags</a>
+<a href="../../../../contact/">Contact</a>
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">C&#43;&#43; Magic Collection</h1>
+        <span class="post-meta">Dec 25, 2015 by htfy96</span><br>
+        
+      </div>
+
+      <article class="post-content">
+      
+
+<p>嘛……最近这个博客好久没有写干货了。正好今晚<del>有空</del> 可以摸摸鱼，就来说说最近Cpp的一些东西吧。果然Cpp是世界上最复杂的语言（x</p>
+
+<h2 id="r-value-运算符">R-value 运算符</h2>
+
+<p>C++11之后，可以利用</p>
+
+<pre><code class="language-cpp">return_t operatorX(arg_t) &;
+return_t operatorX(arg_t) &&;</code></pre>
+
+<p>来针对左值和右值对象重载不同版本的运算符。典型例子就是</p>
+
+<pre><code class="language-cpp">T& opearator++() &;
+T&& operator++() &&
+{
+    this-&gt;operator++();
+    return std::move(*this);
+}</code></pre>
+
+<p>如果不写左值和右值不同的版本，那么：</p>
+
+<pre><code>T obj2(++std::move(obj1));
+</code></pre>
+
+<p>会退化到使用左值版本的构造函数，造成性能损失。</p>
+
+<p>但是，在</p>
+
+<p><a href="https://www.zhihu.com/question/38851602/answer/78421911?group_id=663734370451853312#comment-110278512">https://www.zhihu.com/question/38851602/answer/78421911?group_id=663734370451853312#comment-110278512</a></p>
+
+<p>有人提到了，根本就不应该对右值提供这类运算符，对此个人持保留意见。而且，对于<code>foo(++bar())</code>这类语法，如果使用<code>foo(bar() + 1)</code> <code>T tmp = bar(); ++tmp; foo(tmp);</code>等语法都会造成<code>foo</code>退化到左值版本，观望中。</p>
+
+<h2 id="前c-11年代的函数接口">前C++11年代的函数接口</h2>
+
+<p>众所周知，C++11引入了<code>std::function</code>，针对不同类型的可调用对象，提供了统一的接口。那么，在C++11之前，函数的接口是怎么样的呢？</p>
+
+<blockquote>
+<p>警告：这部分内容在C++11中已经被标为deprecated, 并在C++17中正式被移除，因此请勿在工程中使用这部分内容</p>
+</blockquote>
+
+<p>因为没有参数包，所以函数接口肯定只能限制在有限个参数。而最有意义的接口有两个：映射函数<code>ret_t map(original_t)</code>和二元函数<code>ret_t comp(original1_t, original2_t)</code>。在C++98的年代，要想实现函数接口的多态性，有两种方式：</p>
+
+<p>一种方式是定义一个原始的<code>ret_t (*FuncType)(original_t)</code>类型，通过给<code>FuncType</code>类型的变量赋不同函数指针的值，来实现函数接口的方式；</p>
+
+<p>另一种就是(1)（动态绑定）构造一个继承自一个有<code>virtual ret_t operator()(original_t) = 0</code>类的Functor，然后定义这个类的<code>operator()</code>，保存父类，通过<code>operator()</code>的多态性来实现函数接口。或(2)（静态绑定）父类<code>typedef xxx arg_1_t; typedef yyy ret_t;</code>，然后子类继承父类实现<code>operator()</code>来提供函数接口，这些过程全部在编译期完成。</p>
+
+<p>不难发现，Functor可以看作一个闭包，而函数指针不能，因此C++98采取了后一种策略，而且提供的是(2)的静态绑定。</p>
+
+<p>对应两种接口，C++定义了以下两个父类：</p>
+
+<pre><code class="language-cpp">template &lt;typename ArgumentType, typename ResultType&gt;
+struct unary_function
+{
+    typedef ArgumentType    argument_type;
+    typedef ResultType result_type;
+};
+
+template&lt;
+    class Arg1,
+    class Arg2, 
+    class Result
+>struct binary_function
+{
+    typedef Arg1   first_argument_type;
+    typedef Arg2   second_argument_type;
+    typedef Result result_type;
+};
+
+// Usage:
+struct Functor1 : public std::unary_function&lt;int, bool&gt;
+{
+    bool operator()(int x) { return x&lt;42; }
+};
+</code></pre>
+
+<p>有了这些接口之后，很容易就能定义出一些关于函数的操作：</p>
+
+<pre><code class="language-cpp">template&lt; class Predicate &gt;
+struct unary_negate : public std::unary_function&lt;Predicate::argument_type, bool&gt;
+{
+    //...
+    // Possible Implementation:
+    Predicate predicate_;
+    unary_negate(const Predicate &pred) :
+        predicate_(pred) {]
+    bool operator()(const Predicate::argument_type &x)
+    {
+        return predicate_(x);
+    }
+}; //对Unary取反
+template&lt; class Predicate &gt;
+struct binary_negate :
+    public std::binary_function&lt;
+        Predicate::first_argument_type,
+        Predicate::second_argument_type,
+        bool
+    &gt;;
+
+//这两个的函数版本：
+template&lt; class Predicate &gt;
+std::unary_negate&lt;Predicate&gt; not1(const Predicate& pred);
+template&lt; class Predicate &gt;
+std::binary_negate&lt;Predicate&gt; not2(const Predicate& pred);
+// 实现太简单，自己想
+</code></pre>
+
+<p>除此之外，为了方便从函数构造Functor, 标准库还提供了函数<code>ptr_fun</code>，接受一个<code>unary function</code> 或者一个<code>binary function</code>的函数指针，并返回一个对应<code>std::unary_function</code>或者<code>std::binary_function</code>的Functor：</p>
+
+<pre><code class="language-cpp">//Possible Implementation:
+
+template&lt;typename Arg, typename Result&gt;
+struct pointer_to_unary_function : std::unary_function&lt;Arg,Result&gt;
+{
+    Result (*p_)(Arg);
+    pointer_to_unary_function(Result(*ptr)(Arg)) : 
+        p_(ptr) {}
+
+    Result operator()(Arg x)
+    {
+        return p_(x);
+    }
+};
+
+template&lt;typename template&lt; class Arg, class Result &gt;
+std::pointer_to_unary_function&lt;Arg,Result&gt;
+    ptr_fun( Result (*f)(Arg) )
+{
+    return pointer_to_unary_function(f);
+}
+</code></pre>
+
+<p>普通的函数可以直接<code>not2</code>，因为函数指针本身也满足<code>()</code>运算符的约束。但要想把它装起来，还是需要<code>ptr_fun</code>才能做到，因为<code>binary_functon</code>没有函数指针的构造函数。然而，在静态绑定下，把<code>binary_function</code>装起来并没有什么用，因为它不具有<code>operator()</code>：</p>
+
+<pre><code class="language-cpp">bool compare(const MyType &arg1, const MyType &arg2); 
+
+sort(xxx.first(), xxx.second(), not2(compare));
+
+vector&lt;std::binary_function&lt;int, int, bool&gt; &gt; v;
+v.push_back( ptr_fun(compare) );</code></pre>
+
+<p><code>ptr_fun</code>产生的类叫做<code>pointer_to_binary_function&lt;Arg1, Arg2, Result&gt;</code>，就像一个非常原始的<code>std::function&lt;Result(Arg1,Arg2)&gt;</code>一样，是函数指针的简陋封装，比较naive。</p>
+
+<p>然后为了支持成员函数指针，还拥有了一个叫做<code>mem_fun</code>的函数：</p>
+
+<p>它的返回值是<code>mem_fun_t</code>，保存了一个成员函数指针。在使用时，<code>Result operator() (class_t*)</code>，需要传入一个对象的指针。同样，对于需要一个参数的成员函数，还有<code>mem_fun_1</code>函数和对应的<code>mem_fun_1_t</code>，构造方式大致相同.</p>
+
+<p>简陋的绑定：只支持<code>binary_function</code>到<code>unary_function</code>的绑定，通过<code>binder1st</code>和<code>binder2nd</code>两个类模板来实现，非常的simple。</p>
+
+<p>最后讨论一下C++98这种做法的不足：</p>
+
+<ul>
+<li>没有参数包，所以只内置了一元和二元的函数接口，其它的都要自己写</li>
+<li>只提供了静态绑定，功能受限</li>
+<li>绑定的时候不能绑定引用:<a href="http://stackoverflow.com/questions/7822652/using-bind1st-for-a-method-that-takes-argument-by-reference">http://stackoverflow.com/questions/7822652/using-bind1st-for-a-method-that-takes-argument-by-reference</a></li>
+</ul>
+
+<p>因此，C++11的<code>std::function</code>是一个更加完善的东西。为了兼容性当然也可以使用<code>boost::function</code>。</p>
+
+<p>写了这么多，都是在为下一篇《分析std::function》做准备，不过可能要在很久之后了。</p>
+
+      </article>
+
+      <p class="post-meta">Tags:&nbsp;
+        
+      </p>
+
+      
+<div id="disqus_thread">
+  <script type="text/javascript">
+     var disqus_shortname = "htfy96-blog";
+     var disqus_identifier = "\/2015\/12\/26\/c-magic-collection\/";
+
+     (function() {
+       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+</div>
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+      <nav class="social-icons icons">
+<a class="fa fa-rss rss" href="../../../../index.xml"></a>
+
+<a class="fa fa-twitter twitter" href="https://twitter.com/HTwood96"></a>
+
+</nav>
+
+          <small>
+            Copyright &#169; 2017<br>
+            Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll</a>
+          </small>
+        </div>
+      </div>
+    </footer>
+
+    
+    <script src="../../../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+
+</body>
+</html>
+

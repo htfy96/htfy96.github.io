@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Postgresql on int main() { return 0; } </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>/tags/postgresql/</link>
+    <language>zh-CN</language>
+    
+    
+    <updated>Wed, 20 Sep 2017 05:43:45 UTC</updated>
+    
+    <item>
+      <title>How Twitch uses PostgreSQL</title>
+      <link>/2017/09/20/how-twitch-uses-postgresql/</link>
+      <pubDate>Wed, 20 Sep 2017 05:43:45 UTC</pubDate>
+      
+      <guid>/2017/09/20/how-twitch-uses-postgresql/</guid>
+      <description>https://blog.twitch.tv/how-twitch-uses-postgresql-c34aa9e56f58</description>
+    </item>
+    
+  </channel>
+</rss>
+

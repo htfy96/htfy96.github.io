@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Cache on int main() { return 0; } </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>/tags/cache/</link>
+    <language>zh-CN</language>
+    
+    
+    <updated>Fri, 15 Jul 2016 02:13:22 UTC</updated>
+    
+    <item>
+      <title>Cache coherency primer</title>
+      <link>/2016/07/15/cache-coherency-primer/</link>
+      <pubDate>Fri, 15 Jul 2016 02:13:22 UTC</pubDate>
+      
+      <guid>/2016/07/15/cache-coherency-primer/</guid>
+      <description>Cache coherency primer</description>
+    </item>
+    
+  </channel>
+</rss>
+

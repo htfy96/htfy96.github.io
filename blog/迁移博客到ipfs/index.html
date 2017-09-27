@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>迁移博客到IPFS - int main() { return 0; }</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="../../blog/%E8%BF%81%E7%A7%BB%E5%8D%9A%E5%AE%A2%E5%88%B0ipfs/">
+
+  
+  
+
+  
+  
+
+  
+  
+
+  <link rel="stylesheet" type="text/css" href="../../css/combined-min.css">
+
+</head>
+<body class="">
+
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="" class="site-title">int main() { return 0; }</a>
+      <nav class="site-nav right">
+      <a href="../../about/">About</a>
+<a href="../../tags/">Tags</a>
+<a href="../../contact/">Contact</a>
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">迁移博客到IPFS</h1>
+        <span class="post-meta">Sep 24, 2017 by htfy96</span><br>
+        
+      </div>
+
+      <article class="post-content">
+      
+
+<p><a href="https://ipfs.io/">IPFS</a>是最近非常热门的一个分布式网络系统，其主要支持以下功能：</p>
+
+<ul>
+<li><code>ipfs add</code>，将本地的一个文件（夹）上传到一个去中心化的web中，返回一个和文件夹内容有关的Hash，记为<code>fsHash</code>。之后用户既可以通过<code>ipfs</code>客户端根据<code>fsHash</code>来获取内容；也可以通过官方提供的https gateway，用<code>https://ipfs.io/ipfs/QmdPtC3T7Kcu9iJg6hYzLBWR5XCDcYMY7HV685E3kH3EcS/2015/09/15/hosting-a-website-on-ipfs/</code>之类的链接直接访问获取</li>
+<li><code>ipfs name publish</code>。每次上传新的文件夹后，得到的<code>Hash</code>均不同，这给访问带来了很大的不便。为了解决这个问题，我们在持有私钥的情况下可以把<code>fsHash</code>publish到一个和公钥相关的地址<code>keyHash</code>，这样，用户就可以用<code>https://ipfs.io/ipns/keyHash</code>来访问不同的内容，而不用担心内容版本的变化</li>
+<li><code>ipfs dns</code>。因为<code>keyHash</code>非常长，<code>ipfs</code>提供了一种能够通过<code>https://ipfs.io/ipns/intmainreturn0.com</code>方式访问<code>https://ipfs.io/ipns/keyHash</code>的方法：配置<code>intmainreturn0.com</code>的DNS，添加<code>TXT</code>项，内容是<code>dnslink=/ipns/keyHash</code>即可</li>
+</ul>
+
+<p>希望达到的效果是：</p>
+
+<ul>
+<li>push Hugo source到github后自动编译成HTML</li>
+<li>自动上传到IPFS，自动<code>name publish</code></li>
+<li>用户可以用 <a href="https://intmainreturn0.com">https://intmainreturn0.com</a> 访问这个博客</li>
+<li>不依赖于<code>https://ipfs.io</code>的可用性</li>
+</ul>
+
+<h2 id="自动编译-自动上传-publish">自动编译 &amp; 自动上传/publish</h2>
+
+<p>这一块都依赖于Travis-CI的功能。但这也要求我们把私钥交给第三方……</p>
+
+<p>首先我们需要生成一对公钥私钥：</p>
+
+<pre><code class="language-sh">ipfs key gen -t ed25519 blog
+# 这里会输出keyHash
+base64 ~/.ipfs/keystore/blog #把输出的私钥复制成一行
+</code></pre>
+
+<p>然后运行：</p>
+
+<pre><code class="language-sh">travis encrypt SECKEY_BASE64=私钥
+</code></pre>
+
+<p>输出：</p>
+
+<pre><code>secure: &quot;BLAHBLAH&quot;
+</code></pre>
+
+<p>之后我们就可以编写<code>.travis.yml</code>了：</p>
+
+<pre><code class="language-yaml">sudo: required
+dist: trusty
+
+services:
+    - docker
+
+env:
+  global:
+    - secure: &quot;BLAHBLAH&quot;
+branches:
+  only:
+    - master
+
+before_install:
+  - git submodule update --init --recursive
+  - mkdir -p ipfs/staging ipfs/data
+  - docker run -d --name ipfs_host -v $(pwd)/ipfs/staging:/export -v $(pwd)/ipfs/data:/data/ipfs -p 18080:8080 -p 14001:4001 -p 15001:5001 ipfs/go-ipfs:latest # 启动daemon
+  - sleep 3 # 等它创建好FS
+  - ls -l ipfs/data
+  - echo $UID
+  - sudo chmod -R 777 ipfs/data/keystore
+  - echo $SECKEY_BASE64 | base64 -d &gt; ipfs/data/keystore/blog
+
+install:
+  - rm -rf public || exit 0
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.27.1/hugo_0.27.1_Linux-64bit.tar.gz &amp;&amp; tar xzf hugo_0.27.1_Linux-64bit.tar.gz
+script:
+  - ./hugo -v
+after_success:
+  - cp -r ./public ipfs/staging
+  - export DATA_HASH=$(docker exec ipfs_host ipfs add -r /export/public/ | tail -1 | awk '{print $2}') # 提取出fsHash
+  - echo &quot;DATA_HASH = $DATA_HASH&quot;
+  - docker exec ipfs_host ipfs name publish --key=blog $DATA_HASH # 用blog key上传
+  - sleep 5 # Wait for a while
+</code></pre>
+
+<p>这样，编译完成的东西就会自动上传到IPFS中并注册ipns了。这个时候，应该可以通过<code>https://ipfs.io/ipns/keyHash</code>来访问了</p>
+
+<h2 id="在-intmainreturn0-com-反代ipfs访问">在<code>intmainreturn0.com</code>反代IPFS访问</h2>
+
+<p>大多数人很难记住长长的<code>https://ipfs.io/ipns/fooooooooobbbbbbaaaaaaarrrrrrr</code>，而且<code>ipfs.io</code>随时有可能被墙，因此我们需要反代一下其的访问。</p>
+
+<p>反代需要我们本地跑一个<code>ipfs</code>和一个<code>caddy</code>，目录结构：</p>
+
+<pre><code>.
+|-- caddy
+|   `-- Caddyfile
+|-- docker-compose.yml
+`-- ipfs
+    |-- data # 空文件夹
+    `-- staging # 空文件夹
+</code></pre>
+
+<p><code>docker-compose.yml</code>:</p>
+
+<pre><code>version: '2'
+
+services:
+
+  ipfs:
+    image: jbenet/go-ipfs
+    restart: always
+    volumes:
+    - /home/htfy96/ipfs-stack/ipfs/staging:/export
+    - /home/htfy96/ipfs-stack/ipfs/data:/data/ipfs
+
+  caddy:
+    image: abiosoft/caddy
+    restart: always
+    volumes: 
+    - /home/htfy96/ipfs-stack/caddy/Caddyfile:/etc/Caddyfile
+    depends_on:
+    - ipfs
+    ports:
+    - 443:443
+</code></pre>
+
+<p><code>Caddyfile</code>:</p>
+
+<pre><code>gzip
+log stdout
+rewrite {
+	r (.*)
+	to /ipns/keyHash/{1}
+}
+
+proxy /ipns/keyHash ipfs:8080
+</code></pre>
+
+<p>最后直接<code>docker-compose up -d</code>就可以了，<code>Caddy</code>会自动解决TLS证书获取等问题。</p>
+
+<h2 id="总结">总结</h2>
+
+<p>目前来看，去中心化、效率与便利似乎三者中最多只能满足两者。要想让一般人也能用浏览器访问就必须要一个中心化的gateway，要想让作者随时随地上传就需要一个中心化的auto build/deploy系统。
+总体来看，转到了IPFS之后，控制权从最先的完全VPS owned，变成了Github / TravisCI / IPFS net / VPS 四方面共同拥有。好处是只要IPFS net不挂，历史上已经上传的东西都能找到；坏处是Github/Travis CI可以篡改内容，或者VPS挂了就不能反代访问。有利有弊需要权衡。</p>
+
+      </article>
+
+      <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="../../tags/ipfs">ipfs</a>
+        
+            ,&nbsp;
+            <a href="../../tags/%e8%bf%90%e7%bb%b4">运维</a>
+        
+            ,&nbsp;
+            <a href="../../tags/%e5%8c%ba%e5%9d%97%e9%93%be">区块链</a>
+        
+      </p>
+
+      
+<div id="disqus_thread">
+  <script type="text/javascript">
+     var disqus_shortname = "htfy96-blog";
+     var disqus_identifier = "\/blog\/%E8%BF%81%E7%A7%BB%E5%8D%9A%E5%AE%A2%E5%88%B0ipfs\/";
+
+     (function() {
+       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+</div>
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+      <nav class="social-icons icons">
+<a class="fa fa-rss rss" href="../../index.xml"></a>
+
+<a class="fa fa-twitter twitter" href="https://twitter.com/HTwood96"></a>
+
+</nav>
+
+          <small>
+            Copyright &#169; 2017<br>
+            Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll</a>
+          </small>
+        </div>
+      </div>
+    </footer>
+
+    
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+
+</body>
+</html>
+

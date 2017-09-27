@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>序列化 on int main() { return 0; } </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>/tags/%E5%BA%8F%E5%88%97%E5%8C%96/</link>
+    <language>zh-CN</language>
+    
+    
+    <updated>Wed, 10 Aug 2016 15:09:53 UTC</updated>
+    
+    <item>
+      <title>protobuf&amp;gRPC slides</title>
+      <link>/2016/08/10/protobufgrpc-slides/</link>
+      <pubDate>Wed, 10 Aug 2016 15:09:53 UTC</pubDate>
+      
+      <guid>/2016/08/10/protobufgrpc-slides/</guid>
+      <description>什么都没有 proto_grpc_2</description>
+    </item>
+    
+  </channel>
+</rss>
+
