@@ -7,6 +7,11 @@ services:
 env:
   global:
     - secure: "ByEJzOSXTOXi9zE5jpFJA6ctMKtR9jopdEEIHwZZPEf+OWGGn5taHBXDOF2JUPOaia7XaQ9DxzRqC2CN4aLxd8B7LC33OiPqTwkZa0ZgrIx2d5bqcDoPaorzqeOWRXRGuFEkcfG3Le65Nlt8Uu7MtAYzBg7ExNMBefAuUyi61LryZwz8QRM+XSL6eT4qMftR1VTeQf2UhQaTH/ywnqggh0WZ38EYksROYkkXVXADoBrIVMQSOWdSnWC4gBdQjRP78Z2KFXi7il89F6hZ1bVj6yq44ZM1GYjc7JB2BC+BH/kfD01lOc6v6k6OTrPQYA+VKV7R1DsrUE4Yh9BZvaISM4h6kAR0NuBOvWIaMM0c/C65rXqxedfPfHo/LyIxhD7fTwKFInwlPXfolB2By7j4CXQOWKB7cJqUC7jNv5ukztt4hfMqmq/yGC0/QSAsYDJUy76j70jmnDDrs5uGT4/oR94lpFxNcunhntoaCy5Sl72QVYAe2nnA0jIV77TigXqU/eC3FfV7RyXsFwXBCRsYXsygb3AYXoZxckTU0Kss3Cw1cb/LPJPNayIAzOMJrbxx0TyPZKFbshXD/Y4Atrxu84zt0L28ikcunV33AxMwIlNrKDU+nPwF87bmeQ7OexdUECE1QyB3JgYygsY+u3iM7n1pHsLrMLiKsDkEVwMV5zg="
+    - secure: "Hr5ICBvVJgD+lgEcnVPbO5nldc4oBrf3BOTQ3vnqejrEhTTqTBQ9ad0/W9i5SWm2adqAt9rLXJbD38+eJTEAbWEt/us6sRotktp68zcQkaJTDzCKNQzLeXtquSMly68iYr4lFXL8VG4PT+WKbkFETugitanjFg7NlIuNCNTYJmMjeD87oYjyRGvqtteY9pWsOUZvWoMiFnvn96vGjiEgqH0ocTDD+CqzKlUR9z0HI1uFXpY2Gcyw6MLiHxsOZG8z0vs1X4pmb7mee1QGMRZF9GfGrgdPmrN6X95bNa4q6G62+P5rTMTBB6oNTiiZyHGzeZNRbpKjK2lXxQ/mFsMvJtCnnsnFik+HFntQg/zD7CimWcarPfrY1ILtui3d3ViQgzCobN6FWK+uvNHOEg06uPtRyyA2VczU/fmcXEWSkaoWx6cJil791Mt3hr1dMfwAWjBoVXUGpCqk8/6rcUsiXr1uKZAWmnAa2FJTAUTd8yE1ziPcmjDnmU9xV037QTEFhn7o3zNRRWkb/CcpN+rnh9JbVRRHcgZIuRdb1cJcYybG420bFWH7m3aIxxIQHDxsgvndfQ7yrThz2+cwHg6bUSRbXKV1a7c+XoJO4A5P8Dr51FeBa/nDGL3VDjB55sYHteZeJZk17kXbGUefeKb4EdbRzoeCQFjwDr+Pd8r2zdg="
+    - GIT_DEPLOY_DIR=public
+    - GIT_DEPLOY_BRANCH=master
+    - GIT_DEPLOY_USERNAME="Travis CI"
+    - GIT_DEPLOY_EMAIL="vicluo96@gmail.com"
 branches:
   only:
     - master
@@ -27,6 +32,7 @@ install:
 script:
   - ./hugo -v
 after_success:
+  - bash ./deploy.sh
   - cp -r ./public ipfs/staging
   - export DATA_HASH=$(docker exec ipfs_host ipfs add -r /export/public/ | tail -1 | awk '{print $2}')
   - echo "DATA_HASH = $DATA_HASH"
