@@ -3,7 +3,7 @@
   <channel>
       <title>Grpc on int main() { return 0; } </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>/tags/grpc/</link>
+    <link>https://intmainreturn0.com/tags/grpc/</link>
     <language>zh-CN</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>protobuf&amp;gRPC slides</title>
-      <link>/2016/08/10/protobufgrpc-slides/</link>
+      <link>https://intmainreturn0.com/2016/08/10/protobufgrpc-slides/</link>
       <pubDate>Wed, 10 Aug 2016 15:09:53 UTC</pubDate>
       
-      <guid>/2016/08/10/protobufgrpc-slides/</guid>
+      <guid>https://intmainreturn0.com/2016/08/10/protobufgrpc-slides/</guid>
       <description>什么都没有 proto_grpc_2</description>
     </item>
     

@@ -3,7 +3,7 @@
   <channel>
       <title>Documentation on int main() { return 0; } </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>/tags/documentation/</link>
+    <link>https://intmainreturn0.com/tags/documentation/</link>
     <language>zh-CN</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>HadoopInternals</title>
-      <link>/2017/01/17/hadoopinternals/</link>
+      <link>https://intmainreturn0.com/2017/01/17/hadoopinternals/</link>
       <pubDate>Tue, 17 Jan 2017 15:43:08 UTC</pubDate>
       
-      <guid>/2017/01/17/hadoopinternals/</guid>
+      <guid>https://intmainreturn0.com/2017/01/17/hadoopinternals/</guid>
       <description>http://ercoppa.github.io/HadoopInternals/AnatomyMapReduceJob.html#yarn-and-mapreduce-interaction</description>
     </item>
     

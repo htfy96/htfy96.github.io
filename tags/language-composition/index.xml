@@ -3,7 +3,7 @@
   <channel>
       <title>Language Composition on int main() { return 0; } </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>/tags/language-composition/</link>
+    <link>https://intmainreturn0.com/tags/language-composition/</link>
     <language>zh-CN</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>language composition</title>
-      <link>/2016/07/11/language-composition/</link>
+      <link>https://intmainreturn0.com/2016/07/11/language-composition/</link>
       <pubDate>Mon, 11 Jul 2016 04:29:20 UTC</pubDate>
       
-      <guid>/2016/07/11/language-composition/</guid>
+      <guid>https://intmainreturn0.com/2016/07/11/language-composition/</guid>
       <description>http://soft-dev.org/pubs/pdf/barrett_bolz_diekmann_tratt__fine_grained_language_composition.pdf
 &amp;nbsp;</description>
     </item>

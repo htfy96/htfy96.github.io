@@ -3,7 +3,7 @@
   <channel>
       <title>About on int main() { return 0; } </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>/about/</link>
+    <link>https://intmainreturn0.com/about/</link>
     <language>zh-CN</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>About Me</title>
-      <link>/about/</link>
+      <link>https://intmainreturn0.com/about/</link>
       <pubDate>Thu, 09 Jun 2016 07:51:02 UTC</pubDate>
       
-      <guid>/about/</guid>
+      <guid>https://intmainreturn0.com/about/</guid>
       <description>男，1996年生。 高中合肥一中，大学SJTU。 没有妹子。</description>
     </item>
     

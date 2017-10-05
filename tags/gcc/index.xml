@@ -3,7 +3,7 @@
   <channel>
       <title>Gcc on int main() { return 0; } </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>/tags/gcc/</link>
+    <link>https://intmainreturn0.com/tags/gcc/</link>
     <language>zh-CN</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>GCC4.9是bug集中营吗。。。</title>
-      <link>/2016/07/19/gcc4-9%E6%98%AFbug%E9%9B%86%E4%B8%AD%E8%90%A5%E5%90%97/</link>
+      <link>https://intmainreturn0.com/2016/07/19/gcc4-9%E6%98%AFbug%E9%9B%86%E4%B8%AD%E8%90%A5%E5%90%97/</link>
       <pubDate>Tue, 19 Jul 2016 06:40:33 UTC</pubDate>
       
-      <guid>/2016/07/19/gcc4-9%E6%98%AFbug%E9%9B%86%E4%B8%AD%E8%90%A5%E5%90%97/</guid>
+      <guid>https://intmainreturn0.com/2016/07/19/gcc4-9%E6%98%AFbug%E9%9B%86%E4%B8%AD%E8%90%A5%E5%90%97/</guid>
       <description>https://gcc.gnu.org/bugzilla/show_bug.cgi?id=71874 这都能炸</description>
     </item>
     

@@ -3,7 +3,7 @@
   <channel>
       <title>Shell on int main() { return 0; } </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>/tags/shell/</link>
+    <link>https://intmainreturn0.com/tags/shell/</link>
     <language>zh-CN</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>扇贝批量加词（Shell script）</title>
-      <link>/2017/05/10/%E6%89%87%E8%B4%9D%E6%89%B9%E9%87%8F%E5%8A%A0%E8%AF%8Dshell-script/</link>
+      <link>https://intmainreturn0.com/2017/05/10/%E6%89%87%E8%B4%9D%E6%89%B9%E9%87%8F%E5%8A%A0%E8%AF%8Dshell-script/</link>
       <pubDate>Wed, 10 May 2017 11:43:35 UTC</pubDate>
       
-      <guid>/2017/05/10/%E6%89%87%E8%B4%9D%E6%89%B9%E9%87%8F%E5%8A%A0%E8%AF%8Dshell-script/</guid>
+      <guid>https://intmainreturn0.com/2017/05/10/%E6%89%87%E8%B4%9D%E6%89%B9%E9%87%8F%E5%8A%A0%E8%AF%8Dshell-script/</guid>
       <description>先每行一个写入words.txt，然后网页端加一个，开发者工具 &amp;#8211; 网络 &amp;#8211; Copy as curl，得到如下形式： curl &#39;https://www.shanbay.com/bdc/vocabulary/add/batch/?words=clerical&amp;_=1494415650964&#39; -H &#39;Host: www.shanbay.com&#39; -H &#39;User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:53.0) Gecko/20100101 Firefox/53.0&#39; -H &#39;Accept: application/json, text/javascript, */*; q=0.01&#39; -H</description>
     </item>
     

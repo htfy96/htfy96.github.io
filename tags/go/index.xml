@@ -3,7 +3,7 @@
   <channel>
       <title>Go on int main() { return 0; } </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>/tags/go/</link>
+    <link>https://intmainreturn0.com/tags/go/</link>
     <language>zh-CN</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>BakaGo</title>
-      <link>/2017/01/01/bakago/</link>
+      <link>https://intmainreturn0.com/2017/01/01/bakago/</link>
       <pubDate>Sat, 31 Dec 2016 16:08:25 UTC</pubDate>
       
-      <guid>/2017/01/01/bakago/</guid>
+      <guid>https://intmainreturn0.com/2017/01/01/bakago/</guid>
       <description>&lt;p&gt;BakaGo是作为期末AI作业的一个围棋Bot，由四位小组成员共同开发。主入口是&lt;a href=&#34;https://github.com/sjtu-ai-go/go-ai&#34;&gt;https://github.com/sjtu-ai-go/go-ai&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;名称来源：AlphaGo -&amp;gt; BetaGo(Github某项目，很弱) -&amp;gt; BataGo(拼写错误) -&amp;gt; BakaGo。&lt;/p&gt;

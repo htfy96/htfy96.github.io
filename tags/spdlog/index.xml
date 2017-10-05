@@ -3,7 +3,7 @@
   <channel>
       <title>Spdlog on int main() { return 0; } </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>/tags/spdlog/</link>
+    <link>https://intmainreturn0.com/tags/spdlog/</link>
     <language>zh-CN</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>spdlog的一些坑</title>
-      <link>/2017/02/01/spdlog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</link>
+      <link>https://intmainreturn0.com/2017/02/01/spdlog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</link>
       <pubDate>Tue, 31 Jan 2017 16:35:26 UTC</pubDate>
       
-      <guid>/2017/02/01/spdlog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</guid>
+      <guid>https://intmainreturn0.com/2017/02/01/spdlog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</guid>
       <description>&lt;p&gt;最近在用C++的这个spdlog库中遇到了一些坑……在这里写一下&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>

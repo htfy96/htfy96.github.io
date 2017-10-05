@@ -3,7 +3,7 @@
   <channel>
       <title>Simplex on int main() { return 0; } </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>/tags/simplex/</link>
+    <link>https://intmainreturn0.com/tags/simplex/</link>
     <language>zh-CN</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>Simplex</title>
-      <link>/blog/simplex/</link>
+      <link>https://intmainreturn0.com/blog/simplex/</link>
       <pubDate>Thu, 05 Oct 2017 19:28:42 &#43;0800</pubDate>
       
-      <guid>/blog/simplex/</guid>
+      <guid>https://intmainreturn0.com/blog/simplex/</guid>
       <description>一直想补没补…… Algorithm design课件101~142 不错的讲解与实际的奇技淫巧 模版题</description>
     </item>
     

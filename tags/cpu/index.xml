@@ -3,7 +3,7 @@
   <channel>
       <title>Cpu on int main() { return 0; } </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>/tags/cpu/</link>
+    <link>https://intmainreturn0.com/tags/cpu/</link>
     <language>zh-CN</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>Cache coherency primer</title>
-      <link>/2016/07/15/cache-coherency-primer/</link>
+      <link>https://intmainreturn0.com/2016/07/15/cache-coherency-primer/</link>
       <pubDate>Fri, 15 Jul 2016 02:13:22 UTC</pubDate>
       
-      <guid>/2016/07/15/cache-coherency-primer/</guid>
+      <guid>https://intmainreturn0.com/2016/07/15/cache-coherency-primer/</guid>
       <description>Cache coherency primer</description>
     </item>
     
