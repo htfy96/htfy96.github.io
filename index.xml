@@ -7,7 +7,16 @@
     <language>zh-CN</language>
     
     
-    <updated>Thu, 05 Oct 2017 19:28:42 &#43;0800</updated>
+    <updated>Tue, 10 Oct 2017 17:16:07 &#43;0800</updated>
+    
+    <item>
+      <title>Correct by Construction</title>
+      <link>https://intmainreturn0.com/blog/correct-by-construction/</link>
+      <pubDate>Tue, 10 Oct 2017 17:16:07 &#43;0800</pubDate>
+      
+      <guid>https://intmainreturn0.com/blog/correct-by-construction/</guid>
+      <description>http://wiki.c2.com/?CorrectByConstruction 似乎早就不是什么新名词了 + 已经BuzzWord（？）化了……不过还是有必要了解一下 读http://assured-cloud-comput</description>
+    </item>
     
     <item>
       <title>Simplex</title>
@@ -141,15 +150,6 @@
       
       <guid>https://intmainreturn0.com/2017/01/22/%E6%9C%80%E8%BF%91%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%B3%E4%BA%8Elinux%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%96%B9%E9%9D%A2%E7%9A%84%E6%96%87%E7%AB%A0/</guid>
       <description>多线程服务器的常用编程模型 &amp;#8211; 陈硕的Blog &amp;#8211; 博客频道 &amp;#8211; CSDN.NET 发布一个基于 Reactor 模式的 C++ 网络库 &amp;#8211; 陈硕的Blog &amp;#8211; 博客频道 &amp;#8211; CSDN.NET The C10K problem 关于SIGPIPE导</description>
-    </item>
-    
-    <item>
-      <title>HadoopInternals</title>
-      <link>https://intmainreturn0.com/2017/01/17/hadoopinternals/</link>
-      <pubDate>Tue, 17 Jan 2017 15:43:08 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/2017/01/17/hadoopinternals/</guid>
-      <description>http://ercoppa.github.io/HadoopInternals/AnatomyMapReduceJob.html#yarn-and-mapreduce-interaction</description>
     </item>
     
   </channel>
