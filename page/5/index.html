@@ -58,6 +58,47 @@
                         
                         
                             <div class="post">
+  <a class="post-link" href="https://intmainreturn0.com/2016/11/11/257/">
+  <p class="post-meta left">Nov 11, 2016</p>
+  <p class="post-author right">Written by htfy96</p>
+  <div class="clearfix"></div>
+  <h3 class="h2 post-title">Strict alising的坑 </h3>
+  <p class="post-summary"><h1 id="坑-span-id-a1getaljhng-class-abt-citation-noselect-mcenoneditable-data-reflist-quot-slrq9sjjd-quot-sup-1-sup-span">坑<span id="a1getaljhng" class="abt-citation noselect mceNonEditable" data-reflist="[&quot;slrq9sjjd&quot;]"><sup>1</sup></span></h1>
+
+<pre>int foo(int *x, long *y) {
+  *x = 0;
+  *y = 1;
+  return *x;
+}
+</pre>
+
+<p>会被优化成</p>
+
+<pre>foo2:   movl    $0, (%rdi)
+        xorl    %eax, %eax
+        movq    $1, (%rsi)
+        ret
+</pre>
+
+<p>因为编译器会认为，<a href="shttps://intmainreturn0.com/wp-admin/plugins.phptrong">shttps://intmainreturn0.com/wp-admin/plugins.phptrong</a>两个不能alising的指针，一定不会指向同一块内存区域，</strong>所以会推断出结果一定是0</p>
+
+<p>所以啊，之前网上很多(float *)(&amp;int_var)然后乱搞的做法都容易爆炸……</p>
+
+<p></p></p>
+  </a>
+  
+  <p class="post-meta">Tags:&nbsp;
+  
+      
+      <a href="https://intmainreturn0.com/tags/c&#43;&#43;">c&#43;&#43;</a>
+  
+      ,&nbsp;
+      <a href="https://intmainreturn0.com/tags/strict-aliasing">strict aliasing</a>
+  </p>
+</div>
+
+                        
+                            <div class="post">
   <a class="post-link" href="https://intmainreturn0.com/2016/10/30/sdn%E5%88%86%E5%B8%83%E5%BC%8F%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/">
   <p class="post-meta left">Oct 30, 2016</p>
   <p class="post-author right">Written by htfy96</p>
@@ -160,20 +201,6 @@
   
       ,&nbsp;
       <a href="https://intmainreturn0.com/tags/%E5%BA%8F%E5%88%97%E5%8C%96">序列化</a>
-  </p>
-</div>
-
-                        
-                            <div class="post">
-  <a class="post-link" href="https://intmainreturn0.com/2016/08/05//">
-  <p class="post-meta left">Aug 5, 2016</p>
-  <p class="post-author right">Written by htfy96</p>
-  <div class="clearfix"></div>
-  <h3 class="h2 post-title">？ </h3>
-  <p class="post-summary">http://music.163.com/#/song?id=767940 下学期还是不去实习了。。。感觉还需要学习一个……</p>
-  </a>
-  
-  <p class="post-meta">Tags:&nbsp;
   </p>
 </div>
 
