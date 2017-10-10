@@ -7,7 +7,16 @@
     <language>zh-CN</language>
     
     
-    <updated>Tue, 10 Oct 2017 17:16:07 &#43;0800</updated>
+    <updated>Tue, 10 Oct 2017 21:15:20 &#43;0800</updated>
+    
+    <item>
+      <title>2017 10 10 Scheduling Aliyun Lesson</title>
+      <link>https://intmainreturn0.com/blog/2017-10-10-scheduling-aliyun-lesson/</link>
+      <pubDate>Tue, 10 Oct 2017 21:15:20 &#43;0800</pubDate>
+      
+      <guid>https://intmainreturn0.com/blog/2017-10-10-scheduling-aliyun-lesson/</guid>
+      <description>https://edu.aliyun.com/course/31 虽然广告略多不过作为入门讲座还是不错的。 更多内容可以看之前搜集的一个Scheduling Algo Paper Collection on Zotero: https://api.zotero.org/users/2718444/collections/GUAS2Z6N/items/top?start=0&amp;amp;limit=25&amp;amp;format=atom&amp;amp;v=1&amp;amp;key=E3GieSbhHINhqkCVggs9PncS</description>
+    </item>
     
     <item>
       <title>Correct by Construction</title>
@@ -141,15 +150,6 @@
       <description>&lt;p&gt;最近在写 &lt;a href=&#34;https://github.com/htfy96/c10k-server&#34;&gt;https://github.com/htfy96/c10k-server&lt;/a&gt;一个玩具服务器。初步是打算采用一个主线程只Accept，然后把Accept的FD放到某个Worker的Eventloop里。每个WorkerThread跑一个Eventloop监听并处理事件。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>最近看的一些关于Linux服务端方面的文章</title>
-      <link>https://intmainreturn0.com/2017/01/22/%E6%9C%80%E8%BF%91%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%B3%E4%BA%8Elinux%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%96%B9%E9%9D%A2%E7%9A%84%E6%96%87%E7%AB%A0/</link>
-      <pubDate>Sun, 22 Jan 2017 09:54:05 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/2017/01/22/%E6%9C%80%E8%BF%91%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%B3%E4%BA%8Elinux%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%96%B9%E9%9D%A2%E7%9A%84%E6%96%87%E7%AB%A0/</guid>
-      <description>多线程服务器的常用编程模型 &amp;#8211; 陈硕的Blog &amp;#8211; 博客频道 &amp;#8211; CSDN.NET 发布一个基于 Reactor 模式的 C++ 网络库 &amp;#8211; 陈硕的Blog &amp;#8211; 博客频道 &amp;#8211; CSDN.NET The C10K problem 关于SIGPIPE导</description>
     </item>
     
   </channel>

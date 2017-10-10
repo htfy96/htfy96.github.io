@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Scheduling on int main() { return 0; } </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>https://intmainreturn0.com/tags/scheduling/</link>
+    <language>zh-CN</language>
+    
+    
+    <updated>Tue, 10 Oct 2017 21:15:20 &#43;0800</updated>
+    
+    <item>
+      <title>2017 10 10 Scheduling Aliyun Lesson</title>
+      <link>https://intmainreturn0.com/blog/2017-10-10-scheduling-aliyun-lesson/</link>
+      <pubDate>Tue, 10 Oct 2017 21:15:20 &#43;0800</pubDate>
+      
+      <guid>https://intmainreturn0.com/blog/2017-10-10-scheduling-aliyun-lesson/</guid>
+      <description>https://edu.aliyun.com/course/31 虽然广告略多不过作为入门讲座还是不错的。 更多内容可以看之前搜集的一个Scheduling Algo Paper Collection on Zotero: https://api.zotero.org/users/2718444/collections/GUAS2Z6N/items/top?start=0&amp;amp;limit=25&amp;amp;format=atom&amp;amp;v=1&amp;amp;key=E3GieSbhHINhqkCVggs9PncS</description>
+    </item>
+    
+  </channel>
+</rss>
+
