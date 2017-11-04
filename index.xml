@@ -7,7 +7,16 @@
     <language>zh-CN</language>
     
     
-    <updated>Tue, 10 Oct 2017 21:15:20 &#43;0800</updated>
+    <updated>Sat, 04 Nov 2017 17:45:00 &#43;0800</updated>
+    
+    <item>
+      <title>GLIBCXX_CONCEPT_CHECKS_</title>
+      <link>https://intmainreturn0.com/blog/glibcxx-concept-checks/</link>
+      <pubDate>Sat, 04 Nov 2017 17:45:00 &#43;0800</pubDate>
+      
+      <guid>https://intmainreturn0.com/blog/glibcxx-concept-checks/</guid>
+      <description>最近发现了libstdc++中的_GLIBCXX_CONCEPT_CHECKS这个宏，感觉很有意思……在此记录一下。 Introduction _GLIBCXX_CONCEPT_CHECKS, according to online doc of gcc, is a macro that</description>
+    </item>
     
     <item>
       <title>Scheduling Aliyun Lesson</title>
@@ -139,17 +148,6 @@
       
       <guid>https://intmainreturn0.com/2017/01/27/%E6%9F%90%E4%B8%AA%E6%96%B0%E5%B9%B4%E6%B8%B8%E6%88%8F/</guid>
       <description>http://codeworm96.coding.me/FooCard/ 其中的Hard mode，Bomb 和 bonus是我糊进去的，主体部分都 是@codeworm96 巨巨写的</description>
-    </item>
-    
-    <item>
-      <title>c10k-server方面的坑</title>
-      <link>https://intmainreturn0.com/2017/01/26/c10k-server%E6%96%B9%E9%9D%A2%E7%9A%84%E5%9D%91/</link>
-      <pubDate>Thu, 26 Jan 2017 07:18:10 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/2017/01/26/c10k-server%E6%96%B9%E9%9D%A2%E7%9A%84%E5%9D%91/</guid>
-      <description>&lt;p&gt;最近在写 &lt;a href=&#34;https://github.com/htfy96/c10k-server&#34;&gt;https://github.com/htfy96/c10k-server&lt;/a&gt;一个玩具服务器。初步是打算采用一个主线程只Accept，然后把Accept的FD放到某个Worker的Eventloop里。每个WorkerThread跑一个Eventloop监听并处理事件。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

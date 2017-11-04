@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <title>GLIBCXX_CONCEPT_CHECKS_ - int main() { return 0; }</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="https://intmainreturn0.com/blog/glibcxx-concept-checks/">
+
+  
+  <link rel="stylesheet" type="text/css" href="https://intmainreturn0.com/css/basscss.css">
+  <link rel="stylesheet" type="text/css" href="https://intmainreturn0.com/css/main.css">
+
+  
+  <link rel="stylesheet" type="text/css" href="https://intmainreturn0.com/css/highlight/styles/railscasts.css">
+
+  
+  <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Lato:900,400,300'> 
+  
+
+  
+
+  
+  
+
+</head>
+
+<body class="">
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="https://intmainreturn0.com" class="site-title">int main() { return 0; }</a>
+      <nav class="site-nav right">
+      <a href="https://intmainreturn0.com/about/">About</a>
+<a href="https://intmainreturn0.com/tags/">Tags</a>
+<a href="https://intmainreturn0.com/contact/">Contact</a>
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">GLIBCXX_CONCEPT_CHECKS_</h1>
+        <span class="post-meta">Nov 4, 2017 by htfy96</span><br>
+        
+      </div>
+
+      <article class="post-content">
+      
+
+<p>最近发现了libstdc++中的<code>_GLIBCXX_CONCEPT_CHECKS</code>这个宏，感觉很有意思……在此记录一下。</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p><code>_GLIBCXX_CONCEPT_CHECKS</code>, according to <a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/using_macros.html">online doc of gcc</a>,
+is a macro that performs compile-time checking on certain template instantiations to detect violations of the requirements of the standard. This macro has no effect for freestanding implementations.</p>
+
+<h2 id="example">Example</h2>
+
+<pre><code class="language-cpp">#include &lt;set&gt;
+
+struct A
+{
+    int a, b;
+};
+
+int main()
+{
+    std::set&lt;A&gt; h_a;
+    // h_a.insert(A { 1, 2 });
+};
+</code></pre>
+
+<p><code>std::set</code> requires <code>operator &lt;</code> defined on <code>A</code>, which is missing in our code.
+However, libstdc++ does not perform the check in the constructor of <code>std::set&lt;A&gt;</code>,
+thus the error is only raised when we call member functions(e.g. <code>insert</code>) that requires it. Such behavior prohibits early detection of unsatisfied constraints(e.g. <code>Compare</code>).</p>
+
+<h3 id="without-glibcxx-concept-checks">Without <code>_GLIBCXX_CONCEPT_CHECKS</code></h3>
+
+<h4 id="without-insert">Without <code>.insert</code></h4>
+
+<p>compiles without error</p>
+
+<h4 id="with-insert">With <code>.insert</code></h4>
+
+<pre><code>|| In file included from /usr/include/c++/7.2.0/bits/stl_tree.h:65:0,
+||                  from /usr/include/c++/7.2.0/set:60,
+||                  from /tmp/a.cpp:2:
+|| /usr/include/c++/7.2.0/bits/stl_function.h: In instantiation of ‘constexpr bool std::less&lt;_Tp&gt;::operator()(const _Tp&amp;, const _Tp&amp;) const [with _Tp = A]’:
+/usr/include/c++/7.2.0/bits/stl_tree.h|2038 col 11| required from ‘std::pair&lt;std::_Rb_tree_node_base*, std::_Rb_tree_node_base*&gt; std::_Rb_tree&lt;_Key, _Val, _KeyOfValue, _Compare, _Alloc&gt;::_M_get_insert_unique_pos(const key_type&amp;) [with _Key = A; _Val = A; _KeyOfValue = std::_Identity&lt;A&gt;; _Compare = std::less&lt;A&gt;; _Alloc = std::allocator&lt;A&gt;; std::_Rb_tree&lt;_Key, _Val, _KeyOfValue, _Compare, _Alloc&gt;::key_type = A]’
+/usr/include/c++/7.2.0/bits/stl_tree.h|2091 col 28| required from ‘std::pair&lt;std::_Rb_tree_iterator&lt;_Val&gt;, bool&gt; std::_Rb_tree&lt;_Key, _Val, _KeyOfValue, _Compare, _Alloc&gt;::_M_insert_unique(_Arg&amp;&amp;) [with _Arg = A; _Key = A; _Val = A; _KeyOfValue = std::_Identity&lt;A&gt;; _Compare = std::less&lt;A&gt;; _Alloc = std::allocator&lt;A&gt;]’
+/usr/include/c++/7.2.0/bits/stl_set.h|510 col 48| required from ‘std::pair&lt;typename std::_Rb_tree&lt;_Key, _Key, std::_Identity&lt;_Key&gt;, _Compare, typename __gnu_cxx::__alloc_traits&lt;_Alloc&gt;::rebind&lt;_Key&gt;::other&gt;::const_iterator, bool&gt; std::set&lt;_Key, _Compare, _Alloc&gt;::insert(std::set&lt;_Key, _Compare, _Alloc&gt;::value_type&amp;&amp;) [with _Key = A; _Compare = std::less&lt;A&gt;; _Alloc = std::allocator&lt;A&gt;; typename std::_Rb_tree&lt;_Key, _Key, std::_Identity&lt;_Key&gt;, _Compare, typename __gnu_cxx::__alloc_traits&lt;_Alloc&gt;::rebind&lt;_Key&gt;::other&gt;::const_iterator = std::_Rb_tree_const_iterator&lt;A&gt;; std::set&lt;_Key, _Compare, _Alloc&gt;::value_type = A]’
+/tmp/a.cpp|14 col 26| required from here
+/usr/include/c++/7.2.0/bits/stl_function.h|386 col 20 error| no match for ‘operator&lt;’ (operand types are ‘const A’ and ‘const A’)
+||        { return __x &lt; __y; }
+||                 ~~~~^~~~~
+// ...
+</code></pre>
+
+<h3 id="with-glibcxx-concept-checks">With <code>_GLIBCXX_CONCEPT_CHECKS</code></h3>
+
+<h4 id="without-insert-1">Without <code>.insert</code></h4>
+
+<pre><code>|| In file included from /usr/include/c++/7.2.0/bits/stl_tree.h:65:0,
+||                  from /usr/include/c++/7.2.0/set:60,
+||                  from /tmp/a.cpp:2:
+|| /usr/include/c++/7.2.0/bits/stl_function.h: In instantiation of ‘constexpr bool std::less&lt;_Tp&gt;::operator()(const _Tp&amp;, const _Tp&amp;) const [with _Tp = A]’:
+/usr/include/c++/7.2.0/bits/boost_concept_check.h|355 col 11| required from ‘void __gnu_cxx::_BinaryFunctionConcept&lt;_Func, _Return, _First, _Second&gt;::__constraints() [with _Func = std::less&lt;A&gt;; _Return = bool; _First = A; _Second = A]’
+/usr/include/c++/7.2.0/bits/stl_set.h|101 col 7| required from ‘class std::set&lt;A&gt;’
+/tmp/a.cpp|13 col 17| required from here
+/usr/include/c++/7.2.0/bits/stl_function.h|386 col 20 error| no match for ‘operator&lt;’ (operand types are ‘const A’ and ‘const A’)
+||        { return __x &lt; __y; }
+||                 ~~~~^~~~~
+...
+</code></pre>
+
+<h2 id="limitations">Limitations</h2>
+
+<p>According to <a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/ext_compile_checks.html">Compile Time Checks</a> in libstdc++ manual:</p>
+
+<blockquote>
+<p>Please note that the concept checks only validate the requirements of the old C++03 standard. C++11 was expected to have first-class support for template parameter constraints based on concepts in the core language. This would have obviated the need for the library-simulated concept checking described above, but was not part of C++11.</p>
+</blockquote>
+
+      </article>
+
+      <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="https://intmainreturn0.com/tags/c&#43;&#43;">c&#43;&#43;</a>
+        
+      </p>
+
+      
+
+<div id="disqus_thread"></div>
+<script>
+
+var disqus_config = function () {
+this.page.url = "https:\/\/intmainreturn0.com\/blog\/glibcxx-concept-checks\/";  
+this.page.identifier = "\/blog\/glibcxx-concept-checks\/";
+};
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://' + 'intmainreturn0-com' + ".disqus.com/embed.js";
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+      <nav class="social-icons icons">
+<a class="fa fa-rss rss" href="https://intmainreturn0.com/index.xml"></a>
+
+<a class="fa fa-twitter twitter" href="https://twitter.com/HTwood96"></a>
+
+</nav>
+
+          <small>
+            Copyright &#169; 2017<br>
+            Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll</a>
+          </small>
+        </div>
+      </div>
+    </footer>
+
+    
+    <script src="https://intmainreturn0.com/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+
+</body>
+</html>
+
