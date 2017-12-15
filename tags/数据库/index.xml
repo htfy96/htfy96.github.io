@@ -7,15 +7,15 @@
     <language>zh-CN</language>
     
     
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    <updated>Fri, 15 Dec 2017 13:36:00 &#43;0800</updated>
     
     <item>
       <title>Optimistic Concurrency Control</title>
       <link>https://intmainreturn0.com/blog/optimistic-cc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      <pubDate>Fri, 15 Dec 2017 13:36:00 &#43;0800</pubDate>
       
       <guid>https://intmainreturn0.com/blog/optimistic-cc/</guid>
-      <description>数据库大作业准备做CC方向的东西……一些备考的资料： - https://www.ijarcce.com/upload/2015/march-15/IJARCCE%2060.pdf 不错的综述 - http://www.agiledata.org/essays/concurrencyControl.html#Figure1OptimisticLocking Validation-based protocol…… See also http://www.cse.scu.edu/~jholliday/COEN317S05/RamirezSlides.ppt - http://blog.csdn.net/chen77716/article/details/6742128 MySQL的repetable read</description>
+      <description>数据库大作业准备做CC方向的东西……一些备考的资料： https://www.ijarcce.com/upload/2015/march-15/IJARCCE%2060.pdf 不错的综述 http://www.agiledata.org/essays/concurrencyControl.html#Figure1OptimisticLocking Validation-based protocol…… See also http://www.cse.scu.edu/~jholliday/COEN317S05/RamirezSlides.ppt http://blog.csdn.net/chen77716/article/details/6742128 MySQL的repetable read实现的</description>
     </item>
     
   </channel>
