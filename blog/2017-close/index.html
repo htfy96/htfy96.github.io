@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <title>2017 - int main() { return 0; }</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="https://htfy96.github.io/blog/2017-close/">
+
+  
+  <link rel="stylesheet" type="text/css" href="https://htfy96.github.io/css/basscss.css">
+  <link rel="stylesheet" type="text/css" href="https://htfy96.github.io/css/main.css">
+
+  
+  <link rel="stylesheet" type="text/css" href="https://htfy96.github.io/css/highlight/styles/railscasts.css">
+
+  
+  <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Lato:900,400,300'> 
+  
+
+  
+
+  
+  
+
+</head>
+
+<body class="">
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="https://htfy96.github.io" class="site-title">int main() { return 0; }</a>
+      <nav class="site-nav right">
+      <a href="https://htfy96.github.io/about/">About</a>
+<a href="https://htfy96.github.io/tags/">Tags</a>
+<a href="https://htfy96.github.io/contact/">Contact</a>
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">2017</h1>
+        <span class="post-meta">Dec 31, 2017 by htfy96</span><br>
+        
+      </div>
+
+      <article class="post-content">
+      
+
+<p>今年的确发生了很多事情，因此有必要在这里记录一下以防忘记。</p>
+
+<p>不像之前几篇，这篇打算写得稍微正式一些。</p>
+
+<h2 id="实习">实习</h2>
+
+<p>这学期从2月开始一直在贾老板的公司实习，一直到前天才离职。可以说在这个过程中代码倒是写了不少，也学到了很多东西：</p>
+
+<h3 id="vr浏览器">VR浏览器</h3>
+
+<p>前半段时间一直在做一个基于<a href="https://bitbucket.org/chromiumembedded/cef/">CEF (Chromium Embedding Framework)</a>的VR DE。基本上来说就是自己做了个Window manager渲染到d3d，然后窗口内容全部都是网页。系统的State全部通过JS暴露出来。</p>
+
+<p>具体效果大致是这样：
+<a href="https://getspace.io/#features"><img src="https://htfy96.github.io/img/blog/space.png" alt="getspace" /></a></p>
+
+<p>通过这个项目了解了一点DirectX、Chromium相关的东西，只能说这方面的烂坑太多、摊子太大。对着一个几百M的pdb调一个内部状态不一致的问题就能轻易花掉一整周的问题，而一些渲染API的效率问题、没暴露出来的接口的Hack则让开发更加困难。总之这是一个非常工(keng)程(duo)化(duo)的项目，也领会了在巨大的系统上搭积木的困难，具体来说，做了这些事情：</p>
+
+<ul>
+<li>自动把Youtube视频渲染到skybox</li>
+<li>书签管理器</li>
+<li>下载管理器</li>
+<li>渲染效率提升</li>
+<li>各种各样的烂坑填补</li>
+</ul>
+
+<h3 id="区块链">区块链</h3>
+
+<p>7月的时候去北京做了两个月区块链的相关工作，具体内容不方便细说。具体来说，这段时间改变了“所有人都可以发ICO圈钱”的想法，对于一个开放的行业，到了中后期几乎一定只有成熟的选手才能够分一杯羹。还有，山寨币的水的确很深，没有相关经验请不要涉足。</p>
+
+<p>技术上来说的话就是带了两个全职员工，每天主要任务从自己写代码变成了和PM谈笑风生、拆分问题、Code Review之类的，也面试了不少人。对初创的氛围倒是有了不少的了解。</p>
+
+<h3 id="渲染器">渲染器</h3>
+
+<p>9月到年末一直在写一个CPU实时渲染器。预期在workstation上能达到720p的120fps渲染。这是一个非常有挑战性的任务，思考一下如果每个像素用sizeof(float) * 3 = 12 bytes表示的话，120fps就意味着每秒光输出就要处理120 * 1280 * 720 * 12 = 1.33G，而DDR4 2133的Read throughput也就在5GBps上下，对于2.2Ghz 44core的workstation来说完全并行的话每个byte最多只能用72个cycle处理。而这还要保证渲染效果。</p>
+
+<p>虽然最后结果非常一般，不过还是贴下图吧，注意沙发靠背被GI（二次漫反射）照亮的部分，500k face模型在20 core上达到了25fps：</p>
+
+<p><img src="https://htfy96.github.io/img/blog/rendering-result.png" alt="rendering_results" /></p>
+
+<p>就效果而言，实现了：</p>
+
+<pre><code>L -&gt; (D|DD|S|R{0, 3}) -&gt; E
+L: 光源
+D: Diffuse，漫反射？
+DD：二次漫反射
+S: Specular，高光
+R: Reflection/Refrection，反射折射0～3次
+E：眼睛
+</code></pre>
+
+<p>的效果。</p>
+
+<p>技术的话，基本就是：</p>
+
+<ul>
+<li>Intel Embree做Intersection Engine</li>
+<li>D/DD/S 全部预先Bake好，DD用Monto-calo sampling Radiosity跑一个iter</li>
+<li>Rendering过程没有任何动态内存分配，全部在预分配的Buffer上</li>
+<li>对于关键部分使用<code>__builtin_prefetch</code>，<code>__unlikely</code>这样intrinsic榨干最后一点性能，开启一些神奇的编译flag（<code>-march=native -mrecip=all -ffast-math -fipa-pta</code>）之类的有奇效。向量运算基本是Eigen库，特别性能敏感的地方（比如说light map的lookup和interpolation）会手写汇编。<del>（手写的汇编能比gcc生成的快30%……是不是应该稍微骄傲一下（</del></li>
+<li>关键Buffer对齐到64bytes以防false sharing</li>
+<li>考虑到Cache locality对某些pass进行了合并，尽量顺序读取，同时做到了copy-free</li>
+<li>部分地方（比如说pow）可以用一些近似算法/查表会比<code>std</code>的快很多</li>
+</ul>
+
+<h1 id="自己的-课程项目">自己的/课程项目</h1>
+
+<p>说来惭愧，这年没花多少时间在其他项目上……</p>
+
+<h2 id="c10k-server">c10k-server</h2>
+
+<p>年初写的一个基于epoll的服务器模型，希望是从零开发，做到分层设计、便于理解而不是达到最佳性能。但是很糟糕的是，由于前期设计不是很合理，快写完的时候发现不太对，于是就陷入了江局和烂坑状态……不过这个东西足够让我找到了很多服务器编程相关的东西，也让我认识到了 <a href="https://idea.popcount.org/2017-02-20-epoll-is-fundamentally-broken-12/">epoll is fundamentally broken</a> 是多么的正确……</p>
+
+<p>这是一个基本设计和muduo类似的，基于one eventloop per thread模型的服务器，一个main thread只负责accept，然后把fd通过某种load balance的方式dispatch给worker thread，之后让那些worker thread去处理。说着很干净，但是一旦做起来就会有各种各样的坑要填……</p>
+
+<p>对于有志向的同学可以先看完<a href="https://htfy96.github.io/2017/01/22/%E6%9C%80%E8%BF%91%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%B3%E4%BA%8Elinux%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%96%B9%E9%9D%A2%E7%9A%84%E6%96%87%E7%AB%A0/">之前我在博客上</a>提的一些资料，可以少走一些弯路。</p>
+
+<h2 id="pic2emoji">pic2emoji</h2>
+
+<p>Hackathon项目，把图片转成emoji方便在消息通知里预览对方发的东西。<a href="https://github.com/hackx-sjtu-fish">链接</a> 没什么好说的……</p>
+
+<h2 id="static-map">Static-map</h2>
+
+<p>支持C++14的编译期immutable map，做了一大堆编译器兼容工作。本来打算申GSoC的，但是Mentor已经钦定了于是就挂了……</p>
+
+<p><a href="https://github.com/htfy96/gsoc-static-map">链接</a></p>
+
+<h2 id="future-predictor">future-predictor</h2>
+
+<p>炼丹预测期货价格……巨坑。<a href="https://github.com/htfy96/future-price-predictor">链接</a> 但没有数据似乎也用不了，先放在这里吧。</p>
+
+<h2 id="cumcm-b">cumcm-b</h2>
+
+<p>炼丹做数模的B题……果然因为太玄学挂了。<a href="https://github.com/htfy96/cumcm-b">链接</a></p>
+
+<h2 id="simpledb-kotlin">simpledb-kotlin</h2>
+
+<p>在一个teaching-purpose db上实现了一发简单的MVCC。有兴趣的话看上一篇文章和《InnoDB存储引擎》这本书，代码在<a href="https://github.com/htfy96/simpledb-kotlin">这里的optimistic-cc分支</a></p>
+
+<h1 id="学业">学业</h1>
+
+<h2 id="paper">Paper</h2>
+
+<p>今年中了篇巨水的投Globecom都被+1 +2 -2拒掉的scheduling方面的文章……整个东西都是在ddl -5d的时间内爆肝搞的，总之就这样吧。</p>
+
+<h2 id="申请">申请</h2>
+
+<p>话说回来，今年最重要的事情就是年末的申请了。花了非常多的时间在这个上面（整个10月～11月？）。还做了一个<a href="https://htfy96.github.io/is-rejected/">页面</a>来记录申请的情况。</p>
+
+<p>因为没有科研指望所以全申了就业型Master项目，而且除了少数几个基本都在加州和NYC。希望明年能中一个不太长的项目赶紧出去……以国内目前的形势而言，明年会发生什么还不好说。但将来肯定还是会回来谋求机会的，历史的进程还是阻挡不了啊。总之 Bless All 吧。</p>
+
+<p>不过，根据经验自己用力过猛的事情常常会糟……希望这次能打破这个诅咒。</p>
+
+<h2 id="课程">课程</h2>
+
+<p>今年上的课：</p>
+
+<ul>
+<li>数据挖掘：水/坑/就是预测期货价格的那个项目</li>
+<li>机器学习：课程还是挺好的，只是名字应该叫做《古代基础丹学》，最后大作业是打ML比赛</li>
+<li>计算机网络：课程有些过时了。前半部分自顶向下方法是给CS同学讲的挺好的，后半部分变成了给自动化同学讲的很多low-level的信号内容，也许分成两门课比较好？而且没有lab真的没问题吗</li>
+<li>DB：今年最好的课程之一，Kenny讲的还是挺清楚的，不过只有一些基础性的内容，3NF之类的东西似乎篇幅有点太多了，最后大作业没有几个题目和DB有关……</li>
+<li>安全：水水水</li>
+<li>NLP：基本就是随便讲讲……主要是NLP发展太快了，古代的一些奇技淫巧在现代炼丹术前完全没有价值了。期末是打SquAD数据集，其实就是复现论文</li>
+</ul>
+
+<h2 id="sjtug">SJTUG</h2>
+
+<p>这个应该是今年最遗憾的一个地方。各种事情的挤压下导致这方面投入的精力时间非常有限。希望寒假在学车之余还有时间能把这个补上。</p>
+
+<h2 id="看的一些书和资料">看的一些书和资料</h2>
+
+<p>说来惭愧今年也没看多少书与资料……</p>
+
+<ul>
+<li>《InnoDB存储引擎（第二版）》非常紧跟时代、工程化的DB书。但是同样继承了国内书缺乏宏观介绍的问题。建议先大概浏览一下章节目录，然后去网上查询topic的入门教材有个大概印象，再具体翻阅对应章节寻求印证以及工程实现。另外说一句MySQL（或者说MariaDB?）的代码真的是晦涩难懂……</li>
+<li>《深入理解Linux网络技术内幕》有点老了，只泛泛翻过 当成工具书lazy阅读似乎不错</li>
+<li>Database System Concept，DB概念不错的书</li>
+<li><a href="http://graphics.stanford.edu/courses/">http://graphics.stanford.edu/courses/</a> 不错的图形学课程，想写tracer的话看348B</li>
+<li><a href="http://www.cs.uu.nl/docs/vakken/magr/2017-2018/index.html">http://www.cs.uu.nl/docs/vakken/magr/2017-2018/index.html</a> Advanced Graphics。不过吐槽一句Utrecht University的Advanced Graphics内容其实只是Stanford 348B Image Synthesis Techniques这样一个topic course的子集……真是可怕</li>
+</ul>
+
+<h1 id="生活-2018">生活 &amp; 2018</h1>
+
+<p>今年因为有了（实习）收入之后生活质量稍微改善了一些。不过整天N点一线（$N \in {2, 3}$）的生活依旧没有变。基本上来说就是在吃饭睡觉写代码（@ 上班/寝室）看文章、nethack，偶尔赶论文的时候才会熬夜。总的来说的话，应该过得还算不错？不过作为给了充足的睡眠就能过得挺开心的那类也许要求并不算很高吧。或者说并没有打算尝试更多的活动？嘛……简单可依赖不仅仅代码应该如此，生活也比较倾向于这样，可有可无的东西倾向于剪枝丢掉。</p>
+
+<p>不过，2017的杂事还是创纪录的多。从这个角度来说还是怀念大二大三的时候可以安心做事？但是这些事情还是不可避免地会越来越多，希望明年自己能习惯吧。</p>
+
+<p>毕业之后的打算目前是两手准备，手里有着还算可以支持生活下去的工作offer可以让我安心拖延到明年二月再做决定。如果能够申到不错的留学项目的话就出去，毕竟现在汇率还是比较适合出国一波的。并不是奔着移民或者长期工作而选择出去，而是觉得应该去尝试更多的机会。毕竟谁能知道未来会发生什么呢。</p>
+
+<p>其实倾向于闷声研究的话还是比较适合去读PhD吧，但高中的一些事情已经让我在上大学前对学术彻底放弃了。所以，接下来会怎么样谁也说不好，<del>转quant也不是没有可能</del>。今年还碰到了一些和自己三观不太一致的人，所幸都在可以接受的范围之内，可以用different prior to different posterior来解释。至少目前这么做着的话还是挺满意开心的，如果让大学从头过一遍的话也没有什么特别更优的选择。</p>
+
+<p>未来的事情固然取决于自身的奋斗，但也要看历史的进程。在大举转ML的当下，做传统R&amp;D如何并没有固定的答案，毕竟局部最优和全局最优的差别还是很大的，况且对ML方向其实并不太感冒……只是觉得应该作为一个工具而不是目的。希望明年也能在自己的方向上做得安心吧，不管是在国外还是在国内，在读研还是在工作。这应该就是最大的愿望了。</p>
+
+      </article>
+
+      <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="https://htfy96.github.io/tags/%E6%80%BB%E7%BB%93">总结</a>
+        
+      </p>
+
+      
+
+<div id="disqus_thread"></div>
+<script>
+
+var disqus_config = function () {
+this.page.url = "https:\/\/htfy96.github.io\/blog\/2017-close\/";  
+this.page.identifier = "\/blog\/2017-close\/";
+};
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://' + 'intmainreturn0-com' + ".disqus.com/embed.js";
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+      <nav class="social-icons icons">
+<a class="fa fa-rss rss" href="https://htfy96.github.io/index.xml"></a>
+
+<a class="fa fa-twitter twitter" href="https://twitter.com/HTwood96"></a>
+
+</nav>
+
+          <small>
+            Copyright &#169; 2017<br>
+            Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll</a>
+          </small>
+        </div>
+      </div>
+    </footer>
+
+    
+    <script src="https://htfy96.github.io/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+
+</body>
+</html>
+

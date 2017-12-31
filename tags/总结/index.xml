@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>总结 on int main() { return 0; } </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>https://htfy96.github.io/tags/%E6%80%BB%E7%BB%93/</link>
+    <language>zh-CN</language>
+    
+    
+    <updated>Sun, 31 Dec 2017 15:23:00 CST</updated>
+    
+    <item>
+      <title>2017</title>
+      <link>https://htfy96.github.io/blog/2017-close/</link>
+      <pubDate>Sun, 31 Dec 2017 15:23:00 CST</pubDate>
+      
+      <guid>https://htfy96.github.io/blog/2017-close/</guid>
+      <description>今年的确发生了很多事情，因此有必要在这里记录一下以防忘记。 不像之前几篇，这篇打算写得稍微正式一些。 实习 这学期从2月开始一直在贾老板的公司实习</description>
+    </item>
+    
+  </channel>
+</rss>
+

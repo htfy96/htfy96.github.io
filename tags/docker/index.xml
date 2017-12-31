@@ -3,18 +3,18 @@
   <channel>
       <title>Docker on int main() { return 0; } </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://intmainreturn0.com/tags/docker/</link>
+    <link>https://htfy96.github.io/tags/docker/</link>
     <language>zh-CN</language>
     
     
-    <updated>Wed, 08 Feb 2017 13:39:00 UTC</updated>
+    <updated>Wed, 08 Feb 2017 13:39:00 &#43;0000</updated>
     
     <item>
       <title>利用Docker的自定义网络来管理ip绑定</title>
-      <link>https://intmainreturn0.com/2017/02/08/%E5%88%A9%E7%94%A8docker%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E7%BB%9C%E6%9D%A5%E7%AE%A1%E7%90%86ip%E7%BB%91%E5%AE%9A/</link>
-      <pubDate>Wed, 08 Feb 2017 13:39:00 UTC</pubDate>
+      <link>https://htfy96.github.io/2017/02/08/%E5%88%A9%E7%94%A8docker%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E7%BB%9C%E6%9D%A5%E7%AE%A1%E7%90%86ip%E7%BB%91%E5%AE%9A/</link>
+      <pubDate>Wed, 08 Feb 2017 13:39:00 &#43;0000</pubDate>
       
-      <guid>https://intmainreturn0.com/2017/02/08/%E5%88%A9%E7%94%A8docker%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E7%BB%9C%E6%9D%A5%E7%AE%A1%E7%90%86ip%E7%BB%91%E5%AE%9A/</guid>
+      <guid>https://htfy96.github.io/2017/02/08/%E5%88%A9%E7%94%A8docker%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E7%BB%9C%E6%9D%A5%E7%AE%A1%E7%90%86ip%E7%BB%91%E5%AE%9A/</guid>
       <description>&lt;p&gt;Docker最近推出了&lt;code&gt;docker network&lt;/code&gt;的功能，允许用户自己创建网络。刚好手头合租了一台服务器想试试。&lt;/p&gt;
 
 &lt;p&gt;这台服务器有4个公网ip（173.208.194.202,203,205,206/29）。我单独占了个173.208.194.205。我期待的效果是：这个docker network内创建的容器，默认会publish到173.208.194.205（即外界连.205:port也能访问到映射的容器）；并且容器内对外connect时，默认的localaddr也是.205。&lt;/p&gt;
