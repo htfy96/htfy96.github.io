@@ -7,12 +7,12 @@
     <language>zh-CN</language>
     
     
-    <updated>Wed, 20 Sep 2017 05:43:45 &#43;0000</updated>
+    <updated>Wed, 20 Sep 2017 05:43:45 UTC</updated>
     
     <item>
       <title>How Twitch uses PostgreSQL</title>
       <link>https://htfy96.github.io/2017/09/20/how-twitch-uses-postgresql/</link>
-      <pubDate>Wed, 20 Sep 2017 05:43:45 &#43;0000</pubDate>
+      <pubDate>Wed, 20 Sep 2017 05:43:45 UTC</pubDate>
       
       <guid>https://htfy96.github.io/2017/09/20/how-twitch-uses-postgresql/</guid>
       <description>https://blog.twitch.tv/how-twitch-uses-postgresql-c34aa9e56f58</description>

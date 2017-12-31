@@ -7,12 +7,12 @@
     <language>zh-CN</language>
     
     
-    <updated>Tue, 31 Jan 2017 16:35:26 &#43;0000</updated>
+    <updated>Tue, 31 Jan 2017 16:35:26 UTC</updated>
     
     <item>
       <title>spdlog的一些坑</title>
       <link>https://htfy96.github.io/2017/02/01/spdlog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</link>
-      <pubDate>Tue, 31 Jan 2017 16:35:26 &#43;0000</pubDate>
+      <pubDate>Tue, 31 Jan 2017 16:35:26 UTC</pubDate>
       
       <guid>https://htfy96.github.io/2017/02/01/spdlog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</guid>
       <description>&lt;p&gt;最近在用C++的这个spdlog库中遇到了一些坑……在这里写一下&lt;/p&gt;

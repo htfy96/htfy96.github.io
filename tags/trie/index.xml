@@ -7,12 +7,12 @@
     <language>zh-CN</language>
     
     
-    <updated>Fri, 15 Jul 2016 04:54:17 &#43;0000</updated>
+    <updated>Fri, 15 Jul 2016 04:54:17 UTC</updated>
     
     <item>
       <title>TRASH A dynamic LC-trie and hash data structure</title>
       <link>https://htfy96.github.io/2016/07/15/trash-a-dynamic-lc-trie-and-hash-data-structure/</link>
-      <pubDate>Fri, 15 Jul 2016 04:54:17 &#43;0000</pubDate>
+      <pubDate>Fri, 15 Jul 2016 04:54:17 UTC</pubDate>
       
       <guid>https://htfy96.github.io/2016/07/15/trash-a-dynamic-lc-trie-and-hash-data-structure/</guid>
       <description>http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.96.2143 传统Trie的优化。 path compression: 连续若干个只有一个孩子节点可以压成一个 LC（level compression）：若某一节点下面第k层的子树都非空，</description>
