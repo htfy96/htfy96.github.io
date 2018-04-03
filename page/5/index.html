@@ -58,6 +58,26 @@
                         
                         
                             <div class="post">
+  <a class="post-link" href="https://htfy96.github.io/2017/01/17/hadoopinternals/">
+  <p class="post-meta left">Jan 17, 2017</p>
+  <p class="post-author right">Written by htfy96</p>
+  <div class="clearfix"></div>
+  <h3 class="h2 post-title">HadoopInternals </h3>
+  <p class="post-summary">http://ercoppa.github.io/HadoopInternals/AnatomyMapReduceJob.html#yarn-and-mapreduce-interaction</p>
+  </a>
+  
+  <p class="post-meta">Tags:&nbsp;
+  
+      
+      <a href="https://htfy96.github.io/tags/documentation">documentation</a>
+  
+      ,&nbsp;
+      <a href="https://htfy96.github.io/tags/hadoop">hadoop</a>
+  </p>
+</div>
+
+                        
+                            <div class="post">
   <a class="post-link" href="https://htfy96.github.io/2017/01/08/%E5%86%99%E7%82%B9c-user-defined-literals%E7%9A%84%E5%A5%87%E6%80%AA%E6%AD%A3%E5%B8%B8%E7%94%A8%E9%80%94/">
   <p class="post-meta left">Jan 8, 2017</p>
   <p class="post-author right">Written by htfy96</p>
@@ -173,47 +193,6 @@ W 3,0
   
       ,&nbsp;
       <a href="https://htfy96.github.io/tags/%E6%BC%AB%E5%B1%95">漫展</a>
-  </p>
-</div>
-
-                        
-                            <div class="post">
-  <a class="post-link" href="https://htfy96.github.io/2016/11/11/257/">
-  <p class="post-meta left">Nov 11, 2016</p>
-  <p class="post-author right">Written by htfy96</p>
-  <div class="clearfix"></div>
-  <h3 class="h2 post-title">Strict alising的坑 </h3>
-  <p class="post-summary"><h1 id="坑-span-id-a1getaljhng-class-abt-citation-noselect-mcenoneditable-data-reflist-quot-slrq9sjjd-quot-sup-1-sup-span">坑<span id="a1getaljhng" class="abt-citation noselect mceNonEditable" data-reflist="[&quot;slrq9sjjd&quot;]"><sup>1</sup></span></h1>
-
-<pre>int foo(int *x, long *y) {
-  *x = 0;
-  *y = 1;
-  return *x;
-}
-</pre>
-
-<p>会被优化成</p>
-
-<pre>foo2:   movl    $0, (%rdi)
-        xorl    %eax, %eax
-        movq    $1, (%rsi)
-        ret
-</pre>
-
-<p>因为编译器会认为，<a href="shttps://intmainreturn0.com/wp-admin/plugins.phptrong">shttps://intmainreturn0.com/wp-admin/plugins.phptrong</a>两个不能alising的指针，一定不会指向同一块内存区域，</strong>所以会推断出结果一定是0</p>
-
-<p>所以啊，之前网上很多(float *)(&amp;int_var)然后乱搞的做法都容易爆炸……</p>
-
-<p></p></p>
-  </a>
-  
-  <p class="post-meta">Tags:&nbsp;
-  
-      
-      <a href="https://htfy96.github.io/tags/c&#43;&#43;">c&#43;&#43;</a>
-  
-      ,&nbsp;
-      <a href="https://htfy96.github.io/tags/strict-aliasing">strict aliasing</a>
   </p>
 </div>
 

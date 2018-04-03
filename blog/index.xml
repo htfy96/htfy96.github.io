@@ -7,7 +7,16 @@
     <language>zh-CN</language>
     
     
-    <updated>Sun, 31 Dec 2017 15:23:00 &#43;0800</updated>
+    <updated>Tue, 03 Apr 2018 14:55:00 &#43;0800</updated>
+    
+    <item>
+      <title>Raft学习记录</title>
+      <link>https://htfy96.github.io/blog/raft-notes/</link>
+      <pubDate>Tue, 03 Apr 2018 14:55:00 &#43;0800</pubDate>
+      
+      <guid>https://htfy96.github.io/blog/raft-notes/</guid>
+      <description>最近在跟着做6.824的Spring lab。目前做到了lab2，要求实现一个简易的Raft协议。在学习过程中遇到了很多困难，直接看Raft的</description>
+    </item>
     
     <item>
       <title>2017</title>
@@ -137,15 +146,6 @@
 &lt;p&gt;这台服务器有4个公网ip（173.208.194.202,203,205,206/29）。我单独占了个173.208.194.205。我期待的效果是：这个docker network内创建的容器，默认会publish到173.208.194.205（即外界连.205:port也能访问到映射的容器）；并且容器内对外connect时，默认的localaddr也是.205。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>微信的一些网络方面的资料</title>
-      <link>https://htfy96.github.io/2017/02/03/327/</link>
-      <pubDate>Fri, 03 Feb 2017 09:23:23 UTC</pubDate>
-      
-      <guid>https://htfy96.github.io/2017/02/03/327/</guid>
-      <description>微信客户端怎样应对弱网络 微信Mars — 移动互联网下的高质量网络连接探索 能控制的部分： 传输层 + 应用层 传输层：TCP在移动设备上可以优化：重传策</description>
     </item>
     
   </channel>

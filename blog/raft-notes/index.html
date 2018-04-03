@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <title>Raft学习记录 - int main() { return 0; }</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="https://htfy96.github.io/blog/raft-notes/">
+
+  
+  <link rel="stylesheet" type="text/css" href="https://htfy96.github.io/css/basscss.css">
+  <link rel="stylesheet" type="text/css" href="https://htfy96.github.io/css/main.css">
+
+  
+  <link rel="stylesheet" type="text/css" href="https://htfy96.github.io/css/highlight/styles/railscasts.css">
+
+  
+  <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Lato:900,400,300'> 
+  
+
+  
+
+  
+  
+
+</head>
+
+<body class="">
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="https://htfy96.github.io" class="site-title">int main() { return 0; }</a>
+      <nav class="site-nav right">
+      <a href="https://htfy96.github.io/about/">About</a>
+<a href="https://htfy96.github.io/tags/">Tags</a>
+<a href="https://htfy96.github.io/contact/">Contact</a>
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">Raft学习记录</h1>
+        <span class="post-meta">Apr 3, 2018 by htfy96</span><br>
+        
+      </div>
+
+      <article class="post-content">
+      
+
+<p>最近在跟着做6.824的Spring lab。目前做到了lab2，要求实现一个简易的Raft协议。在学习过程中遇到了很多困难，直接看Raft的那篇Extended paper对于我这种智力-2的选手太难了。因此我看了很多资料，整理了一个个人认为比较适合的阅读顺序：</p>
+
+<h2 id="paxos基础">Paxos基础</h2>
+
+<ul>
+<li><a href="https://www.wikiwand.com/en/Paxos_(computer_science)">Paxos Wiki</a> 介绍了Basic Paxos/Multi Paxos，有大量的图示讲解，能够建立一个overview</li>
+<li><a href="https://ramcloud.stanford.edu/~ongaro/userstudy/paxos.pdf">Stanford Paxos Slides</a>主要看Paxos的来源以及Multi Paxos的各种优化</li>
+</ul>
+
+<h2 id="raft基础">Raft基础</h2>
+
+<ul>
+<li><a href="http://thesecretlivesofdata.com/raft/">Raft visualization</a> 可视化Raft的一个大致过程</li>
+<li><a href="https://www.infoq.com/presentations/raft">InfoQ Raft Introduction</a> 更细致一些的visualization与Log Replica过程</li>
+<li><a href="https://ramcloud.stanford.edu/~ongaro/userstudy/raft.pdf">Stanford Raft Slides</a> Raft论文的压缩版</li>
+<li><a href="https://ramcloud.stanford.edu/~ongaro/userstudy/quizzes.html">Paxos &amp; Raft Quiz</a> 做做题确认自己理解了上面的内容</li>
+<li><a href="https://pdos.csail.mit.edu/6.824/papers/raft-extended.pdf">Raft original paper (extended)</a> 补足Slides中没有提到的部分</li>
+</ul>
+
+<h2 id="工程实践">工程实践</h2>
+
+<ul>
+<li><a href="http://oceanbase.org.cn/?p=90">Oceanbase的Paxos三部曲</a></li>
+<li><a href="https://segmentfault.com/a/1190000008674222">TiDB的Raft优化</a></li>
+<li><a href="https://thesquareplanet.com/blog/students-guide-to-raft/">Students&rsquo; Guide to Raft</a> 6.824助教记录下来的一些坑</li>
+</ul>
+
+      </article>
+
+      <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="https://htfy96.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F">分布式</a>
+        
+            ,&nbsp;
+            <a href="https://htfy96.github.io/tags/6.824">6.824</a>
+        
+      </p>
+
+      
+
+<div id="disqus_thread"></div>
+<script>
+
+var disqus_config = function () {
+this.page.url = "https:\/\/htfy96.github.io\/blog\/raft-notes\/";  
+this.page.identifier = "\/blog\/raft-notes\/";
+};
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://' + 'intmainreturn0-com' + ".disqus.com/embed.js";
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+      <nav class="social-icons icons">
+<a class="fa fa-rss rss" href="https://htfy96.github.io/index.xml"></a>
+
+<a class="fa fa-twitter twitter" href="https://twitter.com/HTwood96"></a>
+
+</nav>
+
+          <small>
+            Copyright &#169; 2017<br>
+            Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll</a>
+          </small>
+        </div>
+      </div>
+    </footer>
+
+    
+    <script src="https://htfy96.github.io/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+
+</body>
+</html>
+
