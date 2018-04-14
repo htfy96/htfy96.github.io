@@ -7,7 +7,16 @@
     <language>zh-CN</language>
     
     
-    <updated>Wed, 08 Feb 2017 13:39:00 UTC</updated>
+    <updated>Sat, 14 Apr 2018 23:55:00 &#43;0800</updated>
+    
+    <item>
+      <title>博弈论入门/在网络方面的应用</title>
+      <link>https://htfy96.github.io/blog/game-theory-in-network/</link>
+      <pubDate>Sat, 14 Apr 2018 23:55:00 &#43;0800</pubDate>
+      
+      <guid>https://htfy96.github.io/blog/game-theory-in-network/</guid>
+      <description>https://asu.mit.edu/sites/default/files/presentations/ISIT08-tutorial.pdf</description>
+    </item>
     
     <item>
       <title>利用Docker的自定义网络来管理ip绑定</title>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Network on int main() { return 0; } </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>https://htfy96.github.io/tags/network/</link>
+    <language>zh-CN</language>
+    
+    
+    <updated>Sat, 14 Apr 2018 23:55:00 &#43;0800</updated>
+    
+    <item>
+      <title>博弈论入门/在网络方面的应用</title>
+      <link>https://htfy96.github.io/blog/game-theory-in-network/</link>
+      <pubDate>Sat, 14 Apr 2018 23:55:00 &#43;0800</pubDate>
+      
+      <guid>https://htfy96.github.io/blog/game-theory-in-network/</guid>
+      <description>https://asu.mit.edu/sites/default/files/presentations/ISIT08-tutorial.pdf</description>
+    </item>
+    
+  </channel>
+</rss>
+
