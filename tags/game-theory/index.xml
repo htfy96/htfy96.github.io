@@ -3,7 +3,7 @@
   <channel>
       <title>Game Theory on int main() { return 0; } </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://htfy96.github.io/tags/game-theory/</link>
+    <link>https://intmainreturn0.com/tags/game-theory/</link>
     <language>zh-CN</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>博弈论入门/在网络方面的应用</title>
-      <link>https://htfy96.github.io/blog/game-theory-in-network/</link>
+      <link>https://intmainreturn0.com/blog/game-theory-in-network/</link>
       <pubDate>Sat, 14 Apr 2018 23:55:00 &#43;0800</pubDate>
       
-      <guid>https://htfy96.github.io/blog/game-theory-in-network/</guid>
+      <guid>https://intmainreturn0.com/blog/game-theory-in-network/</guid>
       <description>https://asu.mit.edu/sites/default/files/presentations/ISIT08-tutorial.pdf</description>
     </item>
     

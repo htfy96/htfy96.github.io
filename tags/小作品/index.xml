@@ -3,7 +3,7 @@
   <channel>
       <title>小作品 on int main() { return 0; } </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://htfy96.github.io/tags/%E5%B0%8F%E4%BD%9C%E5%93%81/</link>
+    <link>https://intmainreturn0.com/tags/%E5%B0%8F%E4%BD%9C%E5%93%81/</link>
     <language>zh-CN</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>写点C&#43;&#43; user defined literals的奇怪（正常）用途</title>
-      <link>https://htfy96.github.io/2017/01/08/%E5%86%99%E7%82%B9c-user-defined-literals%E7%9A%84%E5%A5%87%E6%80%AA%E6%AD%A3%E5%B8%B8%E7%94%A8%E9%80%94/</link>
+      <link>https://intmainreturn0.com/2017/01/08/%E5%86%99%E7%82%B9c-user-defined-literals%E7%9A%84%E5%A5%87%E6%80%AA%E6%AD%A3%E5%B8%B8%E7%94%A8%E9%80%94/</link>
       <pubDate>Sun, 08 Jan 2017 12:17:48 UTC</pubDate>
       
-      <guid>https://htfy96.github.io/2017/01/08/%E5%86%99%E7%82%B9c-user-defined-literals%E7%9A%84%E5%A5%87%E6%80%AA%E6%AD%A3%E5%B8%B8%E7%94%A8%E9%80%94/</guid>
+      <guid>https://intmainreturn0.com/2017/01/08/%E5%86%99%E7%82%B9c-user-defined-literals%E7%9A%84%E5%A5%87%E6%80%AA%E6%AD%A3%E5%B8%B8%E7%94%A8%E9%80%94/</guid>
       <description>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
 &lt;p&gt;之前写的围棋程序的测试中，我们常常需要vector&amp;lt; { Player, Point } &amp;gt; pieceToPlace。问题在于，如果我们硬编码这个vector，可读性很差：&lt;/p&gt;

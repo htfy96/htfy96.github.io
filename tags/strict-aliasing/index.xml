@@ -3,7 +3,7 @@
   <channel>
       <title>Strict Aliasing on int main() { return 0; } </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://htfy96.github.io/tags/strict-aliasing/</link>
+    <link>https://intmainreturn0.com/tags/strict-aliasing/</link>
     <language>zh-CN</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>Strict alising的坑</title>
-      <link>https://htfy96.github.io/2016/11/11/257/</link>
+      <link>https://intmainreturn0.com/2016/11/11/257/</link>
       <pubDate>Fri, 11 Nov 2016 14:59:04 UTC</pubDate>
       
-      <guid>https://htfy96.github.io/2016/11/11/257/</guid>
+      <guid>https://intmainreturn0.com/2016/11/11/257/</guid>
       <description>&lt;h1 id=&#34;坑-span-id-a1getaljhng-class-abt-citation-noselect-mcenoneditable-data-reflist-quot-slrq9sjjd-quot-sup-1-sup-span&#34;&gt;坑&lt;span id=&#34;a1getaljhng&#34; class=&#34;abt-citation noselect mceNonEditable&#34; data-reflist=&#34;[&amp;quot;slrq9sjjd&amp;quot;]&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;&lt;/h1&gt;
 
 &lt;pre&gt;int foo(int *x, long *y) {

@@ -3,7 +3,7 @@
   <channel>
       <title>Scheduling on int main() { return 0; } </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://htfy96.github.io/tags/scheduling/</link>
+    <link>https://intmainreturn0.com/tags/scheduling/</link>
     <language>zh-CN</language>
     
     
@@ -11,19 +11,19 @@
     
     <item>
       <title>博弈论入门/在网络方面的应用</title>
-      <link>https://htfy96.github.io/blog/game-theory-in-network/</link>
+      <link>https://intmainreturn0.com/blog/game-theory-in-network/</link>
       <pubDate>Sat, 14 Apr 2018 23:55:00 &#43;0800</pubDate>
       
-      <guid>https://htfy96.github.io/blog/game-theory-in-network/</guid>
+      <guid>https://intmainreturn0.com/blog/game-theory-in-network/</guid>
       <description>https://asu.mit.edu/sites/default/files/presentations/ISIT08-tutorial.pdf</description>
     </item>
     
     <item>
       <title>Scheduling Aliyun Lesson</title>
-      <link>https://htfy96.github.io/blog/scheduling-aliyun-lesson/</link>
+      <link>https://intmainreturn0.com/blog/scheduling-aliyun-lesson/</link>
       <pubDate>Tue, 10 Oct 2017 21:15:20 &#43;0800</pubDate>
       
-      <guid>https://htfy96.github.io/blog/scheduling-aliyun-lesson/</guid>
+      <guid>https://intmainreturn0.com/blog/scheduling-aliyun-lesson/</guid>
       <description>https://edu.aliyun.com/course/31 虽然广告略多不过作为入门讲座还是不错的。 更多内容可以看之前搜集的一个Scheduling Algo Paper Collection on Zotero: https://api.zotero.org/users/2718444/collections/GUAS2Z6N/items/top?start=0&amp;amp;limit=25&amp;amp;format=atom&amp;amp;v=1&amp;amp;key=E3GieSbhHINhqkCVggs9PncS</description>
     </item>
     
