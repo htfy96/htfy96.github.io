@@ -7,7 +7,16 @@
     <language>zh-CN</language>
     
     
-    <updated>Tue, 03 Apr 2018 14:55:00 &#43;0800</updated>
+    <updated>Sun, 30 Dec 2018 13:21:00 -0700</updated>
+    
+    <item>
+      <title>2018</title>
+      <link>https://intmainreturn0.com/tags/2018/</link>
+      <pubDate>Sun, 30 Dec 2018 13:21:00 -0700</pubDate>
+      
+      <guid>https://intmainreturn0.com/tags/2018/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>6.824</title>
@@ -42,6 +51,15 @@
       <pubDate>Fri, 15 Jul 2016 02:13:22 UTC</pubDate>
       
       <guid>https://intmainreturn0.com/tags/cache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cdn</title>
+      <link>https://intmainreturn0.com/tags/cdn/</link>
+      <pubDate>Sat, 14 Apr 2018 23:55:00 &#43;0800</pubDate>
+      
+      <guid>https://intmainreturn0.com/tags/cdn/</guid>
       <description></description>
     </item>
     
@@ -123,24 +141,6 @@
       <pubDate>Tue, 19 Jul 2016 06:40:33 UTC</pubDate>
       
       <guid>https://intmainreturn0.com/tags/gcc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Go</title>
-      <link>https://intmainreturn0.com/tags/go/</link>
-      <pubDate>Sat, 31 Dec 2016 16:08:25 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Grpc</title>
-      <link>https://intmainreturn0.com/tags/grpc/</link>
-      <pubDate>Wed, 10 Aug 2016 15:09:53 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/tags/grpc/</guid>
       <description></description>
     </item>
     

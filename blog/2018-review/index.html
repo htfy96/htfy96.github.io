@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <title>2018 - int main() { return 0; }</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="https://intmainreturn0.com/blog/2018-review/">
+
+  
+  <link rel="stylesheet" type="text/css" href="https://intmainreturn0.com/css/basscss.css">
+  <link rel="stylesheet" type="text/css" href="https://intmainreturn0.com/css/main.css">
+
+  
+  <link rel="stylesheet" type="text/css" href="https://intmainreturn0.com/css/highlight/styles/railscasts.css">
+
+  
+  <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Lato:900,400,300'> 
+  
+
+  
+
+  
+  
+
+</head>
+
+<body class="">
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="https://intmainreturn0.com" class="site-title">int main() { return 0; }</a>
+      <nav class="site-nav right">
+      <a href="https://intmainreturn0.com/about/">About</a>
+<a href="https://intmainreturn0.com/tags/">Tags</a>
+<a href="https://intmainreturn0.com/cv">Resume</a>
+<a href="https://intmainreturn0.com/contact/">Contact</a>
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">2018</h1>
+        <span class="post-meta">Dec 30, 2018 by htfy96</span><br>
+        
+      </div>
+
+      <article class="post-content">
+      
+
+<p>今年的总结打算用另一种形式来理。看看今年机子里每个月修改了哪些文件，大致就能知道今年做了啥，最后再来总结一下。</p>
+
+<h1 id="每月做了什么">每月做了什么</h1>
+
+<p>命令在下面，先建立一个空目录再执行：</p>
+
+<pre><code class="language-sh">find ~/Downloads ~/Documents ~/Pictures ~/code ~/code/git -mtime -365 -maxdepth 1 -printf '%TY-%Tm|%p\n' | sort | awk 'BEGIN { FS=&quot;|&quot; }; { system(&quot;mkdir -p &quot; $1); system(&quot;ln -s -t &quot; $1 &quot; \&quot;&quot; $2 &quot;\&quot;&quot;) }'
+</code></pre>
+
+<h2 id="1月">1月</h2>
+
+<ul>
+<li><code>6.824/</code> 一月跟着把6.824分布式系统的那个lab写完了一半，也看了推荐的一些paper。感觉至少这一块入了门，不至于犯一些低级错误。花了不少时间调试，分布式系统果然很难搞……</li>
+<li><code>book.mixu.net-Distributed systems.pdf</code> 这是那个时候hackernews上推荐的distrbuted system, for fun and profit，可以从 <a href="http://book.mixu.net/distsys/ebook.html">http://book.mixu.net/distsys/ebook.html</a> 下载。篇幅不长 感觉作为入门纲要和字典用比较适合？</li>
+<li><code>Sources.txt</code> 翻了一下里面的内容是当时machine learning时不同模型的描述。当时的lab是做SQuAD。由于并不是炼丹方向，大家当时也没打算花很多时间搞NLP模型，于是最后就变成了从网上下载N个模型然后分别自己训……最后ensemble一下各个模型就完事了……没想到因为报告吹的比较好拿了一个很高的分数，果然sjtu的课程质量还是药丸……和去年的围棋AI花了很多功夫结果拿了低分形成了鲜明对比</li>
+</ul>
+
+<h2 id="2月">2月</h2>
+
+<ul>
+<li><code>20171024153546_本科生毕业设计（论文）开题报告.doc</code> 毕业论文开题报告。说实话在这个时候并没有什么能做出有意思东西的期望。domain已经是非常老的东西，估计也做不出什么进展了，只是因为之前在上面花了不少时间而抱着善始善终的态度在做。</li>
+<li><code>english_transcript-optiver.png</code> 2月面了Optiver，给了个不小的package。当时还是有点心动的，不过看了看上司一水的北美dalao想想就放弃了。而且一直做这行总感觉有点白上了不少CS的课……</li>
+<li><code>sjtug-poster.png</code>: <img src="https://i.loli.net/2018/12/31/5c293d869859c.png" alt="sjtug-poster" style="width:20rem;display:block"/> SJTUG 2018招新的poster。摸鱼摸了三年，到了最后一次招新了。花了不少功夫去做了个展板，结果当天因为风太大立不住…… 不管怎么说还是招到了很多感兴趣的同学，接下来的事情就得交给下一任社长了。希望free software和linux这两个old brand还能在现在这个情况吸引到同学。</li>
+<li><code>Document 2_2.jpg</code> 护照。这个时候已经收到UCSD的AD了。有了可以接受的一个去处之后心定了不少，基本进入了毕业摸鱼阶段。</li>
+<li><code>银河系搭车客指南5部曲 道格拉斯 亚当斯.pdf</code> 补完了经典作品，推荐！</li>
+</ul>
+
+<h2 id="3月">3月</h2>
+
+<ul>
+<li><code>8241761665_99a49158e4_o.jpg</code> <img src="https://i.loli.net/2018/12/31/5c2941718c119.jpg" alt="mesa-dorm" style="width:20rem; display:block"> 学校宿舍的照片。当时看到非常满意，谁也没想到后面排到现在也没排上……</li>
+<li><code>decline-ucd.pdf</code> 拒了之前的UCD funded master letter。这个professor的方向说实话我是很感兴趣的，而且也和lyft有着很好的联系；不过自己已经不再打算科研了，而且还是打算在faang做几年技术（一个大flag）再说。现在看来其实还是有点后悔？lyft做security的前景可能比想象的要好很多。主要问题是ucd的专排还是有点低，也许去了之后其他公司的机会会变少？很难预料。</li>
+<li><code>leetcode-solutions</code> 当时以为自己刷了两百多道其实就够了，实际上不是最优解/没有限时完成的练习效率还是很低。leetcode还是要经常刷……</li>
+</ul>
+
+<h2 id="4月">4月</h2>
+
+<ul>
+<li><code>18UCSD新生手册.zip</code> 接了offer（其实本来还以为会拿到更多的（小声），gpa和科研还是很菜）</li>
+<li><code>fsfs-zh.pdf</code> <a href="https://fsfs-zh.readthedocs.io/zh/latest/">《自由软件、自由社会》</a> 虽然例子有点过时，不过用来传教还是不错的（。顺带一提，在经历了几次隐私泄漏和各种各样的丑闻之后 hackernews folks 总算对自由软件的好感又回来了一点点……</li>
+<li><code>9781482263503_googlepreview.pdf</code> Shui Yu, Xiaodong Lin, Jelena Misic, and Xuemin Sherman Shen. 2015. Networking for Big Data. Chapman &amp; Hall/CRC. 写的还行的old field的综述。发现自己毕设中的搞法都是别人在10+年前搞过而且比自己搞得好很多的时候，还是有点怀疑自己智商了（。做毕设的一个月。</li>
+</ul>
+
+<h2 id="5月">5月</h2>
+
+<ul>
+<li><code>_0000068 副本.JPG</code> 毕业照（</li>
+<li><code>pierce-2016.pdf</code> software foundations。咕咕咕（明年会填的</li>
+<li><code>class.txt</code>：</li>
+</ul>
+
+<blockquote>
+<p>求问学长学姐第一学期选这些课怎么样？workload会很大吗？有没有不推荐选的教授/课程？</p>
+
+<ul>
+<li>CSE 224 - Graduate Networked Systems with Prof. George Porter</li>
+<li>CSE 230 - Principles of Programming Languages with Prof. Sorin Lerner</li>
+<li>CSE 232 - Principles of Database Systems with Prof. Arun Kumar</li>
+</ul>
+</blockquote>
+
+<p>事实证明这几门课确实是相对比较水的几个（</p>
+
+<ul>
+<li><code>2018_5_19 下午7_56 Office Lens.jpg</code> <img src="https://i.loli.net/2018/12/31/5c29483ee1543.jpg" alt="present" style="width:20rem; display:block"> 大佬送的毕业礼物 羡慕（</li>
+<li><code>120413509.htm</code> 文本复制检测报告单。毕设+答辩完成。这个查重系统对于英文只识别出了空格……</li>
+</ul>
+
+<h2 id="6月">6月</h2>
+
+<ul>
+<li><code>bysj/</code> 毕业设计彻底结束。毕业了。</li>
+<li><code>cryptotravel/</code> 用区块链产生随机数决定毕业旅行地点。非常成功。（懒得自己决定就丢给一个外界因素去决定，现代版的抛硬币？</li>
+<li><code>Crypto 101.pdf</code> <a href="https://www.crypto101.io/">https://www.crypto101.io/</a> 。很好的密码学入门读物。</li>
+<li><code>IMG_20180605_002848_1528162674744.jpg</code> <img src="https://i.loli.net/2018/12/31/5c294aade410c.jpg" alt="no-heuristic" style="width:20rem; display:block"> 失败的科研结束，再也不想做科研了（</li>
+</ul>
+
+<h2 id="7月">7月</h2>
+
+<ul>
+<li><code>Linkedin_2018_06_Case.pdf</code> 开始进入找工模式。地里看了不少面经也开始找人修改简历。谁能猜到后来linkedin直接群发了AOE把我的面试取消了……真的是玄学（</li>
+<li><code>d-rlib/</code> 因为暑假过于无聊就打算下学期找点事做做。刚好对D比较感兴趣，看到它们有一个项目可以funding就开始做。结果越做越发现底层的编译器/stdlib奥妙重重不好做，加之F1签证期间收入比较麻烦有风险，所以最后咕咕咕了</li>
+<li><code>Screenshot from 2018-07-29 16-01-56.png</code> <img src="https://i.loli.net/2018/12/31/5c294d2ea6e19.png" alt="codejam-kickstart-round-d-result" style="width:20rem; display:block"> 打了轮Codejam Kickstart Round D。好久没有打比赛状态非常差……而且事实证明最后这个排名对google招聘没有任何帮助（</li>
+</ul>
+
+<h2 id="8月">8月</h2>
+
+<ul>
+<li><code>Twitter 2018-2019 University Recruiting...ing Challenge -- powered by HackerRank.pdf</code> 耍猴Twitter的OA 就当练手了（</li>
+<li><code>Screenshot from 2018-08-28 21-45-34.png</code> <img src="https://i.loli.net/2018/12/31/5c294fbc20f05.png" alt="google foobar" style="width:20rem; display:block"> Google foobar做完了所有level，但是好像后来也没起到什么作用……还是要靠内推</li>
+<li><code>[PT][学习][152126].外研社英语口语权威教程.torrent</code> 并没有什么用，口语依旧很差</li>
+<li><code>5b.ppt</code> Portland state university CS410/CS510 - Advanced Topics in Concurrency 的课件。虽然有点老，但是还是保持了（前）毛子地区课程一贯的硬核……</li>
+<li><code>signedDocument16046460.pdf</code> 现在公寓的合同。放弃排学校宿舍。现在看来是个明智的决定：要想排两个人的房子比登天还难（</li>
+</ul>
+
+<h2 id="9月">9月</h2>
+
+<ul>
+<li><code>booking.ics</code> 到San Diego第一晚的Airbnb预订。第一次到美帝人生地不熟出了很多岔子（包括不知道过马路要按灯，第一次等了好久，还好是在大清早），不过总算在前几天安顿了下来。</li>
+<li><code>Ad for Student Interns C Development.pdf</code> ECE教授发的让学生写几个课程lab的boilerplate的招聘启事……结果没想到有100+人申请最后就招了两个……可以说在大家第一学期都没法校外打工的情况下是非常内卷了</li>
+<li><code>coverletter-*</code> 针对每个公司花了不少功夫写coverletter 结果似乎并没有什么作用。应该是技术栈太奇怪了，所以一般的厂很少需要招我这种人（菜醒</li>
+<li><code>Google_Employment_Application_Zheng_Luo_vicl.pdf</code> Google算是前几个给面试的公司（都靠dalao催） 万幸后来没出什么岔子，才在这么惨淡的找工季没有彻底失败（</li>
+</ul>
+
+<h2 id="10月">10月</h2>
+
+<ul>
+<li><code>mock_2.txt</code> 帮了不少同学做mock，自己也有不少收获。但是现在的问题是很多公司面试都不给（</li>
+<li><code>cheat_paper.pdf</code> 期中考试。感觉还行（</li>
+<li><code>hw4-cse224_cwd_zl</code> 224的lab，组队的时候有点急躁 （和当年的围棋一样），也许还是自己做project比较好？不过之后的都还行（</li>
+<li><code>CV-template</code> 第一波找工基本失败 于是又魔改了一下简历投了第二波。感觉似乎好了一点？简历的影响也可能没有那么大。这个时候google进pool了，但是过了几周也没match上有点慌</li>
+</ul>
+
+<h2 id="11月">11月</h2>
+
+<ul>
+<li><code>english-word-frequency.zip</code> Hulu的神奇OA。玩hangman猜字母游戏。搞了一个language model弄出了不错的准确率。然而刚提交就有别的同学说只剩测试的坑位了，凉凉</li>
+<li><code>UnsignedDocument.pdf</code> google总算钦定完成避免了失业，想想也是稍微有点惨。至少找实习这件事情算是结了。</li>
+<li><code>antelopecanyon-9.jpg.optimal.jpg</code> 计划羚羊谷的旅行，没想到最后因为咕咕咕都没去成</li>
+</ul>
+
+<h2 id="12月">12月</h2>
+
+<ul>
+<li><code>academichistoryreviewpdf.pdf</code> 成绩单。第一学期还好没出什么太大的岔子。</li>
+<li><code>linux/</code> 既然要做kernel还是要先熟悉一下相关的东西。读了一段时间代码，感想就是真的很脏……不过只要能跑也不管那么多了。看看接下来几个月能不能交一两个有实质意义的patch到上游</li>
+<li><code>oj/</code> 又补了两场cf的题，感觉好久没打比赛状态下滑得非常厉害……</li>
+<li><code>uinst/</code> 最后几天研究了一下binary instrumentation，打算在intel pin上面做几个strace/perf trace/thread fuzz之类的功能练手</li>
+</ul>
+
+<h1 id="总结">总结</h1>
+
+<h2 id="找工">找工</h2>
+
+<p>（基本）拿到offer的包括：</p>
+
+<ul>
+<li>VMWare 的cloud native</li>
+<li>Kneron的DL system（做程序优化）</li>
+<li>Ascend.io的infra，基本就是在cloud上部署他们自己的集群+做监控</li>
+<li>Google的kernel swe，全靠钦定</li>
+<li>Slack的ops</li>
+</ul>
+
+<p>感觉比较失败了……找工中遇到了几个问题需要改进：</p>
+
+<ul>
+<li>技术栈不明确/不符合业界需求：在蚂蚁金服做的那个ACS现在看来只能证明对docker本身很熟，但需求量大的工作岗位有的是deployment engineer需要懂k8s怎么操作，有的是在k8s上开发或者魔改，docker底层的虚拟化相关的一套东西其实需求量并不是很大。看来明年得研究一下k8s凑几个相关的经验了(resume-oriented study)。而C++高性能计算现在则多要和分布式系统结合起来，单机的基本只有做DL的才会要，缺乏领域相关的经验是一大问题。</li>
+<li>FB投的太早了。事实证明FB基本还是要靠刷题，还要是刷的非常流畅的那种……同时也非常看脸，如果状态不好/题不熟的话就会因为时间不够而挂掉。之后得多补一补FB题库了</li>
+<li>老印口语+电话质量差：经过几个面试之后+CSE232老师的一学期讲课，现在已经有点熟悉了。之后能约hangout就约hangout，至少不会因为T-mobile的信号而中间突然断掉（</li>
+</ul>
+
+<h2 id="技术">技术</h2>
+
+<p>技术上明年接着研究一下kernel的一些东西，然后尝试多写写system的代码，把uinst坑填掉。除此之外得再补一下k8s，多做些开源贡献，毕竟kernel/纯system方向的坑还是太少了，之前docker相关的东西彻底丢掉也有些浪费。另一个点就是把分布式系统相关的资料再补掉，糊完6.824的坑。如果有时间的话写个玩具type 2 hypervisor。</p>
+
+<h2 id="生活">生活</h2>
+
+<p>说实话在美帝的生活状态和在国内基本没什么区别……主要的困难是没有车很难转转有意思的地方，而这些地方往往又相隔很远，所以宅在家成为了主要选择。感觉得日常出去走走。</p>
+
+<p>另外这边的主要娱乐活动就成了convoy约饭，算下来也吃了convoy的好多家店了，推荐 <a href="https://github.com/byshen/sdfood">https://github.com/byshen/sdfood</a> 这个repo，和我的评价非常接近。</p>
+
+<p>宅得太久感觉心理会容易出问题，在做group project的时候和很多其他的事情上感觉都能暴露出来。不管是自己还是其他人，来年有空还是应该多social一下</p>
+
+<p>做饭很难，不过有了烤箱+锡纸会容易很多。</p>
+
+<p><del>尝试做了很多改变</del>改不动了 下学期需要多打打羽毛球之类的锻炼一下</p>
+
+<div style="font-size:0.8rem;color:white;line-height:1rem;cursor:default;">[don't tell others if you find this] 尝试着进行了一次交往……感觉和年龄与自己差不多的人聊天的感觉和比起前两次有着很多差别，比较省心。当然在这个过程中也暴露出了自己的很多问题，之前也发现了，不过在和其他人在一起的时候果然还会更明显……虽然不是很擅长，下一年希望可以改掉这些问题，能以放松的心态来做人做事而不是习惯性地push别人（</div>
+
+      </article>
+
+      <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="https://intmainreturn0.com/tags/%E6%80%BB%E7%BB%93">总结</a>
+        
+            ,&nbsp;
+            <a href="https://intmainreturn0.com/tags/2018">2018</a>
+        
+      </p>
+
+      
+
+<div id="disqus_thread"></div>
+<script>
+
+var disqus_config = function () {
+this.page.url = "https:\/\/intmainreturn0.com\/blog\/2018-review\/";  
+this.page.identifier = "\/blog\/2018-review\/";
+};
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://' + 'intmainreturn0-com' + ".disqus.com/embed.js";
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+      <nav class="social-icons icons">
+<a class="fa fa-rss rss" href="https://intmainreturn0.com/index.xml"></a>
+
+<a class="fa fa-twitter twitter" href="https://twitter.com/HTwood96"></a>
+
+</nav>
+
+          <small>
+            Copyright &#169; 2017<br>
+            Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll</a>
+          </small>
+        </div>
+      </div>
+    </footer>
+
+    
+    <script src="https://intmainreturn0.com/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+
+</body>
+</html>
+
