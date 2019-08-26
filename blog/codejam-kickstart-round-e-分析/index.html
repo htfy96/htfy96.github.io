@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <title>CodeJam Kickstart Round E 分析 - int main() { return 0; }</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="https://intmainreturn0.com/blog/codejam-kickstart-round-e-%E5%88%86%E6%9E%90/">
+
+  
+  <link rel="stylesheet" type="text/css" href="https://intmainreturn0.com/css/basscss.css">
+  <link rel="stylesheet" type="text/css" href="https://intmainreturn0.com/css/main.css">
+
+  
+  <link rel="stylesheet" type="text/css" href="https://intmainreturn0.com/css/highlight/styles/railscasts.css">
+
+  
+  <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Lato:900,400,300'> 
+  
+
+  
+
+  
+  
+
+</head>
+
+<body class="">
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="https://intmainreturn0.com" class="site-title">int main() { return 0; }</a>
+      <nav class="site-nav right">
+      <a href="https://intmainreturn0.com/about/">About</a>
+<a href="https://intmainreturn0.com/tags/">Tags</a>
+<a href="https://intmainreturn0.com/cv">Resume</a>
+<a href="https://intmainreturn0.com/contact/">Contact</a>
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">CodeJam Kickstart Round E 分析</h1>
+        <span class="post-meta">Aug 25, 2019 by htfy96</span><br>
+        
+      </div>
+
+      <article class="post-content">
+      
+
+<p>最近总算空出了点时间玩算法竞赛（虽然是菜鸡Kickstart版本）。很多东西都已经记不住了导致没时间写Q3了。先写前两题题解吧。</p>
+
+<h1 id="cherries-mesh">Cherries Mesh</h1>
+
+<h2 id="题意">题意</h2>
+
+<p>给定&lt;=10^5个点，完全图，两两之间由权重为1的黑边或权重为2的红边相连。给定&lt;=10^5条黑边。求最小生成树权重。</p>
+
+<h2 id="解法">解法</h2>
+
+<p>大致是Kruskal，首先把所有黑边跑一遍，add if getfa(a) != getfa(b)。如果有n_k条黑边被add，那么结果就是n_k + (N - 1 - n_k) * 2</p>
+
+<h2 id="代码">代码</h2>
+
+<pre><code class="language-cpp">#define T_ long long  
+#define fuck(s_) {cout&lt;&lt;s_&lt;&lt;endl;return 0;} 
+#define printarr(a_,x_) rep(i_,x_)cout&lt;&lt;a_[i_]&lt;&lt;&quot; &quot;;cout&lt;&lt;endl; 
+#define printarr0(a_,x_) rep0(i_,x_)cout&lt;&lt;a_[i_]&lt;&lt;&quot; &quot;;cout&lt;&lt;endl; 
+#define printarr2(a_,x_,y_) rep(i_,x_){rep(j_,y_)cout&lt;&lt;a_[i_][j_]&lt;&lt;' ';cout&lt;&lt;endl;} 
+#define printarr20(a_,x_,y_) rep0(i_,x_){rep0(j_,y_)cout&lt;&lt;a[i_][j_]&lt;&lt;' ';cout&lt;&lt;endl;} 
+#define rep2o(a_,b_,n_) rep(a_,n_) re(b_,a_+1,n_) 
+#define rep20o(a_,b_,n_) rep0(a_,n_) re0(b_,a_+1,n_) 
+#define rep2(a_,b_,p_,q_) rep(a_,p_) rep(b_,q_)
+#define rep20(a_,b_,p_,q_) rep0(a_,p_) rep0(b_,q_) 
+#define rrep2(a_,b_,p_,q_) rrep(a_,p_) rrep(b_,q_)
+#define rrep20(a_,b_,p_,q_) rrep0(a_,p_) rrep0(b_,q_)
+#define rep3(a_,b_,c_,p_,q_,r_) rep(a_,p_) rep(b_,q_) rep(c_,r_)
+#define rep30(a_,b_,c_,p_,q_,r_) rep0(a_,p_) rep0(b_,q_) rep0(c_,r_)
+#define rrep3(a_,b_,c_,p_,q_,r_) rrep(a_,p_) rrep(b_,q_) rrep(c_,r_)
+#define rrep30(a_,b_,c_,p_,q_,r_) rrep0(a_,p_) rrep0(b_,q_) rrep0(c_,r_)
+#define rep(a_,x_) re(a_,1,x_) 
+#define rep0(a_,x_) re0(a_,0,x_) 
+#define rrep(a_,x_) rre(a_,x_,1) 
+#define rrep0(a_,x_) rre(a_,x_-1,0) 
+#define re(a_,s_,t_) for(T_ a_=s_;a_&lt;=t_;++a_) 
+#define re0(a_,s_,t_) for(T_ a_=s_;a_&lt;t_;++a_) 
+#define rre(a_,s_,t_) for(T_ a_=s_;a_&gt;=t_;--a_)
+#define rre0(a_,s_,t_) for(T_ a_=s_;a_&gt;t_;--a_)
+#define repit(a_,c_) for(__typeof__(a_.begin()) c_=a_.begin();c_!=a_.end();++c_) 
+#define nosync std::ios::sync_with_stdio(false);std::cin.tie(0);ios_base::sync_with_stdio(0) 
+#define DE false 
+#define de(s_) if(DE){s_ } 
+#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstdlib&gt;
+#include &lt;cstring&gt;
+#include &lt;string&gt;
+#include &lt;cmath&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+#include &lt;vector&gt;
+#include &lt;deque&gt;
+#include &lt;list&gt;
+#include &lt;set&gt;
+#include &lt;numeric&gt;
+#include &lt;bitset&gt;
+#include &lt;fstream&gt;
+#include &lt;iomanip&gt;
+#include &lt;sstream&gt;
+#include &lt;ctime&gt;
+#include &lt;stack&gt;
+#include &lt;queue&gt;
+#include &lt;cassert&gt;
+#include &lt;climits&gt;
+#pragma GCC optimize(&quot;O2&quot;)
+using namespace std;
+#define endl '\n'
+const int dx4[] = {-1, 0, 1, 0};
+const int dy4[] = {0, 1, 0, -1};  
+const long long modb=1000000007;  
+const long inf=0x3f3f3f3f;      
+const double oo=1e15;           
+const double eps=1e-8;          
+const double pi=acos(-1.0);     
+template&lt;typename T&gt; void clr(T* a_,int n_=0,size_t s_=-1) {if (s_==-1) s_=sizeof(a_); memset(a_,n_,sizeof(a_[0])*s_); }  
+template&lt;typename T&gt; T sqr(T a_) { return a_*a_; }  
+template&lt;typename T&gt; T cub(T a_) { return a_*a_*a_; }  
+inline T_ mf(T_ n_) {return ((n_&lt;0)?n_+(modb&lt;&lt;2):n_)%modb; }  
+template&lt;typename T&gt;T max(T a_,T b_,T c_) { return max(a_,max(b_,c_)); } 
+template&lt;typename T&gt;T min(T a_,T b_,T c_) { return min(a_,min(b_,c_)); } 
+inline int dbcmp(double a_, double b_) { return (fabs(a_-b_)&lt;eps)?0:(a_&lt;b_?-1:1); } 
+inline double dbdiv(T_ a_, T_ b_) { return static_cast&lt;double&gt;(a_) / b_; } 
+inline double angle(double x_, double y_) { if (x_==0.0) return y_&gt;0?pi/2:3*pi/2; else { double t_=atan2(y_,x_); return (t_&lt;0.0?t_+pi:t_) + y_&lt;0?pi:0.0; }} 
+/******************************************************************************************/
+
+vector&lt;int&gt; fa;
+
+int getfa(int v) {
+    int t = v;
+    while (fa[t] != t)
+        t = fa[t];
+    fa[v] = t;
+    return t;
+}
+
+void merge(int a, int b) {
+    fa[getfa(a)] = getfa(b);
+}
+
+int main()
+{
+    int T;
+    nosync;
+    cin &gt;&gt; T;
+    rep(tt, T) {
+        int n, m;
+        cin &gt;&gt; n &gt;&gt; m;
+        fa.clear();
+        fa.resize(n+1);
+        rep(i, n)
+            fa[i] = i;
+        int used = 0;
+        while (m--) {
+            int st, ed;
+            cin &gt;&gt; st &gt;&gt; ed;
+            if (getfa(st) != getfa(ed))
+            {
+                ++used;
+                merge(st, ed);
+            }
+        }
+        int ans = used + (n - 1 - used) * 2;
+        cout &lt;&lt; &quot;Case #&quot; &lt;&lt; tt &lt;&lt; &quot;: &quot; &lt;&lt; ans &lt;&lt; endl;
+    }
+}
+</code></pre>
+
+<h1 id="code-eat-switcher">Code-Eat Switcher</h1>
+
+<h2 id="题意-1">题意</h2>
+
+<p>给定S个time slot，每个slot中可以选择一个百分比f_i来做事情C ： 能完成f_i * C_i单位的事情C；剩下的(1 - f_i)做事情E：能完成(1 - f_i) * E_i的事件E。</p>
+
+<p>总共能完成的事件C是 Sum(f_i * C_i) 单位。总共能完成的事件E是 Sum( (1 - f_i) * E_i ) 单位。</p>
+
+<p>给定D个询问，每个询问是(Q_c, Q_e)表示是否存在一种f_i的选择，使得总完成的事件C &gt;= Q_c and 总完成的事件E &gt;= Q_e。</p>
+
+<p>S &lt;= 10^5, D &lt;= 10^5</p>
+
+<h2 id="解法-1">解法</h2>
+
+<p>简单来说对于每个询问我们就是要判断下列不等式是否有解：</p>
+
+<pre><code>Sum (f_i * C_i) &gt;= Q_c
+Sum ((1 - f_i) * E_i) &gt;= Q_e
+0 &lt;= f_i &lt;= 1
+</code></pre>
+
+<p>本来想直接套单纯形法模版的，但是最后一个式子会让式子数目变成O(S)所以不行。</p>
+
+<p>变形一下：</p>
+
+<pre><code>Sum (f_i * C_i) &gt;= Q_c ............(1)
+Sum (f_i * E_i) &lt;= Sum(E_i) - Q_e .(2)
+0 &lt;= f_i &lt;= 1
+</code></pre>
+
+<p>因为C_i, E_i, Q_c &gt;= 0，所以我们可以把第一个式子换成等号（如果存在 (1)的左边 &gt; Q_c且满足不等式的一组解，那么我们一定可以减小某一个f_i，让(1)的左边减小到Q_c，同时(2)的左边仍然减小满足题意）。</p>
+
+<pre><code>Sum (f_i * C_i) = Q_c .............(3)
+Sum (f_i * E_i) &lt;= Sum(E_i) - Q_e .(4)
+0 &lt;= f_i &lt;= 1
+</code></pre>
+
+<p>在给定Q_c的情况下，最小化 (4) 左边的方法一定是从C_i / E_i最大的slot中选取f_i。因此我们可以把所有S按照C_i / E_i排序。所有的Query按照Q_c排序。初始 f_i = 0。对于每个询问，不断从C_i / E_i最大的元素中增加f_i，直到总的Sum (f_i * C_i) = Q_c为止。这个询问的结果就是在这个assignment of f_i下，Sum (f_i * E_i) &lt;= Sum(E_i) - Q_e是否成立。</p>
+
+<h2 id="代码-1">代码</h2>
+
+<pre><code class="language-cpp">
+#define T_ long long  
+#define fuck(s_) {cout&lt;&lt;s_&lt;&lt;endl;return 0;} 
+#define printarr(a_,x_) rep(i_,x_)cout&lt;&lt;a_[i_]&lt;&lt;&quot; &quot;;cout&lt;&lt;endl; 
+#define printarr0(a_,x_) rep0(i_,x_)cout&lt;&lt;a_[i_]&lt;&lt;&quot; &quot;;cout&lt;&lt;endl; 
+#define printarr2(a_,x_,y_) rep(i_,x_){rep(j_,y_)cout&lt;&lt;a_[i_][j_]&lt;&lt;' ';cout&lt;&lt;endl;} 
+#define printarr20(a_,x_,y_) rep0(i_,x_){rep0(j_,y_)cout&lt;&lt;a[i_][j_]&lt;&lt;' ';cout&lt;&lt;endl;} 
+#define rep2o(a_,b_,n_) rep(a_,n_) re(b_,a_+1,n_) 
+#define rep20o(a_,b_,n_) rep0(a_,n_) re0(b_,a_+1,n_) 
+#define rep2(a_,b_,p_,q_) rep(a_,p_) rep(b_,q_)
+#define rep20(a_,b_,p_,q_) rep0(a_,p_) rep0(b_,q_) 
+#define rrep2(a_,b_,p_,q_) rrep(a_,p_) rrep(b_,q_)
+#define rrep20(a_,b_,p_,q_) rrep0(a_,p_) rrep0(b_,q_)
+#define rep3(a_,b_,c_,p_,q_,r_) rep(a_,p_) rep(b_,q_) rep(c_,r_)
+#define rep30(a_,b_,c_,p_,q_,r_) rep0(a_,p_) rep0(b_,q_) rep0(c_,r_)
+#define rrep3(a_,b_,c_,p_,q_,r_) rrep(a_,p_) rrep(b_,q_) rrep(c_,r_)
+#define rrep30(a_,b_,c_,p_,q_,r_) rrep0(a_,p_) rrep0(b_,q_) rrep0(c_,r_)
+#define rep(a_,x_) re(a_,1,x_) 
+#define rep0(a_,x_) re0(a_,0,x_) 
+#define rrep(a_,x_) rre(a_,x_,1) 
+#define rrep0(a_,x_) rre(a_,x_-1,0) 
+#define re(a_,s_,t_) for(T_ a_=s_;a_&lt;=t_;++a_) 
+#define re0(a_,s_,t_) for(T_ a_=s_;a_&lt;t_;++a_) 
+#define rre(a_,s_,t_) for(T_ a_=s_;a_&gt;=t_;--a_)
+#define rre0(a_,s_,t_) for(T_ a_=s_;a_&gt;t_;--a_)
+#define repit(a_,c_) for(__typeof__(a_.begin()) c_=a_.begin();c_!=a_.end();++c_) 
+#define nosync std::ios::sync_with_stdio(false);std::cin.tie(0);ios_base::sync_with_stdio(0) 
+#define DE false 
+#define de(s_) if(DE){s_ } 
+#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstdlib&gt;
+#include &lt;cstring&gt;
+#include &lt;string&gt;
+#include &lt;cmath&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+#include &lt;vector&gt;
+#include &lt;deque&gt;
+#include &lt;list&gt;
+#include &lt;set&gt;
+#include &lt;numeric&gt;
+#include &lt;bitset&gt;
+#include &lt;fstream&gt;
+#include &lt;iomanip&gt;
+#include &lt;sstream&gt;
+#include &lt;ctime&gt;
+#include &lt;stack&gt;
+#include &lt;queue&gt;
+#include &lt;cassert&gt;
+#include &lt;climits&gt;
+#pragma GCC optimize(&quot;O2&quot;)
+using namespace std;
+#define endl '\n'
+const int dx4[] = {-1, 0, 1, 0};
+const int dy4[] = {0, 1, 0, -1};  
+const long long modb=1000000007;  
+const long inf=0x3f3f3f3f;      
+const double oo=1e15;           
+const double eps=1e-8;          
+const double pi=acos(-1.0);     
+template&lt;typename T&gt; void clr(T* a_,int n_=0,size_t s_=-1) {if (s_==-1) s_=sizeof(a_); memset(a_,n_,sizeof(a_[0])*s_); }  
+template&lt;typename T&gt; T sqr(T a_) { return a_*a_; }  
+template&lt;typename T&gt; T cub(T a_) { return a_*a_*a_; }  
+inline T_ mf(T_ n_) {return ((n_&lt;0)?n_+(modb&lt;&lt;2):n_)%modb; }  
+template&lt;typename T&gt;T max(T a_,T b_,T c_) { return max(a_,max(b_,c_)); } 
+template&lt;typename T&gt;T min(T a_,T b_,T c_) { return min(a_,min(b_,c_)); } 
+inline int dbcmp(double a_, double b_) { return (fabs(a_-b_)&lt;eps)?0:(a_&lt;b_?-1:1); } 
+inline double dbdiv(T_ a_, T_ b_) { return static_cast&lt;double&gt;(a_) / b_; } 
+inline double angle(double x_, double y_) { if (x_==0.0) return y_&gt;0?pi/2:3*pi/2; else { double t_=atan2(y_,x_); return (t_&lt;0.0?t_+pi:t_) + y_&lt;0?pi:0.0; }} 
+/******************************************************************************************/
+
+struct Q {
+    double first; // A
+    double second; // B
+    T_ idx; // idx
+    char ans;
+};
+int main()
+{
+    int T;
+    cin &gt;&gt; T;
+    rep(tt, T)
+    {
+        int d, s;
+        cin &gt;&gt; d &gt;&gt; s;
+        vector&lt;pair&lt;double, double&gt;&gt; a;
+        rep(_, s)
+        {
+            int c, e;
+            cin &gt;&gt; c &gt;&gt; e;
+            a.emplace_back(c, e);
+        }
+        sort(a.begin(), a.end(), [](auto p1, auto p2) {
+                    return p1.second / (p1.first + 1e-8) &lt; p2.second / (p2.first + 1e-8);
+        }); // sort by c / e, from large to small
+         // sum ( f_i * C_i ) = A
+        // sum(f_i * E_i) &lt;= sum(E_i) - B
+        double se = 0.0;
+        for (auto v: a) {
+            se += v.second;
+        }
+        vector&lt;Q&gt; q;
+        rep(i, d) {
+            double A, B;
+            cin &gt;&gt; A &gt;&gt; B;
+            q.emplace_back(Q{A, B, i});
+        }
+        sort(q.begin(), q.end(), [](auto&amp;&amp; p1, auto&amp;&amp; p2) { return p1.first &lt; p2.first; }); // sort by A
+        double locse = 0.0;
+        double sa = 0.0;
+        int ni = 0;
+        double npart = 0.0;
+        rep0(nx, q.size()) {
+AGAIN:
+            assert(q[nx].first - sa &gt; -1e-4);
+            if (q[nx].first - sa &lt; 1e-8) {
+                 //cout &lt;&lt; &quot;For Q= &quot; &lt;&lt; q[nx].idx &lt;&lt; &quot; sa = &quot; &lt;&lt; q[nx].first &lt;&lt; &quot; locse = &quot; &lt;&lt; locse &lt;&lt; &quot; qb = &quot; &lt;&lt; q[nx].second &lt;&lt; endl;
+                q[nx].ans = ((locse  - (se - q[nx].second) &lt; 1e-8) ? 'Y' : 'N');
+                continue;
+            }
+            if (ni &gt;= s) {
+                q[nx].ans = 'N';
+                continue;
+            }
+            double p = a[ni].first == 0 ? (1 - npart) : min((1.0 - npart), (q[nx].first - sa) / a[ni].first);
+            sa += p * a[ni].first;
+            npart += p;
+            locse += p * a[ni].second;
+            if (npart + 1e-8 &gt;= 1.0) {
+                ++ni;
+                npart = 0.0;
+            }
+            goto AGAIN;
+        }
+        
+        cout &lt;&lt; &quot;Case #&quot; &lt;&lt; tt &lt;&lt; &quot;: &quot;;
+        sort(q.begin(), q.end(), [](auto p1, auto p2) {
+                    return p1.idx &lt; p2.idx;
+                    });
+        for (auto&amp;&amp; p : q) {
+            cout &lt;&lt; p.ans;
+        }
+        cout &lt;&lt; endl;
+
+    }
+}
+</code></pre>
+
+      </article>
+
+      <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="https://intmainreturn0.com/tags/algorithm">algorithm</a>
+        
+            ,&nbsp;
+            <a href="https://intmainreturn0.com/tags/%E7%AE%97%E6%B3%95">算法</a>
+        
+            ,&nbsp;
+            <a href="https://intmainreturn0.com/tags/codejam">codejam</a>
+        
+            ,&nbsp;
+            <a href="https://intmainreturn0.com/tags/kickstart">kickstart</a>
+        
+      </p>
+
+      
+
+<div id="disqus_thread"></div>
+<script>
+
+var disqus_config = function () {
+this.page.url = "https:\/\/intmainreturn0.com\/blog\/codejam-kickstart-round-e-%E5%88%86%E6%9E%90\/";  
+this.page.identifier = "\/blog\/codejam-kickstart-round-e-%E5%88%86%E6%9E%90\/";
+};
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://' + 'intmainreturn0-com' + ".disqus.com/embed.js";
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+      <nav class="social-icons icons">
+<a class="fa fa-rss rss" href="https://intmainreturn0.com/index.xml"></a>
+
+<a class="fa fa-twitter twitter" href="https://twitter.com/HTwood96"></a>
+
+</nav>
+
+          <small>
+            Copyright &#169; 2017<br>
+            Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll</a>
+          </small>
+        </div>
+      </div>
+    </footer>
+
+    
+    <script src="https://intmainreturn0.com/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+
+</body>
+</html>
+

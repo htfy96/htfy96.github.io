@@ -7,7 +7,16 @@
     <language>zh-CN</language>
     
     
-    <updated>Sun, 30 Dec 2018 13:21:00 -0700</updated>
+    <updated>Sun, 25 Aug 2019 22:34:42 -0700</updated>
+    
+    <item>
+      <title>CodeJam Kickstart Round E 分析</title>
+      <link>https://intmainreturn0.com/blog/codejam-kickstart-round-e-%E5%88%86%E6%9E%90/</link>
+      <pubDate>Sun, 25 Aug 2019 22:34:42 -0700</pubDate>
+      
+      <guid>https://intmainreturn0.com/blog/codejam-kickstart-round-e-%E5%88%86%E6%9E%90/</guid>
+      <description>最近总算空出了点时间玩算法竞赛（虽然是菜鸡Kickstart版本）。很多东西都已经记不住了导致没时间写Q3了。先写前两题题解吧。 Cherries Mesh 题意 给定</description>
+    </item>
     
     <item>
       <title>2018</title>
@@ -133,15 +142,6 @@
       
       <guid>https://intmainreturn0.com/2017/09/03/%E8%BF%91%E5%86%B5-2/</guid>
       <description>http://music.163.com/#/song?id=412785476 首先不得不说的就是几天前结束的北京暑期实习……总的来说，之前希望能够达成的最低目标还是达到了，也对区块链/软件工程/加班有了更深的了解。虽</description>
-    </item>
-    
-    <item>
-      <title>static vs inline vs static inline in C&#43;&#43;</title>
-      <link>https://intmainreturn0.com/2017/09/03/static-vs-inline-vs-static-inline-in-c/</link>
-      <pubDate>Sat, 02 Sep 2017 16:13:59 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/2017/09/03/static-vs-inline-vs-static-inline-in-c/</guid>
-      <description> </description>
     </item>
     
   </channel>
