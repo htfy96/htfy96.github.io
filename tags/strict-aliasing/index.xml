@@ -1,44 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-      <title>Strict Aliasing on int main() { return 0; } </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://intmainreturn0.com/tags/strict-aliasing/</link>
-    <language>zh-CN</language>
-    
-    
-    <updated>Fri, 11 Nov 2016 14:59:04 UTC</updated>
-    
-    <item>
-      <title>Strict alising的坑</title>
-      <link>https://intmainreturn0.com/2016/11/11/257/</link>
-      <pubDate>Fri, 11 Nov 2016 14:59:04 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/2016/11/11/257/</guid>
-      <description>&lt;h1 id=&#34;坑-span-id-a1getaljhng-class-abt-citation-noselect-mcenoneditable-data-reflist-quot-slrq9sjjd-quot-sup-1-sup-span&#34;&gt;坑&lt;span id=&#34;a1getaljhng&#34; class=&#34;abt-citation noselect mceNonEditable&#34; data-reflist=&#34;[&amp;quot;slrq9sjjd&amp;quot;]&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;&lt;/h1&gt;
-
-&lt;pre&gt;int foo(int *x, long *y) {
-  *x = 0;
-  *y = 1;
-  return *x;
-}
-&lt;/pre&gt;
-
-&lt;p&gt;会被优化成&lt;/p&gt;
-
-&lt;pre&gt;foo2:   movl    $0, (%rdi)
-        xorl    %eax, %eax
-        movq    $1, (%rsi)
-        ret
-&lt;/pre&gt;
-
-&lt;p&gt;因为编译器会认为，&lt;a href=&#34;shttps://intmainreturn0.com/wp-admin/plugins.phptrong&#34;&gt;shttps://intmainreturn0.com/wp-admin/plugins.phptrong&lt;/a&gt;两个不能alising的指针，一定不会指向同一块内存区域，&lt;/strong&gt;所以会推断出结果一定是0&lt;/p&gt;
-
-&lt;p&gt;所以啊，之前网上很多(float *)(&amp;amp;int_var)然后乱搞的做法都容易爆炸……&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
-
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>strict aliasing on int main() { return 0; }</title><link>/tags/strict-aliasing/</link><description>Recent content in strict aliasing on int main() { return 0; }</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 11 Nov 2016 14:59:04 +0000</lastBuildDate><atom:link href="/tags/strict-aliasing/index.xml" rel="self" type="application/rss+xml"/><item><title>Strict alising的坑</title><link>/2016/11/11/257/</link><pubDate>Fri, 11 Nov 2016 14:59:04 +0000</pubDate><guid>/2016/11/11/257/</guid><description>&lt;h1 id="坑span-ida1getaljhng-classabt-citation-noselect-mcenoneditable-data-reflistquotslrq9sjjdquotsup1supspan">坑&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->1&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->&lt;/h1>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;p>会被优化成&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;p>因为编译器会认为，&lt;a href="shttps://intmainreturn0.com/wp-admin/plugins.phptrong">shttps://intmainreturn0.com/wp-admin/plugins.phptrong&lt;/a>两个不能alising的指针，一定不会指向同一块内存区域，&lt;!-- raw HTML omitted -->所以会推断出结果一定是0&lt;/p>
+&lt;p>所以啊，之前网上很多(float *)(&amp;amp;int_var)然后乱搞的做法都容易爆炸……&lt;/p></description></item></channel></rss>

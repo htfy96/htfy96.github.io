@@ -1,27 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-      <title>Nn on int main() { return 0; } </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://intmainreturn0.com/tags/nn/</link>
-    <language>zh-CN</language>
-    
-    
-    <updated>Sat, 31 Dec 2016 16:08:25 UTC</updated>
-    
-    <item>
-      <title>BakaGo</title>
-      <link>https://intmainreturn0.com/2017/01/01/bakago/</link>
-      <pubDate>Sat, 31 Dec 2016 16:08:25 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/2017/01/01/bakago/</guid>
-      <description>&lt;p&gt;BakaGo是作为期末AI作业的一个围棋Bot，由四位小组成员共同开发。主入口是&lt;a href=&#34;https://github.com/sjtu-ai-go/go-ai&#34;&gt;https://github.com/sjtu-ai-go/go-ai&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;名称来源：AlphaGo -&amp;gt; BetaGo(Github某项目，很弱) -&amp;gt; BataGo(拼写错误) -&amp;gt; BakaGo。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
-
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>nn on int main() { return 0; }</title><link>/tags/nn/</link><description>Recent content in nn on int main() { return 0; }</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 31 Dec 2016 16:08:25 +0000</lastBuildDate><atom:link href="/tags/nn/index.xml" rel="self" type="application/rss+xml"/><item><title>BakaGo</title><link>/2017/01/01/bakago/</link><pubDate>Sat, 31 Dec 2016 16:08:25 +0000</pubDate><guid>/2017/01/01/bakago/</guid><description>&lt;p>BakaGo是作为期末AI作业的一个围棋Bot，由四位小组成员共同开发。主入口是&lt;a href="https://github.com/sjtu-ai-go/go-ai">https://github.com/sjtu-ai-go/go-ai&lt;/a>&lt;/p>
+&lt;p>名称来源：AlphaGo -&amp;gt; BetaGo(Github某项目，很弱) -&amp;gt; BataGo(拼写错误) -&amp;gt; BakaGo。&lt;/p></description></item></channel></rss>

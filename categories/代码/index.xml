@@ -1,193 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-      <title>代码 on int main() { return 0; } </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://intmainreturn0.com/categories/%E4%BB%A3%E7%A0%81/</link>
-    <language>zh-CN</language>
-    
-    
-    <updated>Tue, 10 Oct 2017 17:16:07 &#43;0800</updated>
-    
-    <item>
-      <title>Correct by Construction</title>
-      <link>https://intmainreturn0.com/blog/correct-by-construction/</link>
-      <pubDate>Tue, 10 Oct 2017 17:16:07 &#43;0800</pubDate>
-      
-      <guid>https://intmainreturn0.com/blog/correct-by-construction/</guid>
-      <description>http://wiki.c2.com/?CorrectByConstruction 似乎早就不是什么新名词了 + 已经BuzzWord（？）化了……不过还是有必要了解一下 读http://assured-cloud-comput</description>
-    </item>
-    
-    <item>
-      <title>迁移博客到IPFS</title>
-      <link>https://intmainreturn0.com/blog/%E8%BF%81%E7%A7%BB%E5%8D%9A%E5%AE%A2%E5%88%B0ipfs/</link>
-      <pubDate>Sun, 24 Sep 2017 21:18:15 &#43;0800</pubDate>
-      
-      <guid>https://intmainreturn0.com/blog/%E8%BF%81%E7%A7%BB%E5%8D%9A%E5%AE%A2%E5%88%B0ipfs/</guid>
-      <description>IPFS是最近非常热门的一个分布式网络系统，其主要支持以下功能： ipfs add，将本地的一个文件（夹）上传到一个去中心化的web中，返回一个和文件</description>
-    </item>
-    
-    <item>
-      <title>How Twitch uses PostgreSQL</title>
-      <link>https://intmainreturn0.com/2017/09/20/how-twitch-uses-postgresql/</link>
-      <pubDate>Wed, 20 Sep 2017 05:43:45 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/2017/09/20/how-twitch-uses-postgresql/</guid>
-      <description>https://blog.twitch.tv/how-twitch-uses-postgresql-c34aa9e56f58</description>
-    </item>
-    
-    <item>
-      <title>static vs inline vs static inline in C&#43;&#43;</title>
-      <link>https://intmainreturn0.com/2017/09/03/static-vs-inline-vs-static-inline-in-c/</link>
-      <pubDate>Sat, 02 Sep 2017 16:13:59 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/2017/09/03/static-vs-inline-vs-static-inline-in-c/</guid>
-      <description> </description>
-    </item>
-    
-    <item>
-      <title>扇贝批量加词（Shell script）</title>
-      <link>https://intmainreturn0.com/2017/05/10/%E6%89%87%E8%B4%9D%E6%89%B9%E9%87%8F%E5%8A%A0%E8%AF%8Dshell-script/</link>
-      <pubDate>Wed, 10 May 2017 11:43:35 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/2017/05/10/%E6%89%87%E8%B4%9D%E6%89%B9%E9%87%8F%E5%8A%A0%E8%AF%8Dshell-script/</guid>
-      <description>先每行一个写入words.txt，然后网页端加一个，开发者工具 &amp;#8211; 网络 &amp;#8211; Copy as curl，得到如下形式： curl &#39;https://www.shanbay.com/bdc/vocabulary/add/batch/?words=clerical&amp;_=1494415650964&#39; -H &#39;Host: www.shanbay.com&#39; -H &#39;User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:53.0) Gecko/20100101 Firefox/53.0&#39; -H &#39;Accept: application/json, text/javascript, */*; q=0.01&#39; -H</description>
-    </item>
-    
-    <item>
-      <title>面试题2</title>
-      <link>https://intmainreturn0.com/2017/04/17/%E9%9D%A2%E8%AF%95%E9%A2%982/</link>
-      <pubDate>Mon, 17 Apr 2017 15:14:08 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/2017/04/17/%E9%9D%A2%E8%AF%95%E9%A2%982/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>利用Docker的自定义网络来管理ip绑定</title>
-      <link>https://intmainreturn0.com/2017/02/08/%E5%88%A9%E7%94%A8docker%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E7%BB%9C%E6%9D%A5%E7%AE%A1%E7%90%86ip%E7%BB%91%E5%AE%9A/</link>
-      <pubDate>Wed, 08 Feb 2017 13:39:00 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/2017/02/08/%E5%88%A9%E7%94%A8docker%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E7%BB%9C%E6%9D%A5%E7%AE%A1%E7%90%86ip%E7%BB%91%E5%AE%9A/</guid>
-      <description>&lt;p&gt;Docker最近推出了&lt;code&gt;docker network&lt;/code&gt;的功能，允许用户自己创建网络。刚好手头合租了一台服务器想试试。&lt;/p&gt;
-
-&lt;p&gt;这台服务器有4个公网ip（173.208.194.202,203,205,206/29）。我单独占了个173.208.194.205。我期待的效果是：这个docker network内创建的容器，默认会publish到173.208.194.205（即外界连.205:port也能访问到映射的容器）；并且容器内对外connect时，默认的localaddr也是.205。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>微信的一些网络方面的资料</title>
-      <link>https://intmainreturn0.com/2017/02/03/327/</link>
-      <pubDate>Fri, 03 Feb 2017 09:23:23 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/2017/02/03/327/</guid>
-      <description>微信客户端怎样应对弱网络 微信Mars — 移动互联网下的高质量网络连接探索 能控制的部分： 传输层 + 应用层 传输层：TCP在移动设备上可以优化：重传策</description>
-    </item>
-    
-    <item>
-      <title>spdlog的一些坑</title>
-      <link>https://intmainreturn0.com/2017/02/01/spdlog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</link>
-      <pubDate>Tue, 31 Jan 2017 16:35:26 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/2017/02/01/spdlog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</guid>
-      <description>&lt;p&gt;最近在用C++的这个spdlog库中遇到了一些坑……在这里写一下&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>某个新年游戏（？</title>
-      <link>https://intmainreturn0.com/2017/01/27/%E6%9F%90%E4%B8%AA%E6%96%B0%E5%B9%B4%E6%B8%B8%E6%88%8F/</link>
-      <pubDate>Fri, 27 Jan 2017 13:58:16 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/2017/01/27/%E6%9F%90%E4%B8%AA%E6%96%B0%E5%B9%B4%E6%B8%B8%E6%88%8F/</guid>
-      <description>http://codeworm96.coding.me/FooCard/ 其中的Hard mode，Bomb 和 bonus是我糊进去的，主体部分都 是@codeworm96 巨巨写的</description>
-    </item>
-    
-    <item>
-      <title>c10k-server方面的坑</title>
-      <link>https://intmainreturn0.com/2017/01/26/c10k-server%E6%96%B9%E9%9D%A2%E7%9A%84%E5%9D%91/</link>
-      <pubDate>Thu, 26 Jan 2017 07:18:10 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/2017/01/26/c10k-server%E6%96%B9%E9%9D%A2%E7%9A%84%E5%9D%91/</guid>
-      <description>&lt;p&gt;最近在写 &lt;a href=&#34;https://github.com/htfy96/c10k-server&#34;&gt;https://github.com/htfy96/c10k-server&lt;/a&gt;一个玩具服务器。初步是打算采用一个主线程只Accept，然后把Accept的FD放到某个Worker的Eventloop里。每个WorkerThread跑一个Eventloop监听并处理事件。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>最近看的一些关于Linux服务端方面的文章</title>
-      <link>https://intmainreturn0.com/2017/01/22/%E6%9C%80%E8%BF%91%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%B3%E4%BA%8Elinux%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%96%B9%E9%9D%A2%E7%9A%84%E6%96%87%E7%AB%A0/</link>
-      <pubDate>Sun, 22 Jan 2017 09:54:05 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/2017/01/22/%E6%9C%80%E8%BF%91%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%B3%E4%BA%8Elinux%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%96%B9%E9%9D%A2%E7%9A%84%E6%96%87%E7%AB%A0/</guid>
-      <description>多线程服务器的常用编程模型 &amp;#8211; 陈硕的Blog &amp;#8211; 博客频道 &amp;#8211; CSDN.NET 发布一个基于 Reactor 模式的 C++ 网络库 &amp;#8211; 陈硕的Blog &amp;#8211; 博客频道 &amp;#8211; CSDN.NET The C10K problem 关于SIGPIPE导</description>
-    </item>
-    
-    <item>
-      <title>HadoopInternals</title>
-      <link>https://intmainreturn0.com/2017/01/17/hadoopinternals/</link>
-      <pubDate>Tue, 17 Jan 2017 15:43:08 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/2017/01/17/hadoopinternals/</guid>
-      <description>http://ercoppa.github.io/HadoopInternals/AnatomyMapReduceJob.html#yarn-and-mapreduce-interaction</description>
-    </item>
-    
-    <item>
-      <title>写点C&#43;&#43; user defined literals的奇怪（正常）用途</title>
-      <link>https://intmainreturn0.com/2017/01/08/%E5%86%99%E7%82%B9c-user-defined-literals%E7%9A%84%E5%A5%87%E6%80%AA%E6%AD%A3%E5%B8%B8%E7%94%A8%E9%80%94/</link>
-      <pubDate>Sun, 08 Jan 2017 12:17:48 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/2017/01/08/%E5%86%99%E7%82%B9c-user-defined-literals%E7%9A%84%E5%A5%87%E6%80%AA%E6%AD%A3%E5%B8%B8%E7%94%A8%E9%80%94/</guid>
-      <description>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-&lt;p&gt;之前写的围棋程序的测试中，我们常常需要vector&amp;lt; { Player, Point } &amp;gt; pieceToPlace。问题在于，如果我们硬编码这个vector，可读性很差：&lt;/p&gt;
-
-&lt;pre class=&#34;language-cpp&#34;&gt;pieceToPlace.emplace_back(Player::B, make_pair(2, 3));
-pieceToPlace.emplace_back(Player::B, make_pair(2, 1));
-pieceToPlace.emplace_back(Player::W, make_pair(1, 0));&lt;/pre&gt;
-
-&lt;p&gt;通过User defined literal，我们可以做到这样：&lt;/p&gt;
-
-&lt;pre class=&#34;language-cpp&#34;&gt;auto placeVec = getInput({
-    {O,   1_B,   2_W,   4_W},
-    {6_W, 3_B,   5_B,   7_W},
-    {O,   O,     O,     8_B},
-    {9_W, O,     O,     O}
-});
-for (auto &amp;ele : placeVec) 
-{
-    cout &amp;lt;&amp;lt; (ele.player == Player::B ? &#34;B&#34; : &#34;W&#34;) &amp;lt;&amp;lt; &#34; &#34; &amp;lt;&amp;lt; ele.point.first &amp;lt;&amp;lt; &#34;,&#34; &amp;lt;&amp;lt; ele.point.second &amp;lt;&amp;lt; endl; 
-}
-/*
-B 0,1
-W 0,2
-B 1,1
-W 0,3
-B 1,2
-W 1,0
-W 1,3
-B 2,3
-W 3,0
-*/&lt;/pre&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>BakaGo</title>
-      <link>https://intmainreturn0.com/2017/01/01/bakago/</link>
-      <pubDate>Sat, 31 Dec 2016 16:08:25 UTC</pubDate>
-      
-      <guid>https://intmainreturn0.com/2017/01/01/bakago/</guid>
-      <description>&lt;p&gt;BakaGo是作为期末AI作业的一个围棋Bot，由四位小组成员共同开发。主入口是&lt;a href=&#34;https://github.com/sjtu-ai-go/go-ai&#34;&gt;https://github.com/sjtu-ai-go/go-ai&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;名称来源：AlphaGo -&amp;gt; BetaGo(Github某项目，很弱) -&amp;gt; BataGo(拼写错误) -&amp;gt; BakaGo。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
-
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>代码 on int main() { return 0; }</title><link>/categories/%E4%BB%A3%E7%A0%81/</link><description>Recent content in 代码 on int main() { return 0; }</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 10 Oct 2017 17:16:07 +0800</lastBuildDate><atom:link href="/categories/%E4%BB%A3%E7%A0%81/index.xml" rel="self" type="application/rss+xml"/><item><title>Correct by Construction</title><link>/blog/correct-by-construction/</link><pubDate>Tue, 10 Oct 2017 17:16:07 +0800</pubDate><guid>/blog/correct-by-construction/</guid><description>http://wiki.c2.com/?CorrectByConstruction 似乎早就不是什么新名词了 + 已经BuzzWord（？）化了……不过还是有必要了解一下 读http://assured-cloud-comput</description></item><item><title>迁移博客到IPFS</title><link>/blog/%E8%BF%81%E7%A7%BB%E5%8D%9A%E5%AE%A2%E5%88%B0ipfs/</link><pubDate>Sun, 24 Sep 2017 21:18:15 +0800</pubDate><guid>/blog/%E8%BF%81%E7%A7%BB%E5%8D%9A%E5%AE%A2%E5%88%B0ipfs/</guid><description>IPFS是最近非常热门的一个分布式网络系统，其主要支持以下功能： ipfs add，将本地的一个文件（夹）上传到一个去中心化的web中，返回一个和文件</description></item><item><title>How Twitch uses PostgreSQL</title><link>/2017/09/20/how-twitch-uses-postgresql/</link><pubDate>Wed, 20 Sep 2017 05:43:45 +0000</pubDate><guid>/2017/09/20/how-twitch-uses-postgresql/</guid><description>https://blog.twitch.tv/how-twitch-uses-postgresql-c34aa9e56f58</description></item><item><title>static vs inline vs static inline in C++</title><link>/2017/09/03/static-vs-inline-vs-static-inline-in-c/</link><pubDate>Sat, 02 Sep 2017 16:13:59 +0000</pubDate><guid>/2017/09/03/static-vs-inline-vs-static-inline-in-c/</guid><description/></item><item><title>扇贝批量加词（Shell script）</title><link>/2017/05/10/%E6%89%87%E8%B4%9D%E6%89%B9%E9%87%8F%E5%8A%A0%E8%AF%8D%EF%BC%88shell-script%EF%BC%89/</link><pubDate>Wed, 10 May 2017 11:43:35 +0000</pubDate><guid>/2017/05/10/%E6%89%87%E8%B4%9D%E6%89%B9%E9%87%8F%E5%8A%A0%E8%AF%8D%EF%BC%88shell-script%EF%BC%89/</guid><description>先每行一个写入words.txt，然后网页端加一个，开发者工具 – 网络 – Copy as curl，得到如下形式： 然后新建一个add_single.sh，写</description></item><item><title>面试题2</title><link>/2017/04/17/%E9%9D%A2%E8%AF%95%E9%A2%982/</link><pubDate>Mon, 17 Apr 2017 15:14:08 +0000</pubDate><guid>/2017/04/17/%E9%9D%A2%E8%AF%95%E9%A2%982/</guid><description>&lt;h1 id="heading">&lt;/h1></description></item><item><title>利用Docker的自定义网络来管理ip绑定</title><link>/2017/02/08/%E5%88%A9%E7%94%A8docker%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E7%BB%9C%E6%9D%A5%E7%AE%A1%E7%90%86ip%E7%BB%91%E5%AE%9A/</link><pubDate>Wed, 08 Feb 2017 13:39:00 +0000</pubDate><guid>/2017/02/08/%E5%88%A9%E7%94%A8docker%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E7%BB%9C%E6%9D%A5%E7%AE%A1%E7%90%86ip%E7%BB%91%E5%AE%9A/</guid><description>&lt;p>Docker最近推出了&lt;code>docker network&lt;/code>的功能，允许用户自己创建网络。刚好手头合租了一台服务器想试试。&lt;/p>
+&lt;p>这台服务器有4个公网ip（173.208.194.202,203,205,206/29）。我单独占了个173.208.194.205。我期待的效果是：这个docker network内创建的容器，默认会publish到173.208.194.205（即外界连.205:port也能访问到映射的容器）；并且容器内对外connect时，默认的localaddr也是.205。&lt;/p></description></item><item><title>微信的一些网络方面的资料</title><link>/2017/02/03/327/</link><pubDate>Fri, 03 Feb 2017 09:23:23 +0000</pubDate><guid>/2017/02/03/327/</guid><description>微信客户端怎样应对弱网络 微信Mars — 移动互联网下的高质量网络连接探索 能控制的部分： 传输层 + 应用层 传输层：TCP在移动设备上可以优化：重传策</description></item><item><title>spdlog的一些坑</title><link>/2017/02/01/spdlog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</link><pubDate>Tue, 31 Jan 2017 16:35:26 +0000</pubDate><guid>/2017/02/01/spdlog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</guid><description>&lt;p>最近在用C++的这个spdlog库中遇到了一些坑……在这里写一下&lt;/p></description></item><item><title>某个新年游戏（？</title><link>/2017/01/27/%E6%9F%90%E4%B8%AA%E6%96%B0%E5%B9%B4%E6%B8%B8%E6%88%8F%EF%BC%88%EF%BC%9F/</link><pubDate>Fri, 27 Jan 2017 13:58:16 +0000</pubDate><guid>/2017/01/27/%E6%9F%90%E4%B8%AA%E6%96%B0%E5%B9%B4%E6%B8%B8%E6%88%8F%EF%BC%88%EF%BC%9F/</guid><description>http://codeworm96.coding.me/FooCard/ 其中的Hard mode，Bomb 和 bonus是我糊进去的，主体部分都 是@codeworm96 巨巨写的</description></item><item><title>c10k-server方面的坑</title><link>/2017/01/26/c10k-server%E6%96%B9%E9%9D%A2%E7%9A%84%E5%9D%91/</link><pubDate>Thu, 26 Jan 2017 07:18:10 +0000</pubDate><guid>/2017/01/26/c10k-server%E6%96%B9%E9%9D%A2%E7%9A%84%E5%9D%91/</guid><description>&lt;p>最近在写 &lt;a href="https://github.com/htfy96/c10k-server">https://github.com/htfy96/c10k-server&lt;/a>一个玩具服务器。初步是打算采用一个主线程只Accept，然后把Accept的FD放到某个Worker的Eventloop里。每个WorkerThread跑一个Eventloop监听并处理事件。&lt;/p></description></item><item><title>最近看的一些关于Linux服务端方面的文章</title><link>/2017/01/22/%E6%9C%80%E8%BF%91%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%B3%E4%BA%8Elinux%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%96%B9%E9%9D%A2%E7%9A%84%E6%96%87%E7%AB%A0/</link><pubDate>Sun, 22 Jan 2017 09:54:05 +0000</pubDate><guid>/2017/01/22/%E6%9C%80%E8%BF%91%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%B3%E4%BA%8Elinux%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%96%B9%E9%9D%A2%E7%9A%84%E6%96%87%E7%AB%A0/</guid><description>多线程服务器的常用编程模型 – 陈硕的Blog – 博客频道 – CSDN.NET 发布一个基于 Reactor 模式的 C++ 网络库 – 陈硕的Blog – 博客频道 – CSDN.NET The C10K problem 关于SIGPIPE导</description></item><item><title>HadoopInternals</title><link>/2017/01/17/hadoopinternals/</link><pubDate>Tue, 17 Jan 2017 15:43:08 +0000</pubDate><guid>/2017/01/17/hadoopinternals/</guid><description>http://ercoppa.github.io/HadoopInternals/AnatomyMapReduceJob.html#yarn-and-mapreduce-interaction</description></item><item><title>写点C++ user defined literals的奇怪（正常）用途</title><link>/2017/01/08/%E5%86%99%E7%82%B9c-user-defined-literals%E7%9A%84%E5%A5%87%E6%80%AA%EF%BC%88%E6%AD%A3%E5%B8%B8%EF%BC%89%E7%94%A8%E9%80%94/</link><pubDate>Sun, 08 Jan 2017 12:17:48 +0000</pubDate><guid>/2017/01/08/%E5%86%99%E7%82%B9c-user-defined-literals%E7%9A%84%E5%A5%87%E6%80%AA%EF%BC%88%E6%AD%A3%E5%B8%B8%EF%BC%89%E7%94%A8%E9%80%94/</guid><description>&lt;p> &lt;/p>
+&lt;p>之前写的围棋程序的测试中，我们常常需要vector&amp;lt; { Player, Point } &amp;gt; pieceToPlace。问题在于，如果我们硬编码这个vector，可读性很差：&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;p>通过User defined literal，我们可以做到这样：&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted --></description></item><item><title>BakaGo</title><link>/2017/01/01/bakago/</link><pubDate>Sat, 31 Dec 2016 16:08:25 +0000</pubDate><guid>/2017/01/01/bakago/</guid><description>&lt;p>BakaGo是作为期末AI作业的一个围棋Bot，由四位小组成员共同开发。主入口是&lt;a href="https://github.com/sjtu-ai-go/go-ai">https://github.com/sjtu-ai-go/go-ai&lt;/a>&lt;/p>
+&lt;p>名称来源：AlphaGo -&amp;gt; BetaGo(Github某项目，很弱) -&amp;gt; BataGo(拼写错误) -&amp;gt; BakaGo。&lt;/p></description></item><item><title>Strict alising的坑</title><link>/2016/11/11/257/</link><pubDate>Fri, 11 Nov 2016 14:59:04 +0000</pubDate><guid>/2016/11/11/257/</guid><description>&lt;h1 id="坑span-ida1getaljhng-classabt-citation-noselect-mcenoneditable-data-reflistquotslrq9sjjdquotsup1supspan">坑&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->1&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->&lt;/h1>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;p>会被优化成&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;p>因为编译器会认为，&lt;a href="shttps://intmainreturn0.com/wp-admin/plugins.phptrong">shttps://intmainreturn0.com/wp-admin/plugins.phptrong&lt;/a>两个不能alising的指针，一定不会指向同一块内存区域，&lt;!-- raw HTML omitted -->所以会推断出结果一定是0&lt;/p>
+&lt;p>所以啊，之前网上很多(float *)(&amp;amp;int_var)然后乱搞的做法都容易爆炸……&lt;/p></description></item><item><title>SDN分布式控制器的一些总结</title><link>/2016/10/30/sdn%E5%88%86%E5%B8%83%E5%BC%8F%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/</link><pubDate>Sun, 30 Oct 2016 14:39:49 +0000</pubDate><guid>/2016/10/30/sdn%E5%88%86%E5%B8%83%E5%BC%8F%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/</guid><description>&lt;blockquote>
+&lt;p>&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->话说天下大势&lt;!-- raw HTML omitted -->，&lt;!-- raw HTML omitted -->分久必合&lt;!-- raw HTML omitted -->，&lt;!-- raw HTML omitted -->合久必分&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;/blockquote></description></item><item><title>快速维护围棋状态</title><link>/2016/10/11/%E5%BF%AB%E9%80%9F%E7%BB%B4%E6%8A%A4%E5%9B%B4%E6%A3%8B%E7%8A%B6%E6%80%81/</link><pubDate>Tue, 11 Oct 2016 15:58:19 +0000</pubDate><guid>/2016/10/11/%E5%BF%AB%E9%80%9F%E7%BB%B4%E6%8A%A4%E5%9B%B4%E6%A3%8B%E7%8A%B6%E6%80%81/</guid><description>&lt;blockquote>
+&lt;p>自己YY一天的结果。。&lt;/p>
+&lt;/blockquote></description></item><item><title>后缀数组倍增构造</title><link>/2016/08/21/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E5%80%8D%E5%A2%9E%E6%9E%84%E9%80%A0/</link><pubDate>Sun, 21 Aug 2016 15:39:12 +0000</pubDate><guid>/2016/08/21/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E5%80%8D%E5%A2%9E%E6%9E%84%E9%80%A0/</guid><description>&lt;blockquote>
+&lt;p>实在是太弱了看了两天4小时左右才基本把这个倍增构造看明白。。另外不得不说竞赛风格的板子虽然抄起来舒服但是对初学者而言的确不太友好……&lt;/p>
+&lt;/blockquote></description></item><item><title>protobuf&amp;gRPC slides</title><link>/2016/08/10/protobufgrpc-slides/</link><pubDate>Wed, 10 Aug 2016 15:09:53 +0000</pubDate><guid>/2016/08/10/protobufgrpc-slides/</guid><description>什么都没有 proto_grpc_2</description></item><item><title>GCC4.9是bug集中营吗。。。</title><link>/2016/07/19/gcc4-9%E6%98%AFbug%E9%9B%86%E4%B8%AD%E8%90%A5%E5%90%97%E3%80%82%E3%80%82%E3%80%82/</link><pubDate>Tue, 19 Jul 2016 06:40:33 +0000</pubDate><guid>/2016/07/19/gcc4-9%E6%98%AFbug%E9%9B%86%E4%B8%AD%E8%90%A5%E5%90%97%E3%80%82%E3%80%82%E3%80%82/</guid><description>https://gcc.gnu.org/bugzilla/show_bug.cgi?id=71874 这都能炸</description></item><item><title>TRASH A dynamic LC-trie and hash data structure</title><link>/2016/07/15/trash-a-dynamic-lc-trie-and-hash-data-structure/</link><pubDate>Fri, 15 Jul 2016 04:54:17 +0000</pubDate><guid>/2016/07/15/trash-a-dynamic-lc-trie-and-hash-data-structure/</guid><description>http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.96.2143 传统Trie的优化。 path compression: 连续若干个只有一个孩子节点可以压成一个 LC（level compression）：若某一节点下面第k层的子树都非空，</description></item><item><title>Cache coherency primer</title><link>/2016/07/15/cache-coherency-primer/</link><pubDate>Fri, 15 Jul 2016 02:13:22 +0000</pubDate><guid>/2016/07/15/cache-coherency-primer/</guid><description>Cache coherency primer</description></item><item><title>PHP印象</title><link>/2016/07/14/php%E5%8D%B0%E8%B1%A1/</link><pubDate>Thu, 14 Jul 2016 08:17:29 +0000</pubDate><guid>/2016/07/14/php%E5%8D%B0%E8%B1%A1/</guid><description>&lt;p>最近写的PHP留给我的印象。&lt;/p></description></item><item><title>language composition</title><link>/2016/07/11/language-composition/</link><pubDate>Mon, 11 Jul 2016 04:29:20 +0000</pubDate><guid>/2016/07/11/language-composition/</guid><description>http://soft-dev.org/pubs/pdf/barrett_bolz_diekmann_tratt__fine_grained_language_composition.pdf</description></item><item><title>某项目的思考</title><link>/2016/07/09/%E6%9F%90%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%80%9D%E8%80%83/</link><pubDate>Sat, 09 Jul 2016 07:53:28 +0000</pubDate><guid>/2016/07/09/%E6%9F%90%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%80%9D%E8%80%83/</guid><description>背景 一个影视作品管理系统，PHP based，要求有影片、国家、作者、语言等各种信息的CRUD。 之前犯下的问题及改进措施 主要问题 没有采用ORM</description></item><item><title>搬砖思考</title><link>/2016/07/01/%E6%90%AC%E7%A0%96%E6%80%9D%E8%80%83/</link><pubDate>Fri, 01 Jul 2016 11:50:22 +0000</pubDate><guid>/2016/07/01/%E6%90%AC%E7%A0%96%E6%80%9D%E8%80%83/</guid><description>最近在实验室维护一个很老的PHP项目。。。大致来说就是一个电影数据库，每一个电影有着复杂的关联关系：例如说可能与多个staff有关，每个st</description></item><item><title>Todo List 20160510</title><link>/2016/05/10/todo-list-20160510/</link><pubDate>Mon, 09 May 2016 21:12:18 +0000</pubDate><guid>/2016/05/10/todo-list-20160510/</guid><description>Linux as OS https://0xax.gitbooks.io/linux-insides/content/index.html linux-inside useful&amp;amp;interesting 至少看完第二章 Python面试题 还是有点害怕的…… https://github.com/taizilongxu/interview_python （里面掺了很多奇怪的东西） 貌似http://codewars.com/ 上还算</description></item><item><title>SJTUACM OJ 1246 Pyramid</title><link>/2016/04/24/sjtuacm-oj-1246-pyramid/</link><pubDate>Sat, 23 Apr 2016 21:45:36 +0000</pubDate><guid>/2016/04/24/sjtuacm-oj-1246-pyramid/</guid><description>题目 http://acm.sjtu.edu.cn/OnlineJudge/problem/1246 Description Jaguar 国王在一场战役大胜后决定建造一个金字塔，一方面作为纪念战争胜利的纪念碑，同时亦用作埋葬在战斗中阵亡将士们的墓地。该金字塔将建在战场</description></item><item><title>Linux安利教程(2)</title><link>/2016/04/10/linux%E5%AE%89%E5%88%A9%E6%95%99%E7%A8%8B2/</link><pubDate>Sat, 09 Apr 2016 20:37:14 +0000</pubDate><guid>/2016/04/10/linux%E5%AE%89%E5%88%A9%E6%95%99%E7%A8%8B2/</guid><description>基本都是一些最基本的命令使用…… 话说回来好久没更新了 Google Drive 度盘</description></item><item><title>面(gun)试(cu)</title><link>/2016/03/27/%E9%9D%A2gun%E8%AF%95cu/</link><pubDate>Sat, 26 Mar 2016 23:54:25 +0000</pubDate><guid>/2016/03/27/%E9%9D%A2gun%E8%AF%95cu/</guid><description>最近面(gun)试(cu)了几家公司……有必要介绍一点人生的经验 因为记不太清楚了所以就凑在一起写吧 算法类 常见的排序算法有哪些（Bogo 冒泡 插</description></item><item><title>linux-memory-faq</title><link>/2016/03/08/linux-memory-faq/</link><pubDate>Tue, 08 Mar 2016 06:34:39 +0000</pubDate><guid>/2016/03/08/linux-memory-faq/</guid><description>学习一个…… http://landley.net/writing/memory-faq.txt</description></item><item><title>CF #345 div.2</title><link>/2016/03/07/cf-345-div-2/</link><pubDate>Mon, 07 Mar 2016 04:44:45 +0000</pubDate><guid>/2016/03/07/cf-345-div-2/</guid><description>打div2和咸鱼有什么区别…… 滚粗太久了只能打打div.2了 A: DP, 乱搞，注意f(1,1)=0 B: 维护一个map&amp;lt;key, cnt&amp;gt;，每</description></item><item><title>Network_algo设计及优化杂记</title><link>/2016/02/19/network_algo%E8%AE%BE%E8%AE%A1%E5%8F%8A%E4%BC%98%E5%8C%96%E6%9D%82%E8%AE%B0/</link><pubDate>Fri, 19 Feb 2016 04:59:09 +0000</pubDate><guid>/2016/02/19/network_algo%E8%AE%BE%E8%AE%A1%E5%8F%8A%E4%BC%98%E5%8C%96%E6%9D%82%E8%AE%B0/</guid><description>问题来源 原有的数据库太大，无法全部放在内存中跑起来算法。 图专用数据库（Neo4j）、RDBMS，提供的功能太全导致速度太慢，同时Client</description></item><item><title>Across the wall(2)</title><link>/2016/02/13/across-the-wall2/</link><pubDate>Fri, 12 Feb 2016 21:41:25 +0000</pubDate><guid>/2016/02/13/across-the-wall2/</guid><description/></item><item><title>std::function源码分析</title><link>/2016/02/09/stdfunction%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</link><pubDate>Tue, 09 Feb 2016 06:25:56 +0000</pubDate><guid>/2016/02/09/stdfunction%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</guid><description>本次分析的是libcpp(_LIBCPP_VERSION=3700)的std::function这个类。它作为可调用对象的适配器，在C++1</description></item><item><title>parallel_accumulate</title><link>/2016/02/06/parallel_accumulate/</link><pubDate>Sat, 06 Feb 2016 06:14:11 +0000</pubDate><guid>/2016/02/06/parallel_accumulate/</guid><description>Too young的一个小练手……</description></item><item><title>Network_algo</title><link>/2016/01/29/network_algo/</link><pubDate>Fri, 29 Jan 2016 06:55:09 +0000</pubDate><guid>/2016/01/29/network_algo/</guid><description>动机 实验室需要实现一些网络分析方面的算法。但是在写的时候出现了两个问题。 一是数据库针对图的操作接口不统一。原先我们的数据库因为比较小是直接利</description></item><item><title>C++: A Learner’s Guide</title><link>/2016/01/22/c-a-learners-guide/</link><pubDate>Fri, 22 Jan 2016 05:05:06 +0000</pubDate><guid>/2016/01/22/c-a-learners-guide/</guid><description>这篇文章是写给即将开始C++学习的学弟学妹们的，对于C++入门者应该也有一定参考价值。 今天有人问我如何学习C++，虽然我是Cpp 期末8X 的蒟</description></item><item><title>TinyLambda</title><link>/2016/01/17/tinylambda/</link><pubDate>Sun, 17 Jan 2016 00:49:50 +0000</pubDate><guid>/2016/01/17/tinylambda/</guid><description>晚上突发奇想，想用C++实现一个无比简陋的lambda：只能作为匿名函数，不带闭包，无捕获，所有中间值和结果都是int，利用C++98实现。</description></item><item><title>C++ Magic Collection</title><link>/2015/12/26/c-magic-collection/</link><pubDate>Fri, 25 Dec 2015 22:05:26 +0000</pubDate><guid>/2015/12/26/c-magic-collection/</guid><description>嘛……最近这个博客好久没有写干货了。正好今晚有空 可以摸摸鱼，就来说说最近Cpp的一些东西吧。果然Cpp是世界上最复杂的语言（x R-value 运算符 C++</description></item><item><title>使用了Let’s encrypt加密了全站</title><link>/2015/12/05/%E4%BD%BF%E7%94%A8%E4%BA%86lets-encrypt%E5%8A%A0%E5%AF%86%E4%BA%86%E5%85%A8%E7%AB%99/</link><pubDate>Sat, 05 Dec 2015 03:43:33 +0000</pubDate><guid>/2015/12/05/%E4%BD%BF%E7%94%A8%E4%BA%86lets-encrypt%E5%8A%A0%E5%AF%86%E4%BA%86%E5%85%A8%E7%AB%99/</guid><description>每90天要重签，不过可以接受 https://www.ssllabs.com/ssltest/analyze.html?d=b.intmainreturn0.com</description></item><item><title>更新了一下自己的跨城姿势。。。</title><link>/2015/12/04/%E6%9B%B4%E6%96%B0%E4%BA%86%E4%B8%80%E4%B8%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E8%B7%A8%E5%9F%8E%E5%A7%BF%E5%8A%BF%E3%80%82%E3%80%82%E3%80%82/</link><pubDate>Fri, 04 Dec 2015 07:56:06 +0000</pubDate><guid>/2015/12/04/%E6%9B%B4%E6%96%B0%E4%BA%86%E4%B8%80%E4%B8%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E8%B7%A8%E5%9F%8E%E5%A7%BF%E5%8A%BF%E3%80%82%E3%80%82%E3%80%82/</guid><description>本地Chinadns:27777 (使用 公共uncensored DNS) （不想自己搭dns，怕被封。。。） cow统一对外提供127.0.0.1:77</description></item><item><title>X了么的马拉松结束了……</title><link>/2015/12/02/x%E4%BA%86%E4%B9%88%E7%9A%84%E9%A9%AC%E6%8B%89%E6%9D%BE%E7%BB%93%E6%9D%9F%E4%BA%86/</link><pubDate>Wed, 02 Dec 2015 06:14:07 +0000</pubDate><guid>/2015/12/02/x%E4%BA%86%E4%B9%88%E7%9A%84%E9%A9%AC%E6%8B%89%E6%9D%BE%E7%BB%93%E6%9D%9F%E4%BA%86/</guid><description>所在的队Rank16， 有几个小优化方法没想到。 标准实现5000qps，我们大约4400qps。 很惭愧，只做了一点微小的工作，谢谢大家。</description></item><item><title>cpp任意类型容器……</title><link>/2015/10/10/cpp%E4%BB%BB%E6%84%8F%E7%B1%BB%E5%9E%8B%E5%AE%B9%E5%99%A8/</link><pubDate>Sat, 10 Oct 2015 06:57:02 +0000</pubDate><guid>/2015/10/10/cpp%E4%BB%BB%E6%84%8F%E7%B1%BB%E5%9E%8B%E5%AE%B9%E5%99%A8/</guid><description>果然我还是Too young……原来可以用包装一个多态类来实现安全析构…… 基本都是抄的boost::any… https://github.com/htfy96/CppToys/blob/master/container_2.cpp</description></item><item><title>Scheme快排</title><link>/2015/09/13/scheme%E5%BF%AB%E6%8E%92/</link><pubDate>Sun, 13 Sep 2015 07:01:11 +0000</pubDate><guid>/2015/09/13/scheme%E5%BF%AB%E6%8E%92/</guid><description/></item><item><title>accumulate</title><link>/2015/09/12/accumulate/</link><pubDate>Sat, 12 Sep 2015 05:10:05 +0000</pubDate><guid>/2015/09/12/accumulate/</guid><description>std::accumulate 异曲同工。。。</description></item><item><title>sicp ex2.16</title><link>/2015/09/12/sicp-ex2-16/</link><pubDate>Sat, 12 Sep 2015 04:48:07 +0000</pubDate><guid>/2015/09/12/sicp-ex2-16/</guid><description>给出一个一般性的解释，为什么等价的代数表达式在区间运算中导致不同的计算结果？能设计出一个没有这样缺陷的区间算术包吗？或者不可能做到？ （开学前</description></item><item><title>Cppreference-devhelp arch离线版</title><link>/2015/08/23/cppreference-devhelp-arch%E7%A6%BB%E7%BA%BF%E7%89%88/</link><pubDate>Sun, 23 Aug 2015 03:30:35 +0000</pubDate><guid>/2015/08/23/cppreference-devhelp-arch%E7%A6%BB%E7%BA%BF%E7%89%88/</guid><description>[http://pan.baidu.com/s/1c0FH3sk ]1</description></item><item><title>Ruby on Rails (2)</title><link>/2015/08/12/ruby-on-rails-2/</link><pubDate>Wed, 12 Aug 2015 08:10:50 +0000</pubDate><guid>/2015/08/12/ruby-on-rails-2/</guid><description>由于前一段时间太懒，直到今天才恢复学习。。。 Router转发 Router不仅仅会根据url来区分调用哪个函数……还会通过http请求的种类来</description></item><item><title>Ruby on rails 学习两小时感受。。。</title><link>/2015/08/10/ruby-on-rails-%E5%AD%A6%E4%B9%A0%E4%B8%A4%E5%B0%8F%E6%97%B6%E6%84%9F%E5%8F%97%E3%80%82%E3%80%82%E3%80%82/</link><pubDate>Mon, 10 Aug 2015 08:19:28 +0000</pubDate><guid>/2015/08/10/ruby-on-rails-%E5%AD%A6%E4%B9%A0%E4%B8%A4%E5%B0%8F%E6%97%B6%E6%84%9F%E5%8F%97%E3%80%82%E3%80%82%E3%80%82/</guid><description>Route config/routes.rb 最开始的部件 决定了如何分发你的URL请求，把url一部分解析成变量丢给后面的东西： root 'welcome#index' 主页 get 'welcome#index' 简单视图 get 'products/:id' =&amp;gt; 'catalog#view'</description></item><item><title>Ruby on Vim 配置</title><link>/2015/08/10/ruby-on-vim-%E9%85%8D%E7%BD%AE/</link><pubDate>Mon, 10 Aug 2015 06:51:46 +0000</pubDate><guid>/2015/08/10/ruby-on-vim-%E9%85%8D%E7%BD%AE/</guid><description>使用Neocomplete作为补全框架，由于bug必须将补全权全部交给ruby.vim</description></item><item><title>练习 – 找到报错原因</title><link>/2015/07/31/%E7%BB%83%E4%B9%A0-%E6%89%BE%E5%88%B0%E6%8A%A5%E9%94%99%E5%8E%9F%E5%9B%A0/</link><pubDate>Thu, 30 Jul 2015 18:39:29 +0000</pubDate><guid>/2015/07/31/%E7%BB%83%E4%B9%A0-%E6%89%BE%E5%88%B0%E6%8A%A5%E9%94%99%E5%8E%9F%E5%9B%A0/</guid><description>In file included from /home/lz/桌面/code/scheme/sys/boost/variant.hpp:17:0, from /home/lz/桌面/co</description></item><item><title>P1398 数学题3</title><link>/2015/07/25/p1398-%E6%95%B0%E5%AD%A6%E9%A2%983/</link><pubDate>Sat, 25 Jul 2015 07:47:21 +0000</pubDate><guid>/2015/07/25/p1398-%E6%95%B0%E5%AD%A6%E9%A2%983/</guid><description>Problem http://acm.sjtu.edu.cn/OnlineJudge/problem/1398 题目描述 给定一个数字，他在十进制下从高位到低位一次是n0, n1, n2, n3,… 那么定义它的“差和”为n0-n1+n2-n3+… 如：十进制数字ab</description></item><item><title>P1229 mine</title><link>/2015/07/21/p1229-mine/</link><pubDate>Tue, 21 Jul 2015 07:00:38 +0000</pubDate><guid>/2015/07/21/p1229-mine/</guid><description>Problem http://acm.sjtu.edu.cn/OnlineJudge/problem/1229 Mine Description 扫雷是一个很经典的小游戏，而一行数字一行雷的题目就更经典了。当然，这道题不能这么简单就算了。 问题是这样，有一个两行n列的格子，第一行</description></item><item><title>Vim的闲言碎语</title><link>/2015/06/05/vim%E7%9A%84%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/</link><pubDate>Fri, 05 Jun 2015 07:06:33 +0000</pubDate><guid>/2015/06/05/vim%E7%9A%84%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/</guid><description>不知不觉也用了接近两年的Vim了，也该写写Vim的一些东西了 Vim的目的 通用_的_高效 文本编辑器 首先，通用体现在能支持多种语言的编辑甚至编译</description></item><item><title>CF D. Little Elephant and Retro Strings</title><link>/2015/05/03/cf-d-little-elephant-and-retro-strings/</link><pubDate>Sun, 03 May 2015 03:31:47 +0000</pubDate><guid>/2015/05/03/cf-d-little-elephant-and-retro-strings/</guid><description>艰难。。。 http://blog.csdn.net/jayye1994/article/details/14644001</description></item><item><title>当前的模板1.0。。。</title><link>/2015/04/24/%E5%BD%93%E5%89%8D%E7%9A%84%E6%A8%A1%E6%9D%BF1-0%E3%80%82%E3%80%82%E3%80%82/</link><pubDate>Thu, 23 Apr 2015 20:29:19 +0000</pubDate><guid>/2015/04/24/%E5%BD%93%E5%89%8D%E7%9A%84%E6%A8%A1%E6%9D%BF1-0%E3%80%82%E3%80%82%E3%80%82/</guid><description>超精简版，基本没什么算法。。。</description></item><item><title>cTags源码分析(1) – 概要</title><link>/2015/02/26/ctags%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%901-%E6%A6%82%E8%A6%81/</link><pubDate>Wed, 25 Feb 2015 23:11:49 +0000</pubDate><guid>/2015/02/26/ctags%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%901-%E6%A6%82%E8%A6%81/</guid><description>本文分析的是cTags5.8源代码，http://sourceforge.net/projects/ctags/ 可以从这里获得 从main.c</description></item><item><title>Unofficial Syntax of Markdown</title><link>/2015/02/25/unofficial-syntax-of-markdown/</link><pubDate>Wed, 25 Feb 2015 05:01:13 +0000</pubDate><guid>/2015/02/25/unofficial-syntax-of-markdown/</guid><description>Tag @(Maintag)[tag2|tag3|tag4] footnote Blah… [TOC] Code block Latex This is a formula: $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$. Another: $$ x = \dfrac{-b \pm \sqrt{b^2 – 4ac}}{2a} $$ Table &amp;lt;th style=&amp;quot;text-align: right;&amp;quot;&amp;gt; Value &amp;lt;/th&amp;gt; &amp;lt;th style=&amp;quot;text-align: center;&amp;quot;&amp;gt; Qty &amp;lt;/th&amp;gt; &amp;lt;td style=&amp;quot;text-align: right;&amp;quot;&amp;gt; 1600 USD &amp;lt;/td&amp;gt; &amp;lt;td style=&amp;quot;text-align: center;&amp;quot;&amp;gt; 5 &amp;lt;/td&amp;gt; &amp;lt;td style=&amp;quot;text-align: right;&amp;quot;&amp;gt; 12 USD &amp;lt;/td&amp;gt; &amp;lt;td style=&amp;quot;text-align: center;&amp;quot;&amp;gt; 12 &amp;lt;/td&amp;gt; &amp;lt;td style=&amp;quot;text-align: right;&amp;quot;&amp;gt; 1 USD &amp;lt;/td&amp;gt;</description></item><item><title>从cTags的vString学习动态字符串</title><link>/2015/02/25/%E4%BB%8Ectags%E7%9A%84vstring%E5%AD%A6%E4%B9%A0%E5%8A%A8%E6%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2/</link><pubDate>Wed, 25 Feb 2015 03:16:37 +0000</pubDate><guid>/2015/02/25/%E4%BB%8Ectags%E7%9A%84vstring%E5%AD%A6%E4%B9%A0%E5%8A%A8%E6%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid><description>在ctags中，vString分布在vString.h和vString.c两个文件中，代码非常简洁，加起来仅有300余行，是初学c语言与动态</description></item></channel></rss>

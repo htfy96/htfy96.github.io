@@ -1,79 +1,8 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-  <title>利用Docker的自定义网络来管理ip绑定 - int main() { return 0; }</title>
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <meta name="keywords" content="">
-  <link rel="canonical" href="https://intmainreturn0.com/2017/02/08/%E5%88%A9%E7%94%A8docker%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E7%BB%9C%E6%9D%A5%E7%AE%A1%E7%90%86ip%E7%BB%91%E5%AE%9A/">
-
-  
-  <link rel="stylesheet" type="text/css" href="https://intmainreturn0.com/css/basscss.css">
-  <link rel="stylesheet" type="text/css" href="https://intmainreturn0.com/css/main.css">
-
-  
-  <link rel="stylesheet" type="text/css" href="https://intmainreturn0.com/css/highlight/styles/railscasts.css">
-
-  
-  <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Lato:900,400,300'> 
-  
-
-  
-
-  
-  
-
-</head>
-
-<body class="">
-<div class="site-wrap">
-  <header class="site-header px2 px-responsive">
-  <div class="mt2 wrap">
-    <div class="measure">
-      <a href="https://intmainreturn0.com" class="site-title">int main() { return 0; }</a>
-      <nav class="site-nav right">
-      <a href="https://intmainreturn0.com/about/">About</a>
-<a href="https://intmainreturn0.com/tags/">Tags</a>
-<a href="https://intmainreturn0.com/cv">Resume</a>
-<a href="https://intmainreturn0.com/contact/">Contact</a>
-</form>
-
-      </nav>
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</header>
-
-  <div class="post p2 p-responsive wrap" role="main">
-    <div class="measure">
-      <div class="post-header mb2">
-        <h1 class="py2">利用Docker的自定义网络来管理ip绑定</h1>
-        <span class="post-meta">Feb 8, 2017 by htfy96</span><br>
-        
-      </div>
-
-      <article class="post-content">
-      <p>Docker最近推出了<code>docker network</code>的功能，允许用户自己创建网络。刚好手头合租了一台服务器想试试。</p>
-
-<p>这台服务器有4个公网ip（173.208.194.202,203,205,206/29）。我单独占了个173.208.194.205。我期待的效果是：这个docker network内创建的容器，默认会publish到173.208.194.205（即外界连.205:port也能访问到映射的容器）；并且容器内对外connect时，默认的localaddr也是.205。</p>
-
-<p></p>
-
-<h2 id="创建网络并设置默认publish-ip">创建网络并设置默认publish IP</h2>
-
-<pre><code>docker network create -o &quot;com.docker.network.bridge.host_binding_ipv4&quot;=&quot;173.208.194.205&quot; htfy_net
-</code></pre>
-
-<p>这里的host_binding_ipv4在 <a href="https://docs.docker.com/engine/userguide/networking/work-with-networks/#linking-containers-in-user-defined-networks">https://docs.docker.com/engine/userguide/networking/work-with-networks/#linking-containers-in-user-defined-networks</a> 的文档有提到，指的是会把默认的<code>-p host_port:container_port</code>转化成<code>-p173.208.194.205:host_port:container_port</code>。</p>
-
-<p>让我们看看效果，首先知道<code>htfy_net</code>的子网是<code>172.18.0.0/16</code>，然后创建一个容器172.18.0.3，<code>-p 80:80 --network htfy_net</code>，然后<code>iptables -L -t nat</code>看看怎么回事：</p>
-
-<pre><code>Chain PREROUTING (policy ACCEPT)
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>利用Docker的自定义网络来管理ip绑定 - int main() { return 0; }</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=author content><meta name=keywords content><link rel=canonical href=/2017/02/08/%E5%88%A9%E7%94%A8docker%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E7%BB%9C%E6%9D%A5%E7%AE%A1%E7%90%86ip%E7%BB%91%E5%AE%9A/><link rel=stylesheet type=text/css href='//fonts.googleapis.com/css?family=Lato:900,400,300'><link rel=stylesheet type=text/css href=//css/combined-min.css></head><body><div class=site-wrap><header class="site-header px2 px-responsive"><div class="mt2 wrap"><div class=measure><a href=/ class=site-title>int main() { return 0; }</a><nav class="site-nav right"><a href=//about/>About</a>
+<a href=//tags/>Tags</a>
+<a href=https://intmainreturn0.com/cv>Resume</a>
+<a href=//contact/>Contact</a></form></nav><div class=clearfix></div></div></div></header><div class="post p2 p-responsive wrap" role=main><div class=measure><div class="post-header mb2"><h1 class=py2>利用Docker的自定义网络来管理ip绑定</h1><span class=post-meta>Feb 8, 2017 by htfy96</span><br></div><article class=post-content><p>Docker最近推出了<code>docker network</code>的功能，允许用户自己创建网络。刚好手头合租了一台服务器想试试。</p><p>这台服务器有4个公网ip（173.208.194.202,203,205,206/29）。我单独占了个173.208.194.205。我期待的效果是：这个docker network内创建的容器，默认会publish到173.208.194.205（即外界连.205:port也能访问到映射的容器）；并且容器内对外connect时，默认的localaddr也是.205。</p><h2 id=创建网络并设置默认publish-ip>创建网络并设置默认publish IP</h2><pre><code>docker network create -o &quot;com.docker.network.bridge.host_binding_ipv4&quot;=&quot;173.208.194.205&quot; htfy_net
+</code></pre><p>这里的host_binding_ipv4在 <a href=https://docs.docker.com/engine/userguide/networking/work-with-networks/#linking-containers-in-user-defined-networks>https://docs.docker.com/engine/userguide/networking/work-with-networks/#linking-containers-in-user-defined-networks</a> 的文档有提到，指的是会把默认的<code>-p host_port:container_port</code>转化成<code>-p173.208.194.205:host_port:container_port</code>。</p><p>让我们看看效果，首先知道<code>htfy_net</code>的子网是<code>172.18.0.0/16</code>，然后创建一个容器172.18.0.3，<code>-p 80:80 --network htfy_net</code>，然后<code>iptables -L -t nat</code>看看怎么回事：</p><pre><code>Chain PREROUTING (policy ACCEPT)
 target     prot opt source               destination
 DOCKER     all  --  0.0.0.0/0            0.0.0.0/0            ADDRTYPE match dst-type LOCAL (1)
 
@@ -89,20 +18,8 @@ MASQUERADE  tcp  --  172.18.0.3           172.18.0.3           tcp dpt:80 (4)
 Chain DOCKER (2 references)
 target     prot opt source               destination         
 DNAT       tcp  --  0.0.0.0/0            173.208.194.205      tcp dpt:80 to:172.18.0.3:80 (5)
-</code></pre>
-
-<p>截至目前为止，外界发往173.208.194.205:80的包，会经过(1), (5)改写成到172.18.0.3的包。看起来很正常。但不幸的是，对外connect的包，在(3)的作用下会被MASQUERADE到网卡第一个IP（173.208.194.202）上，这很明显不是我们想要的。</p>
-
-<h2 id="设置默认localaddr">设置默认LocalAddr</h2>
-
-<p>在上网查找方案时，发现了 <a href="https://github.com/docker/docker/issues/8519">https://github.com/docker/docker/issues/8519</a> ，不过似乎开发者没有明白这位同学的意图。既然这样就只有手动修改了。把MASQUERADE改成硬点IP的手动nat</p>
-
-<pre><code>iptables -t nat -R POSTROUTING 4 -s 172.18.0.0/16 -d 0.0.0.0/0 -j SNAT --to-source 173.208.194.205
-</code></pre>
-
-<p>之后的效果：</p>
-
-<pre><code>Chain PREROUTING (policy ACCEPT)
+</code></pre><p>截至目前为止，外界发往173.208.194.205:80的包，会经过(1), (5)改写成到172.18.0.3的包。看起来很正常。但不幸的是，对外connect的包，在(3)的作用下会被MASQUERADE到网卡第一个IP（173.208.194.202）上，这很明显不是我们想要的。</p><h2 id=设置默认localaddr>设置默认LocalAddr</h2><p>在上网查找方案时，发现了 <a href=https://github.com/docker/docker/issues/8519>https://github.com/docker/docker/issues/8519</a> ，不过似乎开发者没有明白这位同学的意图。既然这样就只有手动修改了。把MASQUERADE改成硬点IP的手动nat</p><pre><code>iptables -t nat -R POSTROUTING 4 -s 172.18.0.0/16 -d 0.0.0.0/0 -j SNAT --to-source 173.208.194.205
+</code></pre><p>之后的效果：</p><pre><code>Chain PREROUTING (policy ACCEPT)
 target     prot opt source               destination
 DOCKER     all  --  0.0.0.0/0            0.0.0.0/0            ADDRTYPE match dst-type LOCAL (1)
 
@@ -118,72 +35,11 @@ MASQUERADE  tcp  --  172.18.0.3           172.18.0.3           tcp dpt:80 (4)
 Chain DOCKER (2 references)
 target     prot opt source               destination         
 DNAT       tcp  --  0.0.0.0/0            173.208.194.205      tcp dpt:80 to:172.18.0.3:80 (5)
-</code></pre>
-
-<p>对外的包经过3&#8217;规则被改成了source=173.208.194.205，这样以后<code>docker run --network htfy_net</code>的所有容器都能绑定到这个.205的IP了，实现了IP隔离。</p>
-      </article>
-
-      <p class="post-meta">Tags:&nbsp;
-        
-            
-            <a href="https://intmainreturn0.com/tags/docker">docker</a>
-        
-            ,&nbsp;
-            <a href="https://intmainreturn0.com/tags/vps">vps</a>
-        
-            ,&nbsp;
-            <a href="https://intmainreturn0.com/tags/%E7%BD%91%E7%BB%9C">网络</a>
-        
-      </p>
-
-      
-
-<div id="disqus_thread"></div>
-<script>
-
-var disqus_config = function () {
-this.page.url = "https:\/\/intmainreturn0.com\/2017\/02\/08\/%E5%88%A9%E7%94%A8docker%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E7%BB%9C%E6%9D%A5%E7%AE%A1%E7%90%86ip%E7%BB%91%E5%AE%9A\/";  
-this.page.identifier = "\/2017\/02\/08\/%E5%88%A9%E7%94%A8docker%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E7%BB%9C%E6%9D%A5%E7%AE%A1%E7%90%86ip%E7%BB%91%E5%AE%9A\/";
-};
-(function() {
-var d = document, s = d.createElement('script');
-s.src = 'https://' + 'intmainreturn0-com' + ".disqus.com/embed.js";
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-    </div>
-  </div>
-</div>
-    <footer class="footer">
-      <div class="p2 wrap">
-        <div class="measure mt1 center">
-      <nav class="social-icons icons">
-<a class="fa fa-rss rss" href="https://intmainreturn0.com/index.xml"></a>
-
-<a class="fa fa-twitter twitter" href="https://twitter.com/HTwood96"></a>
-
-</nav>
-
-          <small>
-            Copyright &#169; 2017<br>
-            Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll</a>
-          </small>
-        </div>
-      </div>
-    </footer>
-
-    
-    <script src="https://intmainreturn0.com/js/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-
-    
-    
-
-
-</body>
-</html>
-
+</code></pre><p>对外的包经过3’规则被改成了source=173.208.194.205，这样以后<code>docker run --network htfy_net</code>的所有容器都能绑定到这个.205的IP了，实现了IP隔离。</p></article><p class=post-meta>Tags:&nbsp;
+<a href=//tags/docker>docker</a>
+,&nbsp;
+<a href=//tags/vps>vps</a>
+,&nbsp;
+<a href=//tags/%e7%bd%91%e7%bb%9c>网络</a></p></div></div></div><footer class=footer><div class="p2 wrap"><div class="measure mt1 center"><nav class="social-icons icons"><a class="fa fa-rss rss" href=/index.xml></a>
+<a class="fa fa-twitter twitter" href=https://twitter.com/HTwood96></a></nav><small>Copyright &#169; 2017<br>Powered by <a href=http://gohugo.io/ target=_blank>Hugo</a> & <a href=https://github.com/azmelanar/hugo-theme-pixyll target=_blank>Pixyll</a></small></div></div></footer><script src=/js/highlight.pack.js></script>
+<script>hljs.initHighlightingOnLoad()</script></body></html>

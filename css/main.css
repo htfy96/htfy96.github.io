@@ -14,7 +14,7 @@
 */
 
 body {
-  font-family: Lato, "Helvetica Neue", sans-serif;
+  font-family: "Ubuntu", "PT Serif", Georgia, "Times New Roman", serif;
 }
 
 html, body {
@@ -204,6 +204,7 @@ textarea.input {
 }
 
 p {
+  font-weight: 300;
   line-height: 1.5;
   color: #333;
 }
