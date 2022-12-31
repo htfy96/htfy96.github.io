@@ -1,7 +1,7 @@
-<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>CodeJam Kickstart Round E 分析 - int main() { return 0; }</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=author content><meta name=keywords content><link rel=canonical href=/blog/codejam-kickstart-round-e-%E5%88%86%E6%9E%90/><link rel=stylesheet type=text/css href='//fonts.googleapis.com/css?family=Lato:900,400,300'><link rel=stylesheet type=text/css href=//css/combined-min.css></head><body><div class=site-wrap><header class="site-header px2 px-responsive"><div class="mt2 wrap"><div class=measure><a href=/ class=site-title>int main() { return 0; }</a><nav class="site-nav right"><a href=//about/>About</a>
-<a href=//tags/>Tags</a>
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>CodeJam Kickstart Round E 分析 - int main() { return 0; }</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=author content><meta name=keywords content><link rel=canonical href=https://intmainreturn0.com/blog/codejam-kickstart-round-e-%E5%88%86%E6%9E%90/><link rel=stylesheet type=text/css href='//fonts.googleapis.com/css?family=Lato:900,400,300'><link rel=stylesheet type=text/css href=https://intmainreturn0.com/css/combined-min.css></head><body><div class=site-wrap><header class="site-header px2 px-responsive"><div class="mt2 wrap"><div class=measure><a href=https://intmainreturn0.com class=site-title>int main() { return 0; }</a><nav class="site-nav right"><a href=https://intmainreturn0.com/about/>About</a>
+<a href=https://intmainreturn0.com/tags/>Tags</a>
 <a href=https://intmainreturn0.com/cv>Resume</a>
-<a href=//contact/>Contact</a></form></nav><div class=clearfix></div></div></div></header><div class="post p2 p-responsive wrap" role=main><div class=measure><div class="post-header mb2"><h1 class=py2>CodeJam Kickstart Round E 分析</h1><span class=post-meta>Aug 25, 2019 by htfy96</span><br></div><article class=post-content><p>最近总算空出了点时间玩算法竞赛（虽然是菜鸡Kickstart版本）。很多东西都已经记不住了导致没时间写Q3了。先写前两题题解吧。</p><h1 id=cherries-mesh>Cherries Mesh</h1><h2 id=题意>题意</h2><p>给定&lt;=10^5个点，完全图，两两之间由权重为1的黑边或权重为2的红边相连。给定&lt;=10^5条黑边。求最小生成树权重。</p><h2 id=解法>解法</h2><p>大致是Kruskal，首先把所有黑边跑一遍，add if getfa(a) != getfa(b)。如果有n_k条黑边被add，那么结果就是n_k + (N - 1 - n_k) * 2</p><h2 id=代码>代码</h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#define T_ long long  
+<a href=https://intmainreturn0.com/contact/>Contact</a></form></nav><div class=clearfix></div></div></div></header><div class="post p2 p-responsive wrap" role=main><div class=measure><div class="post-header mb2"><h1 class=py2>CodeJam Kickstart Round E 分析</h1><span class=post-meta>Aug 25, 2019 by htfy96</span><br></div><article class=post-content><p>最近总算空出了点时间玩算法竞赛（虽然是菜鸡Kickstart版本）。很多东西都已经记不住了导致没时间写Q3了。先写前两题题解吧。</p><h1 id=cherries-mesh>Cherries Mesh</h1><h2 id=题意>题意</h2><p>给定&lt;=10^5个点，完全图，两两之间由权重为1的黑边或权重为2的红边相连。给定&lt;=10^5条黑边。求最小生成树权重。</p><h2 id=解法>解法</h2><p>大致是Kruskal，首先把所有黑边跑一遍，add if getfa(a) != getfa(b)。如果有n_k条黑边被add，那么结果就是n_k + (N - 1 - n_k) * 2</p><h2 id=代码>代码</h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#define T_ long long  
 </span></span></span><span class=line><span class=cl><span class=cp>#define fuck(s_) {cout&lt;&lt;s_&lt;&lt;endl;return 0;} 
 </span></span></span><span class=line><span class=cl><span class=cp>#define printarr(a_,x_) rep(i_,x_)cout&lt;&lt;a_[i_]&lt;&lt;&#34; &#34;;cout&lt;&lt;endl; 
 </span></span></span><span class=line><span class=cl><span class=cp>#define printarr0(a_,x_) rep0(i_,x_)cout&lt;&lt;a_[i_]&lt;&lt;&#34; &#34;;cout&lt;&lt;endl; 
@@ -269,12 +269,12 @@
 </span></span><span class=line><span class=cl>    <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span></code></pre></div></article><p class=post-meta>Tags:&nbsp;
-<a href=//tags/algorithm>algorithm</a>
+<a href=https://intmainreturn0.com/tags/algorithm>algorithm</a>
 ,&nbsp;
-<a href=//tags/%e7%ae%97%e6%b3%95>算法</a>
+<a href=https://intmainreturn0.com/tags/%e7%ae%97%e6%b3%95>算法</a>
 ,&nbsp;
-<a href=//tags/codejam>codejam</a>
+<a href=https://intmainreturn0.com/tags/codejam>codejam</a>
 ,&nbsp;
-<a href=//tags/kickstart>kickstart</a></p></div></div></div><footer class=footer><div class="p2 wrap"><div class="measure mt1 center"><nav class="social-icons icons"><a class="fa fa-rss rss" href=/index.xml></a>
-<a class="fa fa-twitter twitter" href=https://twitter.com/HTwood96></a></nav><small>Copyright &#169; 2017<br>Powered by <a href=http://gohugo.io/ target=_blank>Hugo</a> & <a href=https://github.com/azmelanar/hugo-theme-pixyll target=_blank>Pixyll</a></small></div></div></footer><script src=/js/highlight.pack.js></script>
+<a href=https://intmainreturn0.com/tags/kickstart>kickstart</a></p></div></div></div><footer class=footer><div class="p2 wrap"><div class="measure mt1 center"><nav class="social-icons icons"><a class="fa fa-rss rss" href=https://intmainreturn0.com/index.xml></a>
+<a class="fa fa-twitter twitter" href=https://twitter.com/HTwood96></a></nav><small>Copyright &#169; 2017<br>Powered by <a href=http://gohugo.io/ target=_blank>Hugo</a> & <a href=https://github.com/azmelanar/hugo-theme-pixyll target=_blank>Pixyll</a></small></div></div></footer><script src=https://intmainreturn0.com/js/highlight.pack.js></script>
 <script>hljs.initHighlightingOnLoad()</script></body></html>
